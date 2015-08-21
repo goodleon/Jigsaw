@@ -2,6 +2,8 @@
 
 #include "PlayMainboard.h"
 #include "PauseLayer.h"
+#include "ChooseLayer.h"
+#include "TouchPanel.h"
 
 PlayMainboard::PlayMainboard()
 {
@@ -51,9 +53,15 @@ void PlayMainboard::onClickPause(Ref* sender)
 			
 void PlayMainboard::onClickFinish(Ref* sender)
 {
-//	Button* btn = static_cast<Button*>(sender);
-
-//    playshared.play_scene->popLayer();
+    bool finish = playshared.jig_panel->isAllFinished();
+    if (finish)
+    {
+        Director::getInstance()->replaceScene( ChooseLayer::createScene() );
+    }
+    else
+    {
+        CCLOG("unfinish");
+    }
 }
 			
 

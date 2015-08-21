@@ -48,6 +48,10 @@ bool AppDelegate::applicationDidFinishLaunching() {
     FileUtils::getInstance()->addSearchPath("Resources/res");
 
     register_all_packages();
+    
+    long x = time(0);
+    printf("srand=%ld", x);
+    srand( x );
 
     auto scene = ChooseLayer::createScene();
     director->runWithScene(scene);

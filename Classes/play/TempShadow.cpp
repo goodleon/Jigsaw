@@ -11,7 +11,6 @@
 #include "PlayShared.h"
 
 TempShadow::TempShadow()
-:m_square(nullptr)
 {
 
 }
@@ -21,89 +20,42 @@ TempShadow::~TempShadow()
     
 }
 
-TempShadow* TempShadow::create()
-{
-    TempShadow* ret = new TempShadow();
-    ret->init();
-    return ret;
-}
-
 bool TempShadow::init()
 {
-    Return_False_If(!ClippingNode::init());
-    
-    m_square = Sprite::create("sd_square.png");
-    m_square->setAnchorPoint(Point::ZERO);
-    addChild(m_square);
-    
-    this->setInverted( true );
-    this->setAlphaThreshold(0.5f);
+    Return_False_If(!Sprite::init());
     
     return true;
 }
 
 void TempShadow::setSquareSize(const Size& size)
 {
-    setContentSize(size);
+    float scaleX = size.width/100;
+    float scaleY = size.height/100;
+    m_scale = min(scaleX, scaleY);
     
-    Size cur = getSquareSize();
-    m_square->setScale(size.width/cur.width, size.height/cur.height);
+    setContentSize(size);
 }
 
 Size TempShadow::getSquareSize()
 {
-    return m_square->getBoundingBox().size;
+    return Size(m_scale*100, m_scale*100);
 }
 
-Size TempShadow::getFullSize()
+void TempShadow::setEdgeType(const std::vector<EdgeType>& edges)
 {
-    CCASSERT(false, "");
-    return getSquareSize();
-}
-
-void TempShadow::setEdgeType(std::vector<EdgeType>& edges)
-{
-    this->setStencil( createSubCircles(edges) );
+    removeAllChildren();
     
-    for (int i=0; i<edges.size(); ++i)
-    {
-        if (edges.at(i) == ET_A)
-        {
-            Sprite* sp = Sprite::create("sd_circle.png");
-            addChild(sp);
-            configCircle(sp, i);
-        }
-    }
-}
-
-void TempShadow::configCircle(Sprite* circle, int index)
-{
-    const Size con = getContentSize();
-    Point pts[] = {
-        Point(0, con.height)
-        ,Point(con.width, con.height)
-        ,Point(con.width, 0)
-        ,Point(0, 0)
-    };
+    m_shadow = ShadowCommand::createShadowByEdges(edges);
+    m_shadow->setScale(m_scale);
+    m_shadow->setPosition(getContentSize()/2);
+    addChild(m_shadow);
     
-    Point start = pts[index];
-    Point end = pts[(index+1)%4];
-    Point center = start.getMidpoint(end);
-    circle->setPosition(center);
+    m_edges = edges;
 }
 
-Node* TempShadow::createSubCircles(std::vector<EdgeType>& edges)
+std::vector<EdgeType> TempShadow::getEdgeType()
 {
-    Node* sub_circle = Node::create();
-    for (int i=0; i<edges.size(); ++i)
-    {
-        if (edges.at(i) == ET_V)
-        {
-            Sprite* circle = Sprite::create("sd_circle.png");
-            sub_circle->addChild(circle);
-            configCircle(circle, i);
-        }
-    }
-    return sub_circle;
+    return m_edges;
 }
+
 

@@ -10,36 +10,29 @@
 #define __Jigsaw__TempShadow__
 
 #include "cocos2d.h"
+#include "ShadowCommand.h"
 USING_NS_CC;
 
-enum EdgeType
-{
-    ET_V,
-    ET_F,
-    ET_A
-};
-
-class TempShadow : public ClippingNode
+class TempShadow : public Sprite
 {
 public:
     TempShadow();
     virtual ~TempShadow() override;
     
-    static TempShadow* create();
+    CREATE_FUNC(TempShadow);
     
     virtual bool init();
     
     void setSquareSize(const Size& size);
     Size getSquareSize();
-    Size getFullSize();
     
-    void setEdgeType(std::vector<EdgeType>& edges);
-    
+    void setEdgeType(const std::vector<EdgeType>& edges);
+    std::vector<EdgeType> getEdgeType();
+
 private:
-    void configCircle(Sprite* circle, int index);
-    Node* createSubCircles(std::vector<EdgeType>& edges);
-private:
-    Sprite* m_square;
+    float m_scale;
+    Sprite* m_shadow;
+    std::vector<EdgeType> m_edges;
 };
 
 #endif /* defined(__Jigsaw__TempShadow__) */

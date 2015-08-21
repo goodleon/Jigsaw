@@ -23,7 +23,7 @@ bool JigBackground::init()
     Return_False_If(!Layer::init());
     
     Sprite* sp = Sprite::create("HelloWorld.png");
-    sp->setOpacity(100);
+    sp->setOpacity(60);
     addChild(sp);
     centerInParent(sp);
     

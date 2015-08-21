@@ -23,12 +23,16 @@ using namespace lib4cc3x;
 using namespace cocos2d;
 using namespace ui;
 
+class TouchPanel;
+
 struct PlayShared
 {
     JigScene* play_scene;
+    TouchPanel* jig_panel;
     
     PlayShared()
     :play_scene(nullptr)
+    ,jig_panel(nullptr)
     {
         CCLOG("zz:PlayShared");
     }

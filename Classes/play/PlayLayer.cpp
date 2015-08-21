@@ -1,7 +1,7 @@
 
 
 #include "PlayLayer.h"
-#include "TouchPanel.h"
+#include "RotableTouchPanel.h"
 #include "JigBackground.h"
 #include "JigScene.h"
 #include "PlayMainboard.h"
@@ -16,7 +16,8 @@ PlayLayer::PlayLayer()
 
 PlayLayer::~PlayLayer()
 {
-    
+    playshared.play_scene = nullptr;
+    playshared.jig_panel = nullptr;
 }
 
 Scene* PlayLayer::createScene()
@@ -42,10 +43,10 @@ bool PlayLayer::init()
     
     SpriteFrame* sf = addSpriteFrameByFile("HelloWorld.png");
     
-    TouchPanel* panel = TouchPanel::create();
-    panel->reset(sf, 2, 2);
-    addChild(panel);
-    centerInParent(panel);
+    playshared.jig_panel = RotableTouchPanel::create();
+    playshared.jig_panel->reset(sf, 4, 4);
+    addChild(playshared.jig_panel);
+    playshared.jig_panel->setPosition(getContentSize()/2);
     
     PlayMainboard* board = PlayMainboard::create();
     addChild(board);

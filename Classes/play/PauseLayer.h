@@ -18,8 +18,9 @@ public:
 private:
 	void load_csd();
 
-	void onClickContinue(Ref* sender);
-	void onClickMainmenu(Ref* sender);
+    void onClickRestart(Ref* sender);
+    void onClickContinue(Ref* sender);
+    void onClickMainmenu(Ref* sender);
 
 
 private:
