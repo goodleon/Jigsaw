@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"/>
+
+<plist version="1.0">
+    <dict>
+        <key>mainmenu</key>
+        <string>确定要返回主菜单吗？</string>
+        <key>restart</key>
+        <string>确定要重新开始吗！</string>
+		<key>exit</key>
+		<string>您确定要退出吗？</string>
+		<key>unfinish</key>
+		<string>请完成所有图块</string>
+        <key>pre_unfinish</key>
+        <string>请至少完全通过前一关</string>
+    </dict>
+</plist>

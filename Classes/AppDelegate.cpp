@@ -1,6 +1,5 @@
 #include "AppDelegate.h"
-//#include "HelloWorldScene.h"
-#include "ChooseLayer.H"
+#include "StartLayer.h"
 
 USING_NS_CC;
 
@@ -39,13 +38,14 @@ bool AppDelegate::applicationDidFinishLaunching() {
         director->setOpenGLView(glview);
     }
 
-    director->setDisplayStats(true);
+//    director->setDisplayStats(true);
     director->setAnimationInterval(1.0 / 60);
     
     glview->setDesignResolutionSize(960, 640, ResolutionPolicy::SHOW_ALL);
     
-    FileUtils::getInstance()->addSearchPath("Resources");
-    FileUtils::getInstance()->addSearchPath("Resources/res");
+//    FileUtils::getInstance()->addSearchPath("Resources");
+//    FileUtils::getInstance()->addSearchPath("Resources/res");
+    FileUtils::getInstance()->addSearchPath("res");
 
     register_all_packages();
     
@@ -53,7 +53,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     printf("srand=%ld", x);
     srand( x );
 
-    auto scene = ChooseLayer::createScene();
+    auto scene = StartLayer::createScene();
     director->runWithScene(scene);
 
     return true;

@@ -39,9 +39,7 @@ void DragonlyTouchPanel::onDragEnded(Touch* touch)
     Return_If(!m_touching);
     
     const Point local_pt = m_touching->getPosition();
-    const Point world_pt = this->convertToWorldSpace( local_pt );
-    
-    if (this->getBoundingBox().containsPoint(world_pt))
+    if (this->getBoundingBox().containsPoint(local_pt))
     {
         int r = local_pt.y / m_tileSize.height;
         int c = local_pt.x / m_tileSize.width;
@@ -55,6 +53,7 @@ void DragonlyTouchPanel::onDragEnded(Touch* touch)
     else
     {
         const Size win = Director::getInstance()->getWinSize();
+        const Point world_pt = this->convertToWorldSpace( local_pt );
         
         Point pt = world_pt;
         

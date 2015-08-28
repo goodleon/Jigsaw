@@ -20,6 +20,11 @@ public:
     CREATE_FUNC(JigBackground);
     
     virtual bool init() override;
+    
+    void reset(SpriteFrame* jigsaw, int rows, int cols);
+    
+private:
+    Sprite* m_jigsaw;
 };
 
 #endif /* defined(__Jigsaw__JigBackground__) */

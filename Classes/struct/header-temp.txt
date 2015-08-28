@@ -1,0 +1,16 @@
+
+#ifndef __Jigsaw_class_name__
+#define __Jigsaw_class_name__
+
+#include <string>
+using namespace std;
+
+class class_name
+{
+public:
+	class_name();
+	~class_name();
+attrs
+};
+
+#endif

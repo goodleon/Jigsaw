@@ -16,11 +16,20 @@ public:
     
     void replaceLayer(cocos2d::Layer* layer);
     void pushLayer(cocos2d::Layer* layer);
-    void alert(cocos2d::Layer* layer);
     void popLayer();
+    
+    void alert(cocos2d::Layer* layer);
+    void dismiss(cocos2d::Layer* layer);
+
+    void showTip(cocos2d::Layer* layer, const cocos2d::Point& pt);
+    
+private:
+    void pushChild(cocos2d::Layer* layer);
     
 private:
     std::vector<cocos2d::Layer*> m_layers;
+    
+    std::set<cocos2d::Layer*> m_alerts;
 };
 
 #endif

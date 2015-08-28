@@ -1,6 +1,7 @@
 
 
 #include "TouchPanel.h"
+#include "GameState.h"
 
 TouchPanel::TouchPanel()
 :m_touching(nullptr)
@@ -71,18 +72,22 @@ bool TouchPanel::isAllFinished()
 
 bool TouchPanel::onTouchBegan(Touch* touch, Event* event)
 {
+    Return_False_If(!canTouch());
+    
     const Point pt = this->convertToNodeSpace( touch->getLocation() );
-    auto touched_tile = std::find_if(m_tiles.begin(), m_tiles.end(), [=](JigTile* tile){
+    auto touched_tile = std::find_if(m_tiles.rbegin(), m_tiles.rend(), [=](JigTile* tile){
         Rect rc;
         rc.origin = tile->getPosition() - tile->getContentSize()/2;
         rc.size = tile->getContentSize();
         return rc.containsPoint(pt);
     });
     
-    m_touching = touched_tile==m_tiles.end() ? nullptr : *touched_tile;
+    m_touching = touched_tile==m_tiles.rend() ? nullptr : *touched_tile;
     onDragBegan( touch );
     
     this->scheduleOnce( SEL_SCHEDULE(&TouchPanel::longTouchCallback), 0.5f );
+    
+    startGame();
     
     return true;
 }
@@ -114,6 +119,8 @@ void TouchPanel::onTouchEnded(Touch* touch, Event* event)
     {
         onClickTile(touch);
     }
+
+    checkGameState();
 
     m_touch_type = Touch_None;
     this->unschedule(SEL_SCHEDULE(&TouchPanel::longTouchCallback));
@@ -216,8 +223,6 @@ void TouchPanel::initEdges()
             edges.at(DT_DOWN) = rand_type_down(r);
             
             m_tiles.at( r*m_splitCols + c )->setEdges( edges );
-            
-            printf("r=%d,c=%d,edge=%d%d%d%d\n", r, c, edges.at(0), edges.at(1), edges.at(2), edges.at(3));
         }
     }
 }
@@ -225,4 +230,45 @@ void TouchPanel::initEdges()
 void TouchPanel::longTouchCallback(float delay)
 {
     m_touch_type = Touch_Drag;
+}
+
+void TouchPanel::setStartRect(const Rect& rc)
+{
+    Rect real = rc;
+    real.origin += m_tileSize/2;
+    real.size.setSize( real.size.width-m_tileSize.width, real.size.height-m_tileSize.height );
+    
+    for (int i=0; i<m_tiles.size(); ++i)
+    {
+        int x = rand_0_1() * real.size.width + real.origin.x;
+        int y = rand_0_1() * real.size.height + real.origin.y;
+        m_tiles.at(i)->setPosition(x, y);
+    }
+}
+
+void TouchPanel::startGame()
+{
+    if (GameStateMgr::inst().curState()==gs_prepare && m_touching)
+    {
+        GameStateMgr::inst().change(gs_playing);
+    }
+}
+
+void TouchPanel::checkGameState()
+{
+    if(GameStateMgr::inst().curState()!=gs_win && isAllFinished())
+    {
+        GameStateMgr::inst().change(gs_win);
+    }
+    else if (GameStateMgr::inst().curState()==gs_win && !isAllFinished())
+    {
+        GameStateMgr::inst().change(gs_playing);
+    }
+}
+
+bool TouchPanel::canTouch()
+{
+    return GameStateMgr::inst().curState()==gs_prepare
+        || GameStateMgr::inst().curState()==gs_playing
+        || GameStateMgr::inst().curState()==gs_win;
 }

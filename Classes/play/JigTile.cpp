@@ -33,7 +33,7 @@ void JigTile::setRawFrame(SpriteFrame* frame)
     
     m_display = Sprite::createWithSpriteFrame(frame);
     m_display->setAnchorPoint(Point::ZERO);
-    m_display->setOpacity(200);
+//    m_display->setOpacity(200);
     addChild(m_display);
 }
 

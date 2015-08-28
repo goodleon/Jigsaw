@@ -1,6 +1,9 @@
 
 #include "JigScene.h"
 #include "cex.h"
+#include "TipsLayer.h"
+
+USING_NS_CC;
 
 JigScene::JigScene()
 {
@@ -28,13 +31,8 @@ void JigScene::pushLayer(cocos2d::Layer* layer)
 {
     if( !m_layers.empty() )
         m_layers.back()->setVisible(false);
-    alert(layer);
-}
 
-void JigScene::alert(cocos2d::Layer* layer)
-{
-    addChild(layer);
-    m_layers.push_back(layer);
+    pushChild(layer);
 }
 
 void JigScene::popLayer()
@@ -46,5 +44,46 @@ void JigScene::popLayer()
         m_layers.back()->setVisible(true);
 }
 
+void JigScene::alert(cocos2d::Layer* layer)
+{
+    assert( m_alerts.find(layer)==m_alerts.end() );
+    
+    m_alerts.insert(layer);
+    addChild(layer);
 
+    layer->setPosition( getContentSize()/2 );
+    
+    layer->setScale(0.5f);
+    
+    Sequence* seq = Sequence::create( ScaleTo::create(0.1, 1.1f), ScaleTo::create(0.05, 1.0f), NULL);
+    layer->runAction( seq );
+}
+
+void JigScene::dismiss(cocos2d::Layer* layer)
+{
+    auto target = m_alerts.find( layer );
+    assert(target!=m_alerts.end());
+    m_alerts.erase(target);
+    
+    auto remove = [=](){
+        this->removeChild(layer);
+    };
+    Sequence* seq = Sequence::create( ScaleTo::create(0.05, 1.1f), ScaleTo::create(0.1, 0.5f), CallFunc::create(remove), NULL);
+    layer->runAction( seq );
+}
+
+void JigScene::showTip(cocos2d::Layer* layer, const Point& pt)
+{
+    layer->setPosition(pt);
+
+    TipsLayer* tip = TipsLayer::create();
+    tip->addContent(layer);
+    addChild(tip);
+}
+
+void JigScene::pushChild(cocos2d::Layer* layer)
+{
+    addChild(layer);
+    m_layers.push_back(layer);
+}
 

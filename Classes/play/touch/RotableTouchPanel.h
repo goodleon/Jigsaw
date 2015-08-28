@@ -13,6 +13,7 @@ public:
     
     CREATE_FUNC(RotableTouchPanel);
     
+    virtual void setStartRect(const Rect& rc) override;
 protected:
     void onClickTile(Touch* touch);
 };

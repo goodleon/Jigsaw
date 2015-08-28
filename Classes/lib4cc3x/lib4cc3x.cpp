@@ -110,3 +110,7 @@ void lib4cc3x::centerInParent(cocos2d::Node* node)
     node->setPosition(size/2);
 }
 
+JigScene* lib4cc3x::getCurScene()
+{
+    return dynamic_cast<JigScene*>( cocos2d::Director::getInstance()->getRunningScene() );
+}

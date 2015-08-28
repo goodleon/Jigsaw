@@ -1,5 +1,6 @@
 #pragma once
 #include "cocos2d.h"
+#include "JigScene.h"
 
 namespace lib4cc3x
 {
@@ -18,4 +19,6 @@ namespace lib4cc3x
     cocos2d::Point cocos2array(int x, int y, cocos2d::Node* parent);
     
     void centerInParent(cocos2d::Node* node);
+
+    JigScene* getCurScene();
 }

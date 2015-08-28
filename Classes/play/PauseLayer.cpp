@@ -1,11 +1,14 @@
 
 
 #include "PauseLayer.h"
-#include "ChooseLayer.h"
+#include "GameSceneMgr.h"
+#include "ConfirmLayer.h"
+#include "GameState.h"
+#include "PlayManager.h"
 
 PauseLayer::PauseLayer()
 {
-
+    GameStateMgr::inst().change(gs_pause);
 }
 
 PauseLayer::~PauseLayer()
@@ -27,9 +30,6 @@ void PauseLayer::load_csd()
 	Node* root = CSLoader::createNode("pause.csb");
 	addChild(root);
 
-    root->setPosition(-root->getContentSize().width, 0);
-    root->runAction(MoveTo::create(0.5f, Point(0,0)));
-
 	Button* btn = nullptr;
 
     btn = static_cast<Button*>( root->getChildByName("Restart") );
@@ -44,21 +44,26 @@ void PauseLayer::load_csd()
 
 void PauseLayer::onClickRestart(Ref* sender)
 {
-    Button* btn = static_cast<Button*>(sender);
-    CCLOG("%s", btn->getName().c_str());
+    ConfirmLayer* confirm = ConfirmLayer::create("restart", [=](){
+        PlayManager::inst().restart();
+    }, nullptr);
+    
+    playshared.play_scene->alert(confirm);
 }
 
 void PauseLayer::onClickContinue(Ref* sender)
 {
-    playshared.play_scene->popLayer();
+    playshared.play_scene->dismiss(this);
+    GameStateMgr::inst().change( GameStateMgr::inst().lastState() );
 }
 
 void PauseLayer::onClickMainmenu(Ref* sender)
 {
-//	Button* btn = static_cast<Button*>(sender);
-//	CCLOG("%s", btn->getName().c_str());
-    Scene* scene = ChooseLayer::createScene();
-    cocos2d::Director::getInstance()->replaceScene(scene);
+    ConfirmLayer* confirm = ConfirmLayer::create("mainmenu", [=](){
+        PlayManager::inst().backToChoose();
+    }, nullptr);
+    
+    playshared.play_scene->alert(confirm);
 }
 
 

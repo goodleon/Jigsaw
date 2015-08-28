@@ -17,6 +17,7 @@ public:
     virtual bool init();
 
     void reset(cocos2d::SpriteFrame* sf, int rows, int cols);
+    virtual void setStartRect(const Rect& rc);
     
     bool isAllFinished();
 protected:
@@ -43,7 +44,10 @@ private:
     void initEdges();
     
     void longTouchCallback(float delay);
-    
+
+    void startGame();
+    void checkGameState();
+    bool canTouch();
 private:
     enum TouchType
     {

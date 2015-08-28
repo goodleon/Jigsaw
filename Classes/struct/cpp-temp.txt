@@ -1,0 +1,13 @@
+
+#include "class_name.pb.h"
+
+class_name::class_name()
+{attrs_init
+}
+
+class_name::~class_name()
+{
+
+}
+
+cpp_function

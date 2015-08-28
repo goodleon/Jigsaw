@@ -13,11 +13,14 @@ namespace cex
 	public:
 		Monitor()
 			:m_bVisitingListener(false)
+            ,m_keyListener(nullptr)
 		{
 
 		}
 		void addListener(ListenerType* listener)
 		{
+            assert(m_keyListener != listener);
+
 			if (m_bVisitingListener)
 			{
 				m_willBeAdded.insert(listener);
@@ -29,7 +32,11 @@ namespace cex
 		}
 		void removeListener(ListenerType* listener)
 		{
-			if (m_bVisitingListener)
+            if (m_keyListener == listener)
+            {
+                m_keyListener = nullptr;
+            }
+			else if (m_bVisitingListener)
 			{
 				m_willBeRemoved.insert(listener);
 			}
@@ -43,7 +50,14 @@ namespace cex
 			m_willBeAdded.clear();
 			m_listeners.clear();
 			m_willBeRemoved.clear();
+            m_keyListener = nullptr;
 		}
+        void setKeyListener(ListenerType* listener)
+        {
+            assert(!m_bVisitingListener);
+            m_listeners.erase(listener);
+            m_keyListener = listener;
+        }
 
 	protected:
 		void notifyStateChanged(ValueType value)
@@ -53,6 +67,10 @@ namespace cex
 			{
 				(*iter)->onStateChanged(value);
 			}
+            if (m_keyListener)
+            {
+                m_keyListener->onStateChanged(value);
+            }
 			m_bVisitingListener = false;
 
 			if (!m_willBeRemoved.empty())
@@ -77,6 +95,8 @@ namespace cex
 		std::set<ListenerType*> m_willBeAdded;
 		std::set<ListenerType*> m_willBeRemoved;
 		bool m_bVisitingListener;
+
+        ListenerType* m_keyListener;
 	};
 
 };
