@@ -49,7 +49,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     register_all_packages();
     
-    long x = time(0);
+    long x = time(0);//1440752459;
     printf("srand=%ld", x);
     srand( x );
 

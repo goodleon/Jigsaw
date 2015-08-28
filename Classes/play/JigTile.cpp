@@ -33,7 +33,6 @@ void JigTile::setRawFrame(SpriteFrame* frame)
     
     m_display = Sprite::createWithSpriteFrame(frame);
     m_display->setAnchorPoint(Point::ZERO);
-//    m_display->setOpacity(200);
     addChild(m_display);
 }
 
@@ -56,6 +55,15 @@ void JigTile::setEdges(const std::vector<EdgeType>& edges)
     shadow->setPosition( getContentSize()/2 );
     shadow->setEdgeType(edges);
     setStencil(shadow);
+
+    Sprite* red = ShadowCommand::createShadowByEdges(edges);
+    red->setPosition( getContentSize()/2 );
+    BlendFunc bf;
+    bf.src = GL_ONE;
+    bf.dst = GL_ONE;
+    red->setScale( 0.8f );
+    red->setBlendFunc(bf);
+    this->addChild(red);
 }
 
 std::vector<EdgeType> JigTile::getEdges()
