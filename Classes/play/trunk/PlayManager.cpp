@@ -102,7 +102,6 @@ void PlayManager::reloadResource()
 
 int PlayManager::getstar()
 {
-    return 3;
     float percent = lefttime() / (float) playconfig().max_time();
     if (percent>=0 && percent<0.3)
     {

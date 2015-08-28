@@ -13,5 +13,25 @@
 		<string>请完成所有图块</string>
         <key>pre_unfinish</key>
         <string>请至少完全通过前一关</string>
+        <key>level0</key>
+        <string>第一关</string>
+        <key>level1</key>
+        <string>第二关</string>
+        <key>level2</key>
+        <string>第三关</string>
+        <key>level3</key>
+        <string>第四关</string>
+        <key>level4</key>
+        <string>第五关</string>
+        <key>level5</key>
+        <string>第六关</string>
+        <key>level6</key>
+        <string>第七关</string>
+        <key>level7</key>
+        <string>第八关</string>
+        <key>level8</key>
+        <string>第九关</string>
+        <key>level9</key>
+        <string>第十关</string>
     </dict>
 </plist>

@@ -23,13 +23,12 @@ private:
 
 	void onClickButton(Ref* sender);
 
+    bool canEnter();
 
 private:
-	ImageView* m_star2;
-	ImageView* m_star1;
-	ImageView* m_star0;
+	vector<ImageView*> m_stars;
 	Text* m_level;
-
+    DBLevelNotes m_data;
 };
 
 #endif

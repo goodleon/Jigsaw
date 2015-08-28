@@ -49,34 +49,17 @@ Node* ChooseLevelItem::load_csd()
 
 void ChooseLevelItem::onClickItem(Ref* sender)
 {
-//    if (m_bUnlock)
-//    {
-//        JigToast::show("pre_unfinish");
-//    }
-//    else
+    if (m_bUnlock)
+    {
+        JigToast::show("pre_unfinish");
+    }
+    else
     {
         LevelPassView* info = LevelPassView::create();
         info->reset(m_iMainLevel);
-        Point pt = getPosition();//cocos2array(getPosition(), getParent());
+        Point pt = getPosition();
         pt += Point(100, 100);
-//        pt = Point::ZERO;
         getCurScene()->showTip(info, pt);
-//        DBMainLevel data;
-//        DBMainLevel::readby_level(data, m_iMainLevel);
-//
-//        DBLevelNotes jig;
-//        for (int i=data.min_jiglevel; i<data.max_jiglevel; ++i)
-//        {
-//            DBLevelNotes::readby_level(jig, m_iMainLevel, i);
-//            Break_If(jig.star!=3);
-//        }
-//
-//        PlayInitMsg msg;
-//        msg.set_choose_level( m_iMainLevel );
-//        msg.set_start_jiglevel(jig.jiglevel);
-//        msg.set_max_level( data.max_jiglevel );
-//        msg.set_max_time(20);
-//        PlayManager::inst().enterGame(msg);
     }
 }
 
@@ -95,18 +78,10 @@ void ChooseLevelItem::reset(int iMainLevel)
         DBMainLevel main;
         DBMainLevel::readby_level(main, iMainLevel-1);
 
-//        int total_star = 0;
-//        for (int i=main.min_jiglevel; i<main.max_jiglevel; ++i)
-//        {
-//            DBLevelNotes pre;
-//            DBLevelNotes::readby_level(pre, iMainLevel-1, i);
-//            total_star += pre.star;
-//        }
-
         DBLevelNotes pre;
         DBLevelNotes::readby_level(pre, iMainLevel-1, main.max_jiglevel-1);
 
-        m_bUnlock = pre.star<3;
+        m_bUnlock = (pre.star==0);
     }
 
     if (m_bUnlock) {

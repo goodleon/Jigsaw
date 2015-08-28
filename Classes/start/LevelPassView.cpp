@@ -21,6 +21,7 @@ bool LevelPassView::init()
 
 	Node* root = load_csd();
 	addChild(root);
+    setContentSize( Size(240, 450) );
 
 	return true;
 }

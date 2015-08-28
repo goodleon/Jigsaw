@@ -50,8 +50,22 @@ void TipsLayer::addContent(cocos2d::Node* content)
     Point pt = content->getPosition();
     Rect rc = content->getBoundingBox();
     Size win = cocos2d::Director::getInstance()->getWinSize();
-    if (rc.origin.x < 0)
+    if (rc.getMinX() < 0)
     {
-        pt.x += rc.origin.x;
+        pt.x -= rc.getMinX();
     }
+    else if (rc.getMaxX() > win.width)
+    {
+        pt.x -= (rc.getMaxX()-win.width);
+    }
+
+    if (rc.origin.y > win.height)
+    {
+        pt.y -= (rc.origin.y - win.height);
+    }
+    else if (rc.origin.y-rc.size.height < 0)
+    {
+        pt.y -= (rc.origin.y-rc.size.height);
+    }
+    content->setPosition(pt);
 }

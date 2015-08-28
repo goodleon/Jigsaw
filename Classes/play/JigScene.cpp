@@ -50,8 +50,6 @@ void JigScene::alert(cocos2d::Layer* layer)
     
     m_alerts.insert(layer);
     addChild(layer);
-
-    layer->setPosition( getContentSize()/2 );
     
     layer->setScale(0.5f);
     
