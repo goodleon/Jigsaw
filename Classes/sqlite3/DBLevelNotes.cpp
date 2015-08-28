@@ -10,6 +10,7 @@
 #include "sqlite3.h"
 #include "cex.h"
 #include "cocos2d.h"
+#include "sql_common.h"
 
 using namespace std;
 using namespace cex;
@@ -24,7 +25,7 @@ DBLevelNotes::DBLevelNotes()
 
 bool DBLevelNotes::readby_level(DBLevelNotes& data, int level, int jiglevel)
 {
-    string file = FileUtils::getInstance()->fullPathForFilename("database.db");
+    string file = jigsql::database_file();
     sqlite3* db;
     int rc = sqlite3_open(file.c_str(), &db);
     if( rc ){
@@ -45,11 +46,11 @@ bool DBLevelNotes::readby_level(DBLevelNotes& data, int level, int jiglevel)
 
 void DBLevelNotes::writeby_level()
 {
-    string file = FileUtils::getInstance()->fullPathForFilename("database.db");
+    string file = jigsql::database_file();
     sqlite3* db;
     int rc = sqlite3_open(file.c_str(), &db);
     if( rc ){
-        CCLOG("Can't open database: %s\n", sqlite3_errmsg(db));
+        CCLOG("Can't open database: %s\n", file.c_str());
         sqlite3_close(db);
         return;
     }

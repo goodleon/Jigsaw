@@ -1,5 +1,6 @@
 #include "AppDelegate.h"
 #include "StartLayer.h"
+#include "sql_common.h"
 
 USING_NS_CC;
 
@@ -42,9 +43,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
     director->setAnimationInterval(1.0 / 60);
     
     glview->setDesignResolutionSize(960, 640, ResolutionPolicy::SHOW_ALL);
-    
-//    FileUtils::getInstance()->addSearchPath("Resources");
-//    FileUtils::getInstance()->addSearchPath("Resources/res");
+
+    jigsql::copy_database();
+
     FileUtils::getInstance()->addSearchPath("res");
 
     register_all_packages();

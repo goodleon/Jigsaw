@@ -3,6 +3,7 @@
 #include <set>
 #include <algorithm>
 #include <iterator>
+#include <cassert>
 
 namespace cex
 {
