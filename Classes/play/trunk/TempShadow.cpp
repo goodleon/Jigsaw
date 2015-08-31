@@ -41,6 +41,11 @@ Size TempShadow::getSquareSize()
     return Size(m_scale*100, m_scale*100);
 }
 
+float TempShadow::getSquareScale()
+{
+    return m_scale;
+}
+
 void TempShadow::setEdgeType(const std::vector<EdgeType>& edges)
 {
     removeAllChildren();

@@ -61,7 +61,7 @@ void JigTile::setEdges(const std::vector<EdgeType>& edges)
     BlendFunc bf;
     bf.src = GL_ONE;
     bf.dst = GL_ONE;
-    red->setScale( 0.8f );
+    red->setScale( shadow->getSquareScale() );
     red->setBlendFunc(bf);
     this->addChild(red);
 }

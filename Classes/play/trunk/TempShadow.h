@@ -25,6 +25,7 @@ public:
     
     void setSquareSize(const Size& size);
     Size getSquareSize();
+    float getSquareScale();
     
     void setEdgeType(const std::vector<EdgeType>& edges);
     std::vector<EdgeType> getEdgeType();

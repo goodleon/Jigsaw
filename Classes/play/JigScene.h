@@ -29,7 +29,7 @@ private:
 private:
     std::vector<cocos2d::Layer*> m_layers;
     
-    std::set<cocos2d::Layer*> m_alerts;
+    std::vector<cocos2d::Layer*> m_alerts;
 };
 
 #endif

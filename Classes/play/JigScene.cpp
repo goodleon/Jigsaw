@@ -46,9 +46,14 @@ void JigScene::popLayer()
 
 void JigScene::alert(cocos2d::Layer* layer)
 {
-    assert( m_alerts.find(layer)==m_alerts.end() );
-    
-    m_alerts.insert(layer);
+    assert( std::find(m_alerts.begin(), m_alerts.end(), layer)==m_alerts.end() );
+
+    if (!m_alerts.empty())
+    {
+        m_alerts.back()->setVisible(false);
+    }
+
+    m_alerts.push_back(layer);
     addChild(layer);
     
     layer->setScale(0.5f);
@@ -59,12 +64,15 @@ void JigScene::alert(cocos2d::Layer* layer)
 
 void JigScene::dismiss(cocos2d::Layer* layer)
 {
-    auto target = m_alerts.find( layer );
+    auto target = std::find(m_alerts.begin(), m_alerts.end(), layer);
     assert(target!=m_alerts.end());
     m_alerts.erase(target);
     
     auto remove = [=](){
         this->removeChild(layer);
+        if (!m_alerts.empty()) {
+            m_alerts.back()->setVisible(true);
+        }
     };
     Sequence* seq = Sequence::create( ScaleTo::create(0.05, 1.1f), ScaleTo::create(0.1, 0.5f), CallFunc::create(remove), NULL);
     layer->runAction( seq );

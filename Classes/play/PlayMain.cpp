@@ -10,6 +10,7 @@
 #include "TimeHpBar.h"
 #include "JigToast.h"
 #include "PlayManager.h"
+#include "WinLayer.h"
 
 Scene* PlayMain::createScene()
 {
@@ -89,14 +90,8 @@ void PlayMain::onClickFinish(Ref* sender)
     if (playshared.jig_panel->isAllFinished())
     {
         PlayManager::inst().saveState();
-        if ( PlayManager::inst().finishAllState() )
-        {
-            GameSceneMgr::inst().replace(kStartScene);
-        }
-        else
-        {
-            PlayManager::inst().startNextLevel();
-        }
+        WinLayer* win = WinLayer::create();
+        getCurScene()->alert(win);
     }
     else
     {

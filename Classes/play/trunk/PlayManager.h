@@ -31,10 +31,11 @@ public:
     void clearState();
     
     bool finishAllState();
+
+    int getstar();
 private:
     void reloadResource();
 
-    int getstar();
     int lefttime();
 };
 
