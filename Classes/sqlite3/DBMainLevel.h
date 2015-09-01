@@ -19,7 +19,7 @@ public:
     
     DBMainLevel();
     
-    static bool readby_level(DBMainLevel& data, int level);
+    static DBMainLevel readby_level(int level);
 private:
     static int callback(void *NotUsed, int argc, char **argv, char **azColName);
 };

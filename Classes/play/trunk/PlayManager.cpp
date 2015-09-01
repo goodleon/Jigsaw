@@ -70,8 +70,7 @@ void PlayManager::startNextLevel()
 
 void PlayManager::saveState()
 {
-    DBLevelNotes note;
-    DBLevelNotes::readby_level(note, playconfig().choose_level(), playshared.cur_level);
+    DBLevelNotes note = DBLevelNotes::readby_level(playconfig().choose_level(), playshared.cur_level);
     if (getstar() > note.star)
     {
         note.star = getstar();

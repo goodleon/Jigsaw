@@ -2,14 +2,12 @@
 
 #include "ChooseLevelItem.h"
 #include "JigToast.h"
-#include "PlayInitMsg.pb.h"
-#include "PlayManager.h"
-#include "DBLevelNotes.h"
 #include "DBMainLevel.h"
+#include "DBLevelNotes.h"
 #include "LevelPassView.h"
 
 ChooseLevelItem::ChooseLevelItem()
-:m_bUnlock(false)
+:m_mainLevel(-1)
 {
 
 }
@@ -21,12 +19,10 @@ ChooseLevelItem::~ChooseLevelItem()
 
 bool ChooseLevelItem::init()
 {
-	Return_False_If(!Node::init());
+	Return_False_If(!Widget::init());
 
 	Node* root = load_csd();
 	addChild(root);
-    
-    m_img->setTouchEnabled(false);
 
 	return true;
 }
@@ -37,55 +33,44 @@ Node* ChooseLevelItem::load_csd()
 
 	Button* btn = nullptr;
 
-	btn = static_cast<Button*>( root->getChildByName("Item") );
-	btn->addClickEventListener( std::bind(&ChooseLevelItem::onClickItem, this, placeholders::_1) );
-    m_btn = btn;
-    
-    m_img = static_cast<ImageView*>(root->getChildByName("img"));
+	btn = static_cast<Button*>( root->getChildByName("Button") );
+	btn->addClickEventListener( std::bind(&ChooseLevelItem::onClickButton, this, placeholders::_1) );
+
+    btn = static_cast<Button*>( root->getChildByName("Lock") );
+    btn->addClickEventListener( std::bind(&ChooseLevelItem::onClickLock, this, placeholders::_1) );
+    m_lock = btn;
+
+
 
 	return root;
 }
 
 
-void ChooseLevelItem::onClickItem(Ref* sender)
+void ChooseLevelItem::onClickButton(Ref* sender)
 {
-    if (m_bUnlock)
-    {
-        JigToast::show("pre_unfinish");
-    }
-    else
-    {
-        LevelPassView* info = LevelPassView::create();
-        info->reset(m_iMainLevel);
-        Point pt = getPosition();
-        pt += Point(100, 100);
-        getCurScene()->showTip(info, pt);
-    }
+    LevelPassView* view = LevelPassView::create();
+    view->reset(m_mainLevel);
+    getCurScene()->showTip(view, getPosition()+Point(200, 0));
+}
+			
+void ChooseLevelItem::onClickLock(Ref* sender)
+{
+    JigToast::show("pre_unfinish");
 }
 
-void ChooseLevelItem::reset(int iMainLevel)
+void ChooseLevelItem::reset(int level)
 {
-    m_iMainLevel = iMainLevel;
-    
-    m_btn->loadTextureNormal( sstr("jigsaw/level%d/btntitle.png", iMainLevel) );
-
-    if (iMainLevel==0)
+    if (level==0)
     {
-        m_bUnlock = false;
+        m_lock->setVisible(false);
     }
     else
     {
-        DBMainLevel main;
-        DBMainLevel::readby_level(main, iMainLevel-1);
-
-        DBLevelNotes pre;
-        DBLevelNotes::readby_level(pre, iMainLevel-1, main.max_jiglevel-1);
-
-        m_bUnlock = (pre.star==0);
+        DBMainLevel premain = DBMainLevel::readby_level(level-1);
+        DBLevelNotes pre = DBLevelNotes::readby_level(level-1, premain.max_jiglevel-1);
+        m_lock->setVisible(pre.star==0);
     }
 
-    if (m_bUnlock) {
-        m_btn->setColor( Color3B{20, 20, 20} );
-    }
+    m_mainLevel = level;
 }
 

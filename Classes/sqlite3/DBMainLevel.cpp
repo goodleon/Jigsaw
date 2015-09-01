@@ -24,25 +24,26 @@ DBMainLevel::DBMainLevel()
     max_jiglevel = 0;
 }
 
-bool DBMainLevel::readby_level(DBMainLevel& data, int level)
+DBMainLevel DBMainLevel::readby_level(int level)
 {
+    DBMainLevel data;
+
     string file = jigsql::database_file();
     sqlite3* db;
     int rc = sqlite3_open(file.c_str(), &db);
     if( rc ){
         CCLOG("Can't open database: %s\n", file.c_str());
         sqlite3_close(db);
-        return false;
+        return data;
     }
     char *zErrMsg = 0;
     rc = sqlite3_exec(db, cstr("select * from MainLevel where level=%d", level), DBMainLevel::callback, &data, &zErrMsg);
     if( rc!=SQLITE_OK ){
         CCLOG("SQL error: %s\n", zErrMsg);
         sqlite3_free(zErrMsg);
-        return false;
     }
     sqlite3_close(db);
-    return true;
+    return data;
 }
 
 int DBMainLevel::callback(void *NotUsed, int argc, char **argv, char **azColName)

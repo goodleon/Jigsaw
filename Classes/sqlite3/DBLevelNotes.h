@@ -20,7 +20,7 @@ public:
     
     DBLevelNotes();
     
-    static bool readby_level(DBLevelNotes& data, int level, int jiglevel);
+    static DBLevelNotes readby_level(int level, int jiglevel);
     void writeby_level();
 private:
     static int callback(void *NotUsed, int argc, char **argv, char **azColName);

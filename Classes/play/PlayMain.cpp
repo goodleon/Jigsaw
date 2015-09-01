@@ -5,7 +5,7 @@
 #include "RotableTouchPanel.h"
 #include "GameSceneMgr.h"
 #include "PauseLayer.h"
-#include "JigBackground.h"
+#include "PlayDisplay.h"
 #include "GameState.h"
 #include "TimeHpBar.h"
 #include "JigToast.h"
@@ -44,13 +44,13 @@ bool PlayMain::init()
     
     SpriteFrame* sf = SpriteFrameCache::getInstance()->getSpriteFrameByName( getJigsaw() );
     
-    if (playconfig().shadow())
-    {
-        JigBackground* bg = JigBackground::create();
-        game->addChild( bg );
-        bg->reset(sf, playshared.rows, playshared.cols);
-    }
-    
+//    if (playconfig().shadow())
+//    {
+//        JigBackground* bg = JigBackground::create();
+//        game->addChild( bg );
+//        bg->reset(sf, playshared.rows, playshared.cols);
+//    }
+
     if (playconfig().rotable()) {
         playshared.jig_panel = RotableTouchPanel::create();
     }
@@ -95,7 +95,9 @@ void PlayMain::onClickFinish(Ref* sender)
     }
     else
     {
-        JigToast::show("unfinish");
+//        JigToast::show("unfinish");
+        PlayDisplay* display = PlayDisplay::create();
+        getCurScene()->alert(display);
     }
 }
 			

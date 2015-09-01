@@ -33,5 +33,7 @@
         <string>第九关</string>
         <key>level9</key>
         <string>第十关</string>
+        <key>unopen</key>
+        <string>该功能暂未开放</string>
     </dict>
 </plist>

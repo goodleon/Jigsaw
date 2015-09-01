@@ -4,7 +4,6 @@
 #define __Jigsaw_ChooseLevelItem_
 
 #include "JigHeader.h"
-#include "ChooseItemMsg.pb.h"
 
 class ChooseLevelItem : public cocos2d::ui::Widget
 {
@@ -15,21 +14,18 @@ public:
 	CREATE_FUNC(ChooseLevelItem);
 	
 	virtual bool init() override;
-    
-    void reset(int iMainLevel);
 
+    void reset(int level);
 private:
 	cocos2d::Node* load_csd();
 
-	void onClickItem(Ref* sender);
+	void onClickButton(Ref* sender);
+	void onClickLock(Ref* sender);
 
 
 private:
-    Button* m_btn;
-    ImageView* m_img;
-    
-    int m_iMainLevel;
-    bool m_bUnlock;
+    Button* m_lock;
+    int m_mainLevel;
 };
 
 #endif

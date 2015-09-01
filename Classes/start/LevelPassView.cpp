@@ -28,16 +28,15 @@ bool LevelPassView::init()
 
 void LevelPassView::reset(int iMainLevel)
 {
-    DBMainLevel main;
-    DBMainLevel::readby_level(main, iMainLevel);
+    DBMainLevel main = DBMainLevel::readby_level(iMainLevel);
 
     for (int i=main.min_jiglevel; i<main.max_jiglevel; ++i)
     {
-        DBLevelNotes note;
-        DBLevelNotes::readby_level(note, iMainLevel, i);
+        DBLevelNotes note = DBLevelNotes::readby_level(iMainLevel, i);
 
         LevelPassItem* item = LevelPassItem::create();
         item->reset( note );
+        logSize(item->getContentSize());
         m_scroll->pushBackCustomItem(item);
     }
 

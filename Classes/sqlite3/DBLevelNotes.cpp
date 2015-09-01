@@ -19,29 +19,31 @@ USING_NS_CC;
 DBLevelNotes::DBLevelNotes()
 {
     level = 0;
+    jiglevel = 0;
     star = 0;
     score = 0;
 }
 
-bool DBLevelNotes::readby_level(DBLevelNotes& data, int level, int jiglevel)
+DBLevelNotes DBLevelNotes::readby_level(int level, int jiglevel)
 {
+    DBLevelNotes data;
+
     string file = jigsql::database_file();
     sqlite3* db;
     int rc = sqlite3_open(file.c_str(), &db);
     if( rc ){
         CCLOG("Can't open database: %s\n", sqlite3_errmsg(db));
         sqlite3_close(db);
-        return false;
+        return data;
     }
     char *zErrMsg = 0;
     rc = sqlite3_exec(db, cstr("select * from LevelNotes where level=%d and jiglevel=%d", level, jiglevel), DBLevelNotes::callback, &data, &zErrMsg);
     if( rc!=SQLITE_OK ){
         CCLOG("SQL error: %s\n", zErrMsg);
         sqlite3_free(zErrMsg);
-        return false;
     }
     sqlite3_close(db);
-    return true;
+    return data;
 }
 
 void DBLevelNotes::writeby_level()

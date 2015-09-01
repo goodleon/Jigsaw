@@ -24,6 +24,7 @@ bool LevelPassItem::init()
 
 	Node* root = load_csd();
 	addChild(root);
+    setContentSize(root->getContentSize());
 
 	return true;
 }
@@ -70,8 +71,7 @@ void LevelPassItem::onClickButton(Ref* sender)
     }
     else
     {
-        DBMainLevel main;
-        DBMainLevel::readby_level(main, m_data.level);
+        DBMainLevel main = DBMainLevel::readby_level(m_data.level);
 
         PlayInitMsg msg;
         msg.set_choose_level( m_data.level );
@@ -86,8 +86,7 @@ bool LevelPassItem::canEnter()
 {
     Return_True_If(m_data.jiglevel==0);
 
-    DBLevelNotes note;
-    DBLevelNotes::readby_level(note, m_data.level, m_data.jiglevel-1);
+    DBLevelNotes note = DBLevelNotes::readby_level(m_data.level, m_data.jiglevel-1);
     return note.star>0;
 }
 
