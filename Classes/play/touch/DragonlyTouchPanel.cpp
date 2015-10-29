@@ -39,7 +39,8 @@ void DragonlyTouchPanel::onDragEnded(Touch* touch)
     Return_If(!m_touching);
     
     const Point local_pt = m_touching->getPosition();
-    if (this->getBoundingBox().containsPoint(local_pt))
+    const Rect local_rc(0, 0, getContentSize().width, getContentSize().height);
+    if (local_rc.containsPoint(local_pt))
     {
         int r = local_pt.y / m_tileSize.height;
         int c = local_pt.x / m_tileSize.width;

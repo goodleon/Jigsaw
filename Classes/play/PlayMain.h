@@ -19,14 +19,15 @@ private:
 	virtual bool init() override;
 
 private:
-	Node* load_csd();
+    cocos2d::Node* load_csd();
 
-	void onClickFinish(Ref* sender);
-	void onClickPause(Ref* sender);
-
+    void onClickPrelook(Ref* sender);
+    void onClickFinish(Ref* sender);
+    void onClickReturnMenu(Ref* sender);
 
 private:
-
+    Layout* m_panel_start;
+    Layout* m_game_panel;
 };
 
 #endif

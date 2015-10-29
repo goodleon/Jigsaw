@@ -39,23 +39,26 @@ bool AppDelegate::applicationDidFinishLaunching() {
         director->setOpenGLView(glview);
     }
 
+    register_all_packages();
+
 //    director->setDisplayStats(true);
     director->setAnimationInterval(1.0 / 60);
     
     glview->setDesignResolutionSize(960, 640, ResolutionPolicy::SHOW_ALL);
 
-    jigsql::copy_database();
+    //
+    {
+        jigsql::copy_database();
+        
+        FileUtils::getInstance()->addSearchPath("res");
 
-    FileUtils::getInstance()->addSearchPath("res");
+        long x = time(0);//1440752459;
+        printf("srand=%ld", x);
+        srand( x );
 
-    register_all_packages();
-    
-    long x = time(0);//1440752459;
-    printf("srand=%ld", x);
-    srand( x );
-
-    auto scene = StartLayer::createScene();
-    director->runWithScene(scene);
+        auto scene = StartLayer::createScene();
+        director->runWithScene(scene);
+    }
 
     return true;
 }

@@ -21,4 +21,6 @@ using namespace lib4cc3x;
 using namespace cocos2d;
 using namespace ui;
 
+typedef Layout Panel;
+
 #endif /* defined(__Jigsaw__JigHeader__) */

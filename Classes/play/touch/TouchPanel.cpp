@@ -18,6 +18,8 @@ TouchPanel::~TouchPanel()
 bool TouchPanel::init()
 {
     Return_False_If(!Sprite::init());
+
+    setColor(Color3B{255,255,0});
     
     EventListenerTouchOneByOne* listener = EventListenerTouchOneByOne::create();
     listener->onTouchBegan = std::bind(&TouchPanel::onTouchBegan, this, placeholders::_1, placeholders::_2);
@@ -243,6 +245,8 @@ void TouchPanel::setStartRect(const Rect& rc)
         int x = rand_0_1() * real.size.width + real.origin.x;
         int y = rand_0_1() * real.size.height + real.origin.y;
         m_tiles.at(i)->setPosition(x, y);
+
+//        m_tiles.at(i)->setPosition(rc.getMinX(), rc.getMinY());
     }
 }
 

@@ -10,7 +10,7 @@
 #include "cocos2d.h"
 #include "StartLayer.h"
 #include "PlayMain.h"
-#include "ChooseLevel.h"
+//#include "ChooseLevel.h"
 
 USING_NS_CC;
 
@@ -26,11 +26,11 @@ void GameSceneMgr::replace(SceneType scene)
             to_scene = StartLayer::createScene();
         }
             break;
-        case kChooseLevel:
-        {
-            to_scene = ChooseLevel::createScene();
-        }
-            break;
+//        case kChooseLevel:
+//        {
+//            to_scene = ChooseLevel::createScene();
+//        }
+//            break;
         case kPlayScene:
         {
             to_scene = PlayMain::createScene();

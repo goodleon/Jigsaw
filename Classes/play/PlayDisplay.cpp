@@ -31,7 +31,7 @@ Node* PlayDisplay::load_csd()
 {
 	Node* root = CSLoader::createNode("background.csb");
 
-	Button* btn = nullptr;
+//	Button* btn = nullptr;
 
 
 	m_back = static_cast<Layout*>( root->getChildByName("back") );

@@ -9,9 +9,9 @@
 #include "PlayManager.h"
 #include "PlayShared.h"
 #include "GameSceneMgr.h"
+#include "PauseLayer.h"
 #include "DBLevelNotes.h"
 #include "DBJigLevel.h"
-#include "PauseLayer.h"
 
 PlayManager::PlayManager()
 {
@@ -46,7 +46,7 @@ void PlayManager::enterGame(const PlayInitMsg& msg)
 void PlayManager::backToChoose()
 {
     playshared.resetAll();
-    GameSceneMgr::inst().replace(kChooseLevel);
+    GameSceneMgr::inst().replace(kStartScene);
 }
 
 void PlayManager::restart()
