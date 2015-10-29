@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>61B0ADCF-426A-4AF6-AEC3-8CF40E121643</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Jigsaw</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9D00B6EE55BA9A9F2D85DEB5DE9EC9EAAE16A4E3</key>
+		<string>https://github.com/gittor/Jigsaw.git</string>
+		<key>DBA6F8B12B84878540F44342C4772AC004D85ABD</key>
+		<string>https://github.com/google/protobuf.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>proj.ios_mac/Jigsaw.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9D00B6EE55BA9A9F2D85DEB5DE9EC9EAAE16A4E3</key>
+		<string>../../..</string>
+		<key>DBA6F8B12B84878540F44342C4772AC004D85ABD</key>
+		<string>../../../Classes/proto/protobuf</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/gittor/Jigsaw.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9D00B6EE55BA9A9F2D85DEB5DE9EC9EAAE16A4E3</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9D00B6EE55BA9A9F2D85DEB5DE9EC9EAAE16A4E3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Jigsaw</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DBA6F8B12B84878540F44342C4772AC004D85ABD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>protobuf</string>
+		</dict>
+	</array>
+</dict>
+</plist>
