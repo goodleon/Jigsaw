@@ -248,8 +248,6 @@ void TouchPanel::setStartRect(const Rect& rc)
         int x = rand_0_1() * real.size.width + real.origin.x;
         int y = rand_0_1() * real.size.height + real.origin.y;
         m_tiles.at(i)->setPosition(x, y);
-
-        m_tiles.at(i)->setPosition(m_tileSize/2);
     }
 }
 

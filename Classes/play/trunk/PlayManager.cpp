@@ -54,8 +54,10 @@ void PlayManager::exitGame()
 
 void PlayManager::restart()
 {
-    playshared.resetNextlevel();
+    playshared.resetNewlevel();
+
     reloadResource();
+
     GameSceneMgr::inst().replace(kPlayScene);
     GameStateMgr::inst().change(gs_prepare);
 }

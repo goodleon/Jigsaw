@@ -92,8 +92,6 @@
 		9C75327D1B8C02F30066DEBD /* TempShadow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7532761B8C02F30066DEBD /* TempShadow.cpp */; };
 		9C7532841B8C1C6A0066DEBD /* ConfirmLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7532821B8C1C6A0066DEBD /* ConfirmLayer.cpp */; };
 		9C7532851B8C1C6A0066DEBD /* ConfirmLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7532821B8C1C6A0066DEBD /* ConfirmLayer.cpp */; };
-		9C7532881B8C29510066DEBD /* StartTouchLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7532861B8C29510066DEBD /* StartTouchLayer.cpp */; };
-		9C7532891B8C29510066DEBD /* StartTouchLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7532861B8C29510066DEBD /* StartTouchLayer.cpp */; };
 		9C75328C1B8C37E40066DEBD /* JigToast.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C75328A1B8C37E40066DEBD /* JigToast.cpp */; };
 		9C75328D1B8C37E40066DEBD /* JigToast.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C75328A1B8C37E40066DEBD /* JigToast.cpp */; };
 		9CA21A091B82C197001D2043 /* JigScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA21A071B82C197001D2043 /* JigScene.cpp */; };
@@ -268,8 +266,6 @@
 		9C7532771B8C02F30066DEBD /* TempShadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempShadow.h; sourceTree = "<group>"; };
 		9C7532821B8C1C6A0066DEBD /* ConfirmLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConfirmLayer.cpp; sourceTree = "<group>"; };
 		9C7532831B8C1C6A0066DEBD /* ConfirmLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmLayer.h; sourceTree = "<group>"; };
-		9C7532861B8C29510066DEBD /* StartTouchLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StartTouchLayer.cpp; sourceTree = "<group>"; };
-		9C7532871B8C29510066DEBD /* StartTouchLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartTouchLayer.h; sourceTree = "<group>"; };
 		9C75328A1B8C37E40066DEBD /* JigToast.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JigToast.cpp; sourceTree = "<group>"; };
 		9C75328B1B8C37E40066DEBD /* JigToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JigToast.h; sourceTree = "<group>"; };
 		9CA21A071B82C197001D2043 /* JigScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JigScene.cpp; sourceTree = "<group>"; };
@@ -530,8 +526,6 @@
 				9CA21A081B82C197001D2043 /* JigScene.h */,
 				9C1089091B81AD4700426BD9 /* JigTile.cpp */,
 				9C10890A1B81AD4700426BD9 /* JigTile.h */,
-				9C7532861B8C29510066DEBD /* StartTouchLayer.cpp */,
-				9C7532871B8C29510066DEBD /* StartTouchLayer.h */,
 			);
 			path = play;
 			sourceTree = "<group>";
@@ -822,7 +816,6 @@
 				9CD6680A1BE22E6900637D3A /* sql_common.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				9C1089261B81ADDC00426BD9 /* DataStore.cpp in Sources */,
-				9C7532881B8C29510066DEBD /* StartTouchLayer.cpp in Sources */,
 				9C10892A1B81ADDC00426BD9 /* lib4cc3x.cpp in Sources */,
 				9CBE087E1B86E770006345E4 /* RotableTouchPanel.cpp in Sources */,
 				9CD668061BE22E6900637D3A /* DBMainLevel.cpp in Sources */,
@@ -850,7 +843,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C7532891B8C29510066DEBD /* StartTouchLayer.cpp in Sources */,
 				9C52692E1B8F3F9B00FF1CAC /* TipsLayer.cpp in Sources */,
 				9C7532671B8BFCEC0066DEBD /* GameState.cpp in Sources */,
 				9C1089271B81ADDC00426BD9 /* DataStore.cpp in Sources */,

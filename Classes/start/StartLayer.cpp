@@ -2,6 +2,7 @@
 
 #include "StartLayer.h"
 #include "PlayManager.h"
+#include "GameSceneMgr.h"
 #include "version.h"
 
 StartLayer::StartLayer()
@@ -54,9 +55,7 @@ Node* StartLayer::load_csd()
 
 void StartLayer::onClickStart(Ref* sender)
 {
-//    GameSceneMgr::inst().replace(kPlayScene);
     PlayInitMsg msg;
-//    msg.set_max_time(100);
     msg.set_max_level(2);
     msg.set_rotable(true);
     PlayManager::inst().enterGame(msg);
@@ -64,9 +63,8 @@ void StartLayer::onClickStart(Ref* sender)
 
 void StartLayer::onClickThanks(Ref* sender)
 {
-	Button* btn = static_cast<Button*>(sender);
-	CCLOG("%s", btn->getName().c_str());
+    GameSceneMgr::inst().replace(kThanksScene);
 }
-			
+
 
 

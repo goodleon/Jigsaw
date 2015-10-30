@@ -2,6 +2,7 @@
 
 #include "ThanksLayer.h"
 #include "JigHeader.h"
+#include "GameSceneMgr.h"
 
 ThanksLayer::ThanksLayer()
 {
@@ -48,9 +49,8 @@ Node* ThanksLayer::load_csd()
 
 void ThanksLayer::onClickReturn(Ref* sender)
 {
-	Button* btn = static_cast<Button*>(sender);
-	CCLOG("%s", btn->getName().c_str());
+    GameSceneMgr::inst().replace(kStartScene);
 }
-			
+
 
 

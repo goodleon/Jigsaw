@@ -34,7 +34,7 @@ struct PlayShared
 
     string getJigsaw();
     
-    void resetNextlevel();
+    void resetNewlevel();
     void resetAll();
 
     const PlayInitMsg& config() const;

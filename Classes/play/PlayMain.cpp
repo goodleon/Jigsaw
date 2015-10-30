@@ -65,7 +65,7 @@ void PlayMain::initJigPanel(SpriteFrame* sf)
     m_game_panel->addChild( playshared.jig_panel );
 
     Rect rc_start = m_panel_start->getBoundingBox();
-    rc_start.origin -= playshared.jig_panel->getPosition();
+    rc_start.origin -= playshared.jig_panel->getBoundingBox().origin;
     playshared.jig_panel->setStartRect( rc_start );
 }
 
