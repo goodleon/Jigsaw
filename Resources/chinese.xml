@@ -13,6 +13,8 @@
 		<string>请完成所有图块</string>
         <key>pre_unfinish</key>
         <string>请至少完全通过前一关</string>
+        <key>finished_all</key>
+        <string>已经完成所有关卡</string>
         <key>level0</key>
         <string>第一关</string>
         <key>level1</key>

@@ -11,7 +11,7 @@
 
 #include "GameState.h"
 #include "cex.h"
-#include "PlayInitMsg.pb.h"
+#include "PlayInitMsg.h"
 
 class PlayManager : public cex::Singleton<PlayManager>, public GameStateListener
 {
@@ -22,21 +22,21 @@ public:
     virtual void onStateChanged(GameState gs) override;
     
     void enterGame(const PlayInitMsg& msg);
-    void backToChoose();
+    void exitGame();
     
     void restart();
     void startNextLevel();
     
-    void saveState();
-    void clearState();
-    
+//    void saveState();
+//    void clearState();
+
     bool finishAllState();
 
-    int getstar();
+//    int getstar();
 private:
     void reloadResource();
 
-    int lefttime();
+//    int lefttime();
 };
 
 #endif /* defined(__Jigsaw__PlayManager__) */

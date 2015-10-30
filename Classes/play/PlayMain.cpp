@@ -4,13 +4,10 @@
 #include "JigScene.h"
 #include "RotableTouchPanel.h"
 #include "GameSceneMgr.h"
-#include "PauseLayer.h"
 #include "PlayDisplay.h"
 #include "GameState.h"
-#include "TimeHpBar.h"
 #include "JigToast.h"
 #include "PlayManager.h"
-#include "WinLayer.h"
 
 Scene* PlayMain::createScene()
 {
@@ -40,10 +37,8 @@ bool PlayMain::init()
 	Node* root = load_csd();
     addChild(root);
 
-    SpriteFrame* sf = lib4cc3x::addSpriteFrameByFile(getJigsaw());;
-    //SpriteFrameCache::getInstance()->getSpriteFrameByName( getJigsaw() );
-    CCASSERT(sf, "");
-    
+    SpriteFrame* sf = SpriteFrameCache::getInstance()->getSpriteFrameByName( playshared.getJigsaw() );
+
 //    if (playconfig().shadow())
 //    {
 //        JigBackground* bg = JigBackground::create();
@@ -51,21 +46,27 @@ bool PlayMain::init()
 //        bg->reset(sf, playshared.rows, playshared.cols);
 //    }
 
-    if (playconfig().rotable()) {
+    initJigPanel(sf);
+
+	return true;
+}
+
+void PlayMain::initJigPanel(SpriteFrame* sf)
+{
+    if (playshared.config().rotable()) {
         playshared.jig_panel = RotableTouchPanel::create();
     }
     else{
         playshared.jig_panel = DragonlyTouchPanel::create();
     }
+
     playshared.jig_panel->reset( sf, playshared.rows, playshared.cols );
-    playshared.jig_panel->setStartRect( m_panel_start->getBoundingBox() );
     playshared.jig_panel->setPosition( m_game_panel->getContentSize()/2 );
     m_game_panel->addChild( playshared.jig_panel );
 
-//    TimeHpBar* time = TimeHpBar::create();
-//    root->addChild(time);
-
-	return true;
+    Rect rc_start = m_panel_start->getBoundingBox();
+    rc_start.origin -= playshared.jig_panel->getPosition();
+    playshared.jig_panel->setStartRect( rc_start );
 }
 
 Node* PlayMain::load_csd()
@@ -84,9 +85,8 @@ Node* PlayMain::load_csd()
     btn->addClickEventListener( std::bind(&PlayMain::onClickReturnMenu, this, placeholders::_1) );
 
 
-    m_panel_start = static_cast<Layout*>(root->getChildByName("panel_start"));
-
     m_game_panel = static_cast<Layout*>(root->getChildByName("game_panel"));
+    m_panel_start = static_cast<Layout*>(m_game_panel->getChildByName("panel_start"));
     
     
     return root;
@@ -97,11 +97,11 @@ void PlayMain::onClickFinish(Ref* sender)
 {
     if (PlayManager::inst().finishAllState())
     {
-        GameSceneMgr::inst().replace(kStartScene);
+        PlayManager::inst().exitGame();
+        JigToast::show("finished_all");
     }
     else if (playshared.jig_panel->isAllFinished())
     {
-        PlayManager::inst().saveState();
         PlayManager::inst().startNextLevel();
 //        WinLayer* win = WinLayer::create();
 //        getCurScene()->alert(win);
@@ -127,8 +127,7 @@ void PlayMain::onClickPrelook(Ref* sender)
 
 void PlayMain::onClickReturnMenu(Ref* sender)
 {
-    Button* btn = static_cast<Button*>(sender);
-    CCLOG("%s", btn->getName().c_str());
+    PlayManager::inst().exitGame();
 }
 
 

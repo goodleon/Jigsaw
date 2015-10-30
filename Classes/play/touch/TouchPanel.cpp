@@ -41,6 +41,9 @@ void TouchPanel::reset(cocos2d::SpriteFrame* sf, int rows, int cols)
     m_splitCols = cols;
     
     setContentSize( raw_size );
+
+    LayerColor* flag = LayerColor::create(Color4B(255,255,255,255), raw_size.width, raw_size.height);
+    addChild(flag);
     
     initTiles(sf);
     initEdges();
@@ -246,7 +249,7 @@ void TouchPanel::setStartRect(const Rect& rc)
         int y = rand_0_1() * real.size.height + real.origin.y;
         m_tiles.at(i)->setPosition(x, y);
 
-//        m_tiles.at(i)->setPosition(rc.getMinX(), rc.getMinY());
+        m_tiles.at(i)->setPosition(m_tileSize/2);
     }
 }
 

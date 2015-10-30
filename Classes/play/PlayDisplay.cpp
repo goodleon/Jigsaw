@@ -22,7 +22,7 @@ bool PlayDisplay::init()
 
     m_back->addTouchEventListener( std::bind(&PlayDisplay::onTouchPanel,this,placeholders::_1, placeholders::_2) );
 
-    m_img->loadTexture( getJigsaw() );
+    m_img->loadTexture( playshared.getJigsaw() );
 
 	return true;
 }

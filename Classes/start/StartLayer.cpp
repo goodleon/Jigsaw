@@ -2,6 +2,7 @@
 
 #include "StartLayer.h"
 #include "PlayManager.h"
+#include "version.h"
 
 StartLayer::StartLayer()
 {
@@ -28,6 +29,8 @@ bool StartLayer::init()
 	Node* root = load_csd();
 	addChild(root);
 
+    m_version->setString( sstr("v.%d.%d", major_version, minor_version) );
+
 	return true;
 }
 
@@ -43,7 +46,7 @@ Node* StartLayer::load_csd()
 	btn = static_cast<Button*>( root->getChildByName("Thanks") );
 	btn->addClickEventListener( std::bind(&StartLayer::onClickThanks, this, placeholders::_1) );
 
-
+    m_version = static_cast<Text*>( root->getChildByName("version") );
 
 	return root;
 }
@@ -53,9 +56,9 @@ void StartLayer::onClickStart(Ref* sender)
 {
 //    GameSceneMgr::inst().replace(kPlayScene);
     PlayInitMsg msg;
-    msg.set_choose_level(0);
 //    msg.set_max_time(100);
-    msg.set_start_jiglevel(0);
+    msg.set_max_level(2);
+    msg.set_rotable(true);
     PlayManager::inst().enterGame(msg);
 }
 

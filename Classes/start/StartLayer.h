@@ -25,7 +25,7 @@ private:
 
 
 private:
-
+    Text* m_version;
 };
 
 #endif

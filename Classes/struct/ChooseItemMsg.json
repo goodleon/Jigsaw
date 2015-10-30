@@ -1,5 +1,0 @@
-[
-	{"ctype":"int",		"name":"level"},
-	{"ctype":"vector<int>", 	"name":"stars"},
-	{"ctype":"bool", 	"name":"canchoose"}
-]

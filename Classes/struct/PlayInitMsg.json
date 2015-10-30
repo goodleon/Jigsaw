@@ -1,8 +1,4 @@
 [
-	{"ctype":"int", "name":"choose_level"},
-	{"ctype":"int", "name":"start_jiglevel"},
 	{"ctype":"int", "name":"max_level"},
-	{"ctype":"bool", "name":"rotable"},
-	{"ctype":"bool", "name":"shadow"},
-	{"ctype":"int", "name":"max_time"}
+	{"ctype":"bool", "name":"rotable"}
 ]

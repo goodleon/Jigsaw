@@ -46,7 +46,7 @@ def cpp_attr_init( attrs ):
 
 def mk_header(class_name, attrs):
 	temp = open('header-temp.txt').read().replace('class_name', class_name)
-	fos = open(class_name+'.pb.h', 'w')
+	fos = open(class_name+'.h', 'w')
 	header_attrs = ''
 	for item in attrs:
 		header_attrs = header_attrs + header_handler(item)
@@ -57,7 +57,7 @@ def mk_header(class_name, attrs):
 
 def mk_cpp(class_name, attrs):
 	temp = open('cpp-temp.txt').read().replace('class_name', class_name)
-	fos = open(class_name+'.pb.cpp', 'w')
+	fos = open(class_name+'.cpp', 'w')
 	cpp_function = ''
 	for item in attrs:
 		cpp_function = cpp_function + cpp_handler(class_name, item)

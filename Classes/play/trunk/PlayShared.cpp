@@ -3,17 +3,31 @@
 
 PlayShared playshared;
 
-const PlayInitMsg& playconfig()
+string PlayShared::getJigsaw()
 {
-    return playshared.playconfig();
+    return sstr("jigsaw/level%d/jigsaw%02d.png", 0, cur_level);
 }
 
-//string getJigBack()
-//{
-//    return sstr("play/bg%d.png", playconfig().cur_level()+1);
-//}
-
-string getJigsaw()
+PlayShared::PlayShared()
 {
-    return sstr("jigsaw/level%d/jigsaw%02d.png", playconfig().choose_level(), playshared.cur_level+1);
+    resetAll();
+}
+
+void PlayShared::resetNextlevel()
+{
+    esptime = -1;
+    rows = cols = -1;
+}
+
+void PlayShared::resetAll()
+{
+    play_scene = nullptr;
+    jig_panel = nullptr;
+    cur_level = -1;
+    resetNextlevel();
+}
+
+const PlayInitMsg& PlayShared::config() const
+{
+    return m_config;
 }

@@ -24,9 +24,9 @@ void RotableTouchPanel::setStartRect(const Rect& rc)
 {
     DragonlyTouchPanel::setStartRect(rc);
     
-    for (int i=0; i<m_tiles.size(); ++i)
-    {
-        DirectionType dir = (DirectionType)(rand()%4);
-        m_tiles.at(i)->setDirection( Direction( dir ) );
-    }
+//    for (int i=0; i<m_tiles.size(); ++i)
+//    {
+//        DirectionType dir = (DirectionType)(rand()%4);
+//        m_tiles.at(i)->setDirection( Direction( dir ) );
+//    }
 }
