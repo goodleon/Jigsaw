@@ -32,11 +32,9 @@ public:
 
     bool finishAllState();
 
-//    int getstar();
 private:
     void reloadResource();
 
-//    int lefttime();
 };
 
 #endif /* defined(__Jigsaw__PlayManager__) */

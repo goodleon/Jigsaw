@@ -3,6 +3,7 @@
 #include "StartLayer.h"
 #include "PlayManager.h"
 #include "GameSceneMgr.h"
+#include "DBMainLevel.h"
 #include "version.h"
 
 StartLayer::StartLayer()
@@ -31,7 +32,7 @@ bool StartLayer::init()
 	addChild(root);
 
     m_version->setString( sstr("v.%d.%d", major_version, minor_version) );
-
+    
 	return true;
 }
 
@@ -55,9 +56,10 @@ Node* StartLayer::load_csd()
 
 void StartLayer::onClickStart(Ref* sender)
 {
+    DBMainLevel level = DBMainLevel::readby_level(0);
     PlayInitMsg msg;
-    msg.set_max_level(2);
-    msg.set_rotable(true);
+    msg.set_max_level( level.max_jiglevel );
+    msg.set_rotable(false);
     PlayManager::inst().enterGame(msg);
 }
 

@@ -60,7 +60,7 @@ void PlayMain::initJigPanel(SpriteFrame* sf)
         playshared.jig_panel = DragonlyTouchPanel::create();
     }
 
-    playshared.jig_panel->reset( sf, playshared.rows, playshared.cols );
+    playshared.jig_panel->reset( playshared.getJigsaw(), playshared.rows, playshared.cols );
     playshared.jig_panel->setPosition( m_game_panel->getContentSize()/2 );
     m_game_panel->addChild( playshared.jig_panel );
 
@@ -95,16 +95,20 @@ Node* PlayMain::load_csd()
 
 void PlayMain::onClickFinish(Ref* sender)
 {
-    if (PlayManager::inst().finishAllState())
+    if (GameStateMgr::inst().curState()==gs_prepare)
+        return;
+
+    if (playshared.jig_panel->isAllFinished())
     {
-        PlayManager::inst().exitGame();
-        JigToast::show("finished_all");
-    }
-    else if (playshared.jig_panel->isAllFinished())
-    {
-        PlayManager::inst().startNextLevel();
-//        WinLayer* win = WinLayer::create();
-//        getCurScene()->alert(win);
+        if (PlayManager::inst().finishAllState())
+        {
+            PlayManager::inst().exitGame();
+            JigToast::show("finished_all");
+        }
+        else
+        {
+            PlayManager::inst().startNextLevel();
+        }
     }
     else
     {

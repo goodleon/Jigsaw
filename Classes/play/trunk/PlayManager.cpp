@@ -87,33 +87,11 @@ bool PlayManager::finishAllState()
 
 void PlayManager::reloadResource()
 {
-    addSpriteFrameByFile( playshared.getJigsaw() );
+//    addSpriteFrameByFile( playshared.getJigsaw() );
 
     DBJigLevel data;
     DBJigLevel::readby_level(data, playshared.cur_level);
     playshared.rows = data.rows;
     playshared.cols = data.cols;
 }
-
-//int PlayManager::getstar()
-//{
-//    float percent = lefttime() / (float) playconfig().max_time();
-//    if (percent>=0 && percent<0.4)
-//    {
-//        return 1;
-//    }
-//    else if (percent<=0.7)
-//    {
-//        return 2;
-//    }
-//    else
-//    {
-//        return 3;
-//    }
-//}
-
-//int PlayManager::lefttime()
-//{
-//    return playconfig().max_time()-playshared.esptime;
-//}
 

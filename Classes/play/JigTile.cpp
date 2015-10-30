@@ -27,11 +27,11 @@ bool JigTile::init()
     return true;
 }
 
-void JigTile::setRawFrame(SpriteFrame* frame)
+void JigTile::setRawDisplay(const string& file)
 {
     removeAllChildren();
-    
-    m_display = Sprite::createWithSpriteFrame(frame);
+
+    m_display = InstantGif::create(file.c_str());
     m_display->setAnchorPoint(Point::ZERO);
     addChild(m_display);
 }

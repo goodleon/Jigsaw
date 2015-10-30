@@ -16,7 +16,7 @@ public:
     
     virtual bool init();
 
-    void reset(cocos2d::SpriteFrame* sf, int rows, int cols);
+    void reset(const string& file, int rows, int cols);
     virtual void setStartRect(const Rect& rc);
     
     bool isAllFinished();
@@ -39,8 +39,8 @@ private:
     void onTouchEnded(Touch* touch, Event* event);
     
     void clear();
-    
-    void initTiles(SpriteFrame* sf);
+
+    void initTiles(const string& gif_file);
     void initEdges();
     
     void longTouchCallback(float delay);

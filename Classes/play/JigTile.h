@@ -12,6 +12,8 @@
 #include "PlayShared.h"
 #include "TempShadow.h"
 #include "Direction.h"
+#include "CacheGif.h"
+#include "InstantGif.h"
 
 class JigTile : public cocos2d::ClippingNode
 {
@@ -23,7 +25,7 @@ public:
     
     virtual bool init() override;
     
-    void setRawFrame(SpriteFrame* frame);
+    void setRawDisplay(const string& file);
     void setRawRect(const Rect& rc);
     
     void setEdges(const std::vector<EdgeType>& edges);
@@ -33,8 +35,8 @@ public:
     Direction getDirection();
     
 private:
-    Sprite* m_display;
-    
+//    Sprite* m_display;
+    GifBase* m_display;
 };
 
 #endif /* defined(__Jigsaw__JigTile__) */

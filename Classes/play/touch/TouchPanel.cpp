@@ -30,22 +30,23 @@ bool TouchPanel::init()
     return true;
 }
 
-void TouchPanel::reset(cocos2d::SpriteFrame* sf, int rows, int cols)
+void TouchPanel::reset(const string& file, int rows, int cols)
 {
     clear();
-    
-    const Size raw_size( sf->getOriginalSize() );
-    
+
+    CacheGif* gif = CacheGif::create(file.c_str());
+    const Size raw_size = gif->getContentSize();
+
     m_tileSize.setSize( raw_size.width/cols, raw_size.height/rows );
     m_splitRows = rows;
     m_splitCols = cols;
     
     setContentSize( raw_size );
 
-    LayerColor* flag = LayerColor::create(Color4B(255,255,255,255), raw_size.width, raw_size.height);
+    LayerColor* flag = LayerColor::create(Color4B(255,0,255,255), raw_size.width, raw_size.height);
     addChild(flag);
     
-    initTiles(sf);
+    initTiles(file);
     initEdges();
 }
 
@@ -139,7 +140,7 @@ void TouchPanel::clear()
     m_tiles.clear();
 }
 
-void TouchPanel::initTiles(SpriteFrame* sf)
+void TouchPanel::initTiles(const string& gif_file)
 {
     for (int i=0; i<m_splitRows; ++i)
     {
@@ -148,9 +149,9 @@ void TouchPanel::initTiles(SpriteFrame* sf)
             JigTile* tile = JigTile::create();
             addChild(tile);
             m_tiles.push_back(tile);
-            
-            tile->setRawFrame(sf);
-            
+
+            tile->setRawDisplay(gif_file);
+
             Rect rc(j*m_tileSize.width, i*m_tileSize.height, m_tileSize.width, m_tileSize.height);
             tile->setRawRect(rc);
             
@@ -247,7 +248,10 @@ void TouchPanel::setStartRect(const Rect& rc)
     {
         int x = rand_0_1() * real.size.width + real.origin.x;
         int y = rand_0_1() * real.size.height + real.origin.y;
-        m_tiles.at(i)->setPosition(x, y);
+
+        DelayTime* delay = DelayTime::create(0.2f*i+0.5f);
+        MoveTo* move = MoveTo::create(0.3f, Point(x, y));
+        m_tiles.at(i)->runAction( Sequence::create(delay, move, NULL) );
     }
 }
 

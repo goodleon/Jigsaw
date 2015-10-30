@@ -132,6 +132,30 @@
 		9CD668111BE2FE4200637D3A /* PlayInitMsg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6680E1BE2FE4200637D3A /* PlayInitMsg.cpp */; };
 		9CD668141BE3139000637D3A /* ThanksLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD668121BE3139000637D3A /* ThanksLayer.cpp */; };
 		9CD668151BE3139000637D3A /* ThanksLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD668121BE3139000637D3A /* ThanksLayer.cpp */; };
+		9CD668301BE33BD400637D3A /* Bitmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD668181BE33BD400637D3A /* Bitmap.cpp */; };
+		9CD668311BE33BD400637D3A /* Bitmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD668181BE33BD400637D3A /* Bitmap.cpp */; };
+		9CD668321BE33BD400637D3A /* CacheGif.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6681A1BE33BD400637D3A /* CacheGif.cpp */; };
+		9CD668331BE33BD400637D3A /* CacheGif.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6681A1BE33BD400637D3A /* CacheGif.cpp */; };
+		9CD668341BE33BD400637D3A /* dgif_lib.c in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6681D1BE33BD400637D3A /* dgif_lib.c */; };
+		9CD668351BE33BD400637D3A /* dgif_lib.c in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6681D1BE33BD400637D3A /* dgif_lib.c */; };
+		9CD668361BE33BD400637D3A /* gif_err.c in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6681E1BE33BD400637D3A /* gif_err.c */; };
+		9CD668371BE33BD400637D3A /* gif_err.c in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6681E1BE33BD400637D3A /* gif_err.c */; };
+		9CD668381BE33BD400637D3A /* gif_font.c in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6681F1BE33BD400637D3A /* gif_font.c */; };
+		9CD668391BE33BD400637D3A /* gif_font.c in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6681F1BE33BD400637D3A /* gif_font.c */; };
+		9CD6683A1BE33BD400637D3A /* gif_hash.c in Sources */ = {isa = PBXBuildFile; fileRef = 9CD668201BE33BD400637D3A /* gif_hash.c */; };
+		9CD6683B1BE33BD400637D3A /* gif_hash.c in Sources */ = {isa = PBXBuildFile; fileRef = 9CD668201BE33BD400637D3A /* gif_hash.c */; };
+		9CD6683C1BE33BD400637D3A /* gifalloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 9CD668241BE33BD400637D3A /* gifalloc.c */; };
+		9CD6683D1BE33BD400637D3A /* gifalloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 9CD668241BE33BD400637D3A /* gifalloc.c */; };
+		9CD6683E1BE33BD400637D3A /* quantize.c in Sources */ = {isa = PBXBuildFile; fileRef = 9CD668251BE33BD400637D3A /* quantize.c */; };
+		9CD6683F1BE33BD400637D3A /* quantize.c in Sources */ = {isa = PBXBuildFile; fileRef = 9CD668251BE33BD400637D3A /* quantize.c */; };
+		9CD668401BE33BD400637D3A /* GifBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD668261BE33BD400637D3A /* GifBase.cpp */; };
+		9CD668411BE33BD400637D3A /* GifBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD668261BE33BD400637D3A /* GifBase.cpp */; };
+		9CD668421BE33BD400637D3A /* GifMovie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD668291BE33BD400637D3A /* GifMovie.cpp */; };
+		9CD668431BE33BD400637D3A /* GifMovie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD668291BE33BD400637D3A /* GifMovie.cpp */; };
+		9CD668441BE33BD400637D3A /* InstantGif.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6682C1BE33BD400637D3A /* InstantGif.cpp */; };
+		9CD668451BE33BD400637D3A /* InstantGif.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6682C1BE33BD400637D3A /* InstantGif.cpp */; };
+		9CD668461BE33BD400637D3A /* Movie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6682E1BE33BD400637D3A /* Movie.cpp */; };
+		9CD668471BE33BD400637D3A /* Movie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6682E1BE33BD400637D3A /* Movie.cpp */; };
 		9CE518121B9432DB00A5DEC0 /* database.db in Resources */ = {isa = PBXBuildFile; fileRef = 9CE518111B9432DB00A5DEC0 /* database.db */; };
 		9CE518131B9432DB00A5DEC0 /* database.db in Resources */ = {isa = PBXBuildFile; fileRef = 9CE518111B9432DB00A5DEC0 /* database.db */; };
 		9CE5181A1B9455D000A5DEC0 /* PlayDisplay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE518181B9455D000A5DEC0 /* PlayDisplay.cpp */; };
@@ -303,6 +327,29 @@
 		9CD668121BE3139000637D3A /* ThanksLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ThanksLayer.cpp; sourceTree = "<group>"; };
 		9CD668131BE3139000637D3A /* ThanksLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThanksLayer.h; sourceTree = "<group>"; };
 		9CD668161BE3140100637D3A /* version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = version.h; path = start/version.h; sourceTree = "<group>"; };
+		9CD668181BE33BD400637D3A /* Bitmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bitmap.cpp; sourceTree = "<group>"; };
+		9CD668191BE33BD400637D3A /* Bitmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bitmap.h; sourceTree = "<group>"; };
+		9CD6681A1BE33BD400637D3A /* CacheGif.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CacheGif.cpp; sourceTree = "<group>"; };
+		9CD6681B1BE33BD400637D3A /* CacheGif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheGif.h; sourceTree = "<group>"; };
+		9CD6681D1BE33BD400637D3A /* dgif_lib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dgif_lib.c; sourceTree = "<group>"; };
+		9CD6681E1BE33BD400637D3A /* gif_err.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gif_err.c; sourceTree = "<group>"; };
+		9CD6681F1BE33BD400637D3A /* gif_font.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gif_font.c; sourceTree = "<group>"; };
+		9CD668201BE33BD400637D3A /* gif_hash.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gif_hash.c; sourceTree = "<group>"; };
+		9CD668211BE33BD400637D3A /* gif_hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gif_hash.h; sourceTree = "<group>"; };
+		9CD668221BE33BD400637D3A /* gif_lib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gif_lib.h; sourceTree = "<group>"; };
+		9CD668231BE33BD400637D3A /* gif_lib_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gif_lib_private.h; sourceTree = "<group>"; };
+		9CD668241BE33BD400637D3A /* gifalloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gifalloc.c; sourceTree = "<group>"; };
+		9CD668251BE33BD400637D3A /* quantize.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = quantize.c; sourceTree = "<group>"; };
+		9CD668261BE33BD400637D3A /* GifBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GifBase.cpp; sourceTree = "<group>"; };
+		9CD668271BE33BD400637D3A /* GifBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifBase.h; sourceTree = "<group>"; };
+		9CD668281BE33BD400637D3A /* GifMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifMacros.h; sourceTree = "<group>"; };
+		9CD668291BE33BD400637D3A /* GifMovie.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GifMovie.cpp; sourceTree = "<group>"; };
+		9CD6682A1BE33BD400637D3A /* GIFMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIFMovie.h; sourceTree = "<group>"; };
+		9CD6682B1BE33BD400637D3A /* GifUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifUtils.h; sourceTree = "<group>"; };
+		9CD6682C1BE33BD400637D3A /* InstantGif.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InstantGif.cpp; sourceTree = "<group>"; };
+		9CD6682D1BE33BD400637D3A /* InstantGif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstantGif.h; sourceTree = "<group>"; };
+		9CD6682E1BE33BD400637D3A /* Movie.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Movie.cpp; sourceTree = "<group>"; };
+		9CD6682F1BE33BD400637D3A /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
 		9CE518111B9432DB00A5DEC0 /* database.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.db; sourceTree = "<group>"; };
 		9CE518181B9455D000A5DEC0 /* PlayDisplay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayDisplay.cpp; sourceTree = "<group>"; };
 		9CE518191B9455D000A5DEC0 /* PlayDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayDisplay.h; sourceTree = "<group>"; };
@@ -431,6 +478,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9CD668171BE33BD400637D3A /* Gif */,
 				9CD668161BE3140100637D3A /* version.h */,
 				9CD667F51BE22E6900637D3A /* sqlite3 */,
 				9CD667CC1BE20B6600637D3A /* struct */,
@@ -641,6 +689,44 @@
 			path = sqlite3;
 			sourceTree = "<group>";
 		};
+		9CD668171BE33BD400637D3A /* Gif */ = {
+			isa = PBXGroup;
+			children = (
+				9CD668181BE33BD400637D3A /* Bitmap.cpp */,
+				9CD668191BE33BD400637D3A /* Bitmap.h */,
+				9CD6681A1BE33BD400637D3A /* CacheGif.cpp */,
+				9CD6681B1BE33BD400637D3A /* CacheGif.h */,
+				9CD6681C1BE33BD400637D3A /* gif_lib */,
+				9CD668261BE33BD400637D3A /* GifBase.cpp */,
+				9CD668271BE33BD400637D3A /* GifBase.h */,
+				9CD668281BE33BD400637D3A /* GifMacros.h */,
+				9CD668291BE33BD400637D3A /* GifMovie.cpp */,
+				9CD6682A1BE33BD400637D3A /* GIFMovie.h */,
+				9CD6682B1BE33BD400637D3A /* GifUtils.h */,
+				9CD6682C1BE33BD400637D3A /* InstantGif.cpp */,
+				9CD6682D1BE33BD400637D3A /* InstantGif.h */,
+				9CD6682E1BE33BD400637D3A /* Movie.cpp */,
+				9CD6682F1BE33BD400637D3A /* Movie.h */,
+			);
+			path = Gif;
+			sourceTree = "<group>";
+		};
+		9CD6681C1BE33BD400637D3A /* gif_lib */ = {
+			isa = PBXGroup;
+			children = (
+				9CD6681D1BE33BD400637D3A /* dgif_lib.c */,
+				9CD6681E1BE33BD400637D3A /* gif_err.c */,
+				9CD6681F1BE33BD400637D3A /* gif_font.c */,
+				9CD668201BE33BD400637D3A /* gif_hash.c */,
+				9CD668211BE33BD400637D3A /* gif_hash.h */,
+				9CD668221BE33BD400637D3A /* gif_lib.h */,
+				9CD668231BE33BD400637D3A /* gif_lib_private.h */,
+				9CD668241BE33BD400637D3A /* gifalloc.c */,
+				9CD668251BE33BD400637D3A /* quantize.c */,
+			);
+			path = gif_lib;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -800,18 +886,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C52692D1B8F3F9B00FF1CAC /* TipsLayer.cpp in Sources */,
+				9CD668321BE33BD400637D3A /* CacheGif.cpp in Sources */,
 				9C75327A1B8C02F30066DEBD /* ShadowCommand.cpp in Sources */,
+				9CD668381BE33BD400637D3A /* gif_font.c in Sources */,
 				9CD668141BE3139000637D3A /* ThanksLayer.cpp in Sources */,
+				9CD668361BE33BD400637D3A /* gif_err.c in Sources */,
+				9CD668441BE33BD400637D3A /* InstantGif.cpp in Sources */,
 				9C75328C1B8C37E40066DEBD /* JigToast.cpp in Sources */,
 				9C1089221B81ADDC00426BD9 /* OnFinally.cpp in Sources */,
+				9CD6683C1BE33BD400637D3A /* gifalloc.c in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				9CA21A091B82C197001D2043 /* JigScene.cpp in Sources */,
 				9CE5181A1B9455D000A5DEC0 /* PlayDisplay.cpp in Sources */,
 				9C7532781B8C02F30066DEBD /* PlayShared.cpp in Sources */,
+				9CD668401BE33BD400637D3A /* GifBase.cpp in Sources */,
 				9C1089281B81ADDC00426BD9 /* EffectAudio.cpp in Sources */,
 				9CD6680C1BE22E6900637D3A /* sqlite3.c in Sources */,
+				9CD668421BE33BD400637D3A /* GifMovie.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				9C7532661B8BFCEC0066DEBD /* GameState.cpp in Sources */,
+				9CD6683A1BE33BD400637D3A /* gif_hash.c in Sources */,
 				9CD668041BE22E6900637D3A /* DBLevelNotes.cpp in Sources */,
 				9CD6680A1BE22E6900637D3A /* sql_common.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
@@ -826,13 +920,17 @@
 				9C52675D1B8E9FD800FF1CAC /* LanguageMgr.cpp in Sources */,
 				9C4FE8A61B85CC72003E3873 /* stringex.cpp in Sources */,
 				9CCA98AF1B8ABA340000D1D1 /* StartLayer.cpp in Sources */,
+				9CD668461BE33BD400637D3A /* Movie.cpp in Sources */,
 				9CCA98B81B8AFC5B0000D1D1 /* GameSceneMgr.cpp in Sources */,
 				9C1089241B81ADDC00426BD9 /* Collisionable.cpp in Sources */,
 				9C7532841B8C1C6A0066DEBD /* ConfirmLayer.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				9C1089201B81ADDC00426BD9 /* config_t.cpp in Sources */,
 				9C10890B1B81AD4700426BD9 /* JigTile.cpp in Sources */,
+				9CD6683E1BE33BD400637D3A /* quantize.c in Sources */,
 				9CCA98B41B8AF5670000D1D1 /* PlayMain.cpp in Sources */,
+				9CD668341BE33BD400637D3A /* dgif_lib.c in Sources */,
+				9CD668301BE33BD400637D3A /* Bitmap.cpp in Sources */,
 				9CBE08801B86E770006345E4 /* TouchPanel.cpp in Sources */,
 				9CBE087C1B86E770006345E4 /* DragonlyTouchPanel.cpp in Sources */,
 				9C75327C1B8C02F30066DEBD /* TempShadow.cpp in Sources */,
@@ -847,22 +945,30 @@
 				9C7532671B8BFCEC0066DEBD /* GameState.cpp in Sources */,
 				9C1089271B81ADDC00426BD9 /* DataStore.cpp in Sources */,
 				9C52675E1B8E9FD800FF1CAC /* LanguageMgr.cpp in Sources */,
+				9CD668451BE33BD400637D3A /* InstantGif.cpp in Sources */,
 				9C1089211B81ADDC00426BD9 /* config_t.cpp in Sources */,
 				9CD668031BE22E6900637D3A /* DBJigLevel.cpp in Sources */,
 				9CCA98B91B8AFC5B0000D1D1 /* GameSceneMgr.cpp in Sources */,
+				9CD668391BE33BD400637D3A /* gif_font.c in Sources */,
 				9C1089231B81ADDC00426BD9 /* OnFinally.cpp in Sources */,
 				9CBE087D1B86E770006345E4 /* DragonlyTouchPanel.cpp in Sources */,
 				9CD668051BE22E6900637D3A /* DBLevelNotes.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				9CCA98B01B8ABA340000D1D1 /* StartLayer.cpp in Sources */,
+				9CD668471BE33BD400637D3A /* Movie.cpp in Sources */,
 				9C75326D1B8BFD2D0066DEBD /* PlayManager.cpp in Sources */,
 				9C1089291B81ADDC00426BD9 /* EffectAudio.cpp in Sources */,
 				9C75327B1B8C02F30066DEBD /* ShadowCommand.cpp in Sources */,
 				9CBE087F1B86E770006345E4 /* RotableTouchPanel.cpp in Sources */,
 				9C7532791B8C02F30066DEBD /* PlayShared.cpp in Sources */,
 				9CBE08811B86E770006345E4 /* TouchPanel.cpp in Sources */,
+				9CD6683F1BE33BD400637D3A /* quantize.c in Sources */,
 				9C7532711B8C02B00066DEBD /* Direction.cpp in Sources */,
+				9CD668371BE33BD400637D3A /* gif_err.c in Sources */,
 				9CD6680D1BE22E6900637D3A /* sqlite3.c in Sources */,
+				9CD668331BE33BD400637D3A /* CacheGif.cpp in Sources */,
+				9CD668311BE33BD400637D3A /* Bitmap.cpp in Sources */,
+				9CD668411BE33BD400637D3A /* GifBase.cpp in Sources */,
 				9C1089251B81ADDC00426BD9 /* Collisionable.cpp in Sources */,
 				9CD668111BE2FE4200637D3A /* PlayInitMsg.cpp in Sources */,
 				9CE5181B1B9455D000A5DEC0 /* PlayDisplay.cpp in Sources */,
@@ -874,8 +980,12 @@
 				9CD668071BE22E6900637D3A /* DBMainLevel.cpp in Sources */,
 				9CA21A0A1B82C197001D2043 /* JigScene.cpp in Sources */,
 				9C10892B1B81ADDC00426BD9 /* lib4cc3x.cpp in Sources */,
+				9CD668351BE33BD400637D3A /* dgif_lib.c in Sources */,
+				9CD6683D1BE33BD400637D3A /* gifalloc.c in Sources */,
+				9CD668431BE33BD400637D3A /* GifMovie.cpp in Sources */,
 				9CCA98B51B8AF5670000D1D1 /* PlayMain.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
+				9CD6683B1BE33BD400637D3A /* gif_hash.c in Sources */,
 				9C4FE8A71B85CC72003E3873 /* stringex.cpp in Sources */,
 				9CD6680B1BE22E6900637D3A /* sql_common.cpp in Sources */,
 			);

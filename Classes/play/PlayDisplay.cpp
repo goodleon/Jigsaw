@@ -2,6 +2,7 @@
 
 #include "PlayDisplay.h"
 #include "PlayShared.h"
+#include "CacheGif.h"
 
 PlayDisplay::PlayDisplay()
 {
@@ -22,7 +23,10 @@ bool PlayDisplay::init()
 
     m_back->addTouchEventListener( std::bind(&PlayDisplay::onTouchPanel,this,placeholders::_1, placeholders::_2) );
 
-    m_img->loadTexture( playshared.getJigsaw() );
+    CacheGif* gif = CacheGif::create( playshared.getJigsaw().c_str() );
+    gif->setPosition(m_img->getContentSize()/2);
+    gif->setScale( m_img->getContentSize().width/gif->getContentSize().width );
+    m_img->addChild(gif);
 
 	return true;
 }

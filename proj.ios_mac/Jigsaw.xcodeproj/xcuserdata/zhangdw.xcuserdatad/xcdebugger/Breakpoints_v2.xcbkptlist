@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/play/JigTile.cpp"
-            timestampString = "462444657.723334"
+            timestampString = "467892860.196738"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "JigTile::setEdges(const std::vector&lt;EdgeType&gt;&amp; edges)"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "JigTile::setRawRect(const Rect&amp; rc)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/play/touch/TouchPanel.cpp"
-            timestampString = "467864749.749206"
+            timestampString = "467892860.196738"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "242"
-            endingLineNumber = "242"
+            startingLineNumber = "241"
+            endingLineNumber = "241"
             landmarkName = "TouchPanel::setStartRect(const Rect&amp; rc)"
             landmarkType = "5">
          </BreakpointContent>
@@ -176,22 +176,6 @@
             startingLineNumber = "31"
             endingLineNumber = "31"
             landmarkName = "TimeHpBar::onStateChanged(GameState gs)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/play/trunk/PlayShared.cpp"
-            timestampString = "467863292.794626"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "8"
-            endingLineNumber = "8"
-            landmarkName = "PlayShared::getJigsaw()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -423,22 +407,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../Classes/play/PlayMain.cpp"
-            timestampString = "467864325.224887"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "PlayMain::onClickFinish(Ref* sender)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "../Classes/play/touch/TouchPanel.cpp"
             timestampString = "467864749.749206"
             startingColumnNumber = "9223372036854775807"
@@ -472,7 +440,39 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/play/PlayMain.cpp"
-            timestampString = "467864399.528115"
+            timestampString = "467892860.196738"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "PlayMain::initJigPanel(SpriteFrame* sf)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/start/StartLayer.cpp"
+            timestampString = "467892860.196738"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "StartLayer::onClickStart(Ref* sender)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/play/PlayMain.cpp"
+            timestampString = "467892860.196738"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"
@@ -487,29 +487,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../Classes/start/StartLayer.cpp"
-            timestampString = "467868664.950525"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "StartLayer::load_csd()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "../Classes/play/PlayMain.cpp"
-            timestampString = "467867327.901162"
+            timestampString = "467895134.996627"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "PlayMain::initJigPanel(SpriteFrame* sf)"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "PlayMain::onClickFinish(Ref* sender)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
