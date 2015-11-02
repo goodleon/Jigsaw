@@ -32,10 +32,15 @@ bool TouchPanel::init()
 
 void TouchPanel::reset(const string& file, int rows, int cols)
 {
+    CCLOG("ddd:reset0");
     clear();
 
+    CCLOG("ddd:reset1");
+
     CacheGif* gif = CacheGif::create(file.c_str());
+    CCLOG("ddd:reset2:%p:%s", gif, file.c_str());
     const Size raw_size = gif->getContentSize();
+    CCLOG("ddd:reset3");
 
     m_tileSize.setSize( raw_size.width/cols, raw_size.height/rows );
     m_splitRows = rows;
@@ -43,11 +48,13 @@ void TouchPanel::reset(const string& file, int rows, int cols)
     
     setContentSize( raw_size );
 
-    LayerColor* flag = LayerColor::create(Color4B(255,0,255,255), raw_size.width, raw_size.height);
-    addChild(flag);
-    
+    CCLOG("ddd:reset4");
     initTiles(file);
+    CCLOG("ddd:reset5");
     initEdges();
+    CCLOG("ddd:reset6");
+    initBackLines();
+    CCLOG("ddd:reset7");
 }
 
 bool TouchPanel::isAllFinished()
@@ -233,6 +240,24 @@ void TouchPanel::initEdges()
     }
 }
 
+void TouchPanel::initBackLines()
+{
+    const Color4F color(1.0f,0,0,1.0f);
+    DrawNode* node = DrawNode::create();
+
+    for (int i=0; i<=m_splitRows; ++i) {
+        node->drawSegment(Point(0,i*m_tileSize.height), Point(getContentSize().width, i*m_tileSize.height), 1.0f, color);
+    }
+
+    for (int i=0; i<=m_splitCols; ++i) {
+        node->drawSegment(Point(i*m_tileSize.width, 0), Point(i*m_tileSize.width, getContentSize().height), 1.0f, color);
+    }
+
+//    node->drawRect(Point(0,0), getContentSize(), color);
+
+    addChild(node);
+}
+
 void TouchPanel::longTouchCallback(float delay)
 {
     m_touch_type = Touch_Drag;
@@ -265,6 +290,10 @@ void TouchPanel::startGame()
 
 void TouchPanel::checkGameState()
 {
+    if (GameStateMgr::inst().curState()==gs_prepare) {
+        return;
+    }
+
     if(GameStateMgr::inst().curState()!=gs_win && isAllFinished())
     {
         GameStateMgr::inst().change(gs_win);

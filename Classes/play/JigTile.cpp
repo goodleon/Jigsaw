@@ -31,7 +31,7 @@ void JigTile::setRawDisplay(const string& file)
 {
     removeAllChildren();
 
-    m_display = InstantGif::create(file.c_str());
+    m_display = CacheGif::create(file.c_str());
     m_display->setAnchorPoint(Point::ZERO);
     addChild(m_display);
 }

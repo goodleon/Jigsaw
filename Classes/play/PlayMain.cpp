@@ -37,21 +37,12 @@ bool PlayMain::init()
 	Node* root = load_csd();
     addChild(root);
 
-    SpriteFrame* sf = SpriteFrameCache::getInstance()->getSpriteFrameByName( playshared.getJigsaw() );
-
-//    if (playconfig().shadow())
-//    {
-//        JigBackground* bg = JigBackground::create();
-//        game->addChild( bg );
-//        bg->reset(sf, playshared.rows, playshared.cols);
-//    }
-
-    initJigPanel(sf);
+    initJigPanel();
 
 	return true;
 }
 
-void PlayMain::initJigPanel(SpriteFrame* sf)
+void PlayMain::initJigPanel()
 {
     if (playshared.config().rotable()) {
         playshared.jig_panel = RotableTouchPanel::create();

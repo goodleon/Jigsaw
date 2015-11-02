@@ -9,7 +9,8 @@
 #ifndef Jigsaw_version_h
 #define Jigsaw_version_h
 
-const int major_version = 1;
-const int minor_version = 0;
+#include "string"
+
+std::string get_version();
 
 #endif

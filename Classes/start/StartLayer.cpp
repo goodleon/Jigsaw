@@ -31,7 +31,7 @@ bool StartLayer::init()
 	Node* root = load_csd();
 	addChild(root);
 
-    m_version->setString( sstr("v.%d.%d", major_version, minor_version) );
+    m_version->setString( sstr("v.%s", get_version().c_str()) );
     
 	return true;
 }

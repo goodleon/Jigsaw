@@ -42,6 +42,7 @@ private:
 
     void initTiles(const string& gif_file);
     void initEdges();
+    void initBackLines();
     
     void longTouchCallback(float delay);
 

@@ -18,7 +18,7 @@ private:
     
 	virtual bool init() override;
 
-    void initJigPanel(SpriteFrame* sf);
+    void initJigPanel();
 private:
     cocos2d::Node* load_csd();
 
