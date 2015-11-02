@@ -1,7 +1,11 @@
 cocos2d
-proj.android
+proj.android/assets
+proj.android/libs
+proj.android/obj
+proj.android/res
 proj.linux
 proj.win8.1-universal
 proj.wp8-xaml
 proj.ios_mac/build
 bin
+proj.ios_mac/Jigsaw.xcodeproj/project.xcworkspace/xcuserdata/
