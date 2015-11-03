@@ -32,15 +32,10 @@ bool TouchPanel::init()
 
 void TouchPanel::reset(const string& file, int rows, int cols)
 {
-    CCLOG("ddd:reset0");
     clear();
 
-    CCLOG("ddd:reset1");
-
     CacheGif* gif = CacheGif::create(file.c_str());
-    CCLOG("ddd:reset2:%p:%s", gif, file.c_str());
     const Size raw_size = gif->getContentSize();
-    CCLOG("ddd:reset3");
 
     m_tileSize.setSize( raw_size.width/cols, raw_size.height/rows );
     m_splitRows = rows;
@@ -48,13 +43,9 @@ void TouchPanel::reset(const string& file, int rows, int cols)
     
     setContentSize( raw_size );
 
-    CCLOG("ddd:reset4");
     initTiles(file);
-    CCLOG("ddd:reset5");
     initEdges();
-    CCLOG("ddd:reset6");
     initBackLines();
-    CCLOG("ddd:reset7");
 }
 
 bool TouchPanel::isAllFinished()
@@ -266,17 +257,15 @@ void TouchPanel::longTouchCallback(float delay)
 void TouchPanel::setStartRect(const Rect& rc)
 {
     Rect real = rc;
-    real.origin += m_tileSize/2;
-    real.size.setSize( real.size.width-m_tileSize.width, real.size.height-m_tileSize.height );
-    
+//    real.origin += m_tileSize/2;
+//    real.size.setSize( real.size.width-m_tileSize.width, real.size.height-m_tileSize.height );
+
     for (int i=0; i<m_tiles.size(); ++i)
     {
         int x = rand_0_1() * real.size.width + real.origin.x;
         int y = rand_0_1() * real.size.height + real.origin.y;
 
-        DelayTime* delay = DelayTime::create(0.2f*i+0.5f);
-        MoveTo* move = MoveTo::create(0.3f, Point(x, y));
-        m_tiles.at(i)->runAction( Sequence::create(delay, move, NULL) );
+        startTile( i, Point(x, y) );
     }
 }
 

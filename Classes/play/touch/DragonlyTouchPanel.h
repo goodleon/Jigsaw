@@ -12,6 +12,8 @@ public:
 	virtual ~DragonlyTouchPanel();
     
     CREATE_FUNC(DragonlyTouchPanel);
+
+    virtual void startTile(int index, const Point& pt) override;
     
 protected:
     virtual void onClickTile(Touch* touch) override;

@@ -12,6 +12,16 @@ RotableTouchPanel::~RotableTouchPanel()
     
 }
 
+void RotableTouchPanel::startTile(int index, const Point &pt)
+{
+    DelayTime* delay = DelayTime::create(0.1f*index+0.5f);
+    MoveTo* move = MoveTo::create(0.2f, pt);
+    m_tiles.at(index)->runAction( Sequence::create(delay, move, NULL) );
+
+    DirectionType dir = (DirectionType)(rand()%4);
+    m_tiles.at(index)->setDirection( Direction( dir ) );
+}
+
 void RotableTouchPanel::onClickTile(Touch* touch)
 {
     Return_If(!m_touching);
@@ -20,13 +30,3 @@ void RotableTouchPanel::onClickTile(Touch* touch)
     m_touching->setDirection( dir.next() );
 }
 
-void RotableTouchPanel::setStartRect(const Rect& rc)
-{
-    DragonlyTouchPanel::setStartRect(rc);
-    
-//    for (int i=0; i<m_tiles.size(); ++i)
-//    {
-//        DirectionType dir = (DirectionType)(rand()%4);
-//        m_tiles.at(i)->setDirection( Direction( dir ) );
-//    }
-}
