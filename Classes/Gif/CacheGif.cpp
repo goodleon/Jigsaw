@@ -45,23 +45,22 @@ CacheGif::~CacheGif()
 
 bool CacheGif::init(const char* fileName)
 {
-	FILE* f = GifUtils::openFile(fileName);
-	return init(f,fileName);
+    m_gif_fullpath = fileName;
+    Data data = FileUtils::getInstance()->getDataFromFile(fileName);
+    return initWithGifData(data.getBytes(), data.getSize());
 }
 
 /*
  The FILE* will be closed after the function
  */
-bool CacheGif::init(FILE* f,const char* fileName)
+bool CacheGif::initWithGifData(const uchar* gif_data, size_t size)
 {
-	m_gif_fullpath = fileName;
-	if(GifUtils::isGifFile(f) == false)
+	if(GifUtils::isGifFile(gif_data) == false)
 	{
-		if(f) fclose(f);
 		return false;
 	}
     
-	GIFMovie* movie = GIFMovie::create(f);
+	GIFMovie* movie = GIFMovie::create(gif_data, size);
 	bool res = false;
 	do
 	{

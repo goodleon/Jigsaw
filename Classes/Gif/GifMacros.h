@@ -30,6 +30,23 @@ template <typename T> inline void TSwap(T& a, T& b) {
 } \
 }
 
+#define CREATE_WITH_PARAMS(__TYPE__, _PARAM_1_, _PARAM_2_) \
+static __TYPE__* create(_PARAM_1_ _param_1_, _PARAM_2_ _param_2_) \
+{ \
+    __TYPE__ *pRet = new __TYPE__(); \
+    if (pRet && pRet->init(_param_1_, _param_2_)) \
+    { \
+        return pRet; \
+    } \
+    else \
+    { \
+        delete pRet; \
+        pRet = NULL; \
+        return NULL; \
+    } \
+}
+
+
 #define CREATE_CCOBJ_WITH_PARAM(__TYPE__,_PARAM_) \
 	static __TYPE__* create(_PARAM_ _param_) \
 { \

@@ -10,10 +10,20 @@ static void packARGB32(Rgba* pixel, GifByteType alpha, GifByteType red,
 	pixel->blue = blue;
 }
 
+struct SelfReadData
+{
+    const uchar* data;
+    size_t pos;
+    size_t size;
+};
+
 static int DecodeCallBackProc(GifFileType* gif, GifByteType* bytes, int size)
 {
-	FILE* file = (FILE*) gif->UserData;
-	return fread(bytes, 1, size, file);
+	SelfReadData* data = (SelfReadData*) gif->UserData;
+    size_t actual_read_size = std::min( size, (int)(data->pos+data->size) );
+    std::copy_n(data->data+data->pos, actual_read_size, bytes);
+    data->pos += actual_read_size;
+    return actual_read_size;
 }
 
 static void getColorFromTable(int idx, Rgba* dst, const ColorMapObject* cmap)
@@ -29,31 +39,50 @@ GIFMovie::GIFMovie()
     fLastDrawIndex = -1;
 }
 
-bool GIFMovie::init(const char* fileName)
-{
-	FILE* file = GifUtils::openFile(fileName);
-	return init(file);
-}
+//bool GIFMovie::init(const char* fileName)
+//{
+//	FILE* file = GifUtils::openFile(fileName);
+//	return init(file);
+//}
+//
+//bool GIFMovie::init(FILE* file)
+//{
+//	if(file == NULL)
+//	{
+//		return false;
+//	}
+//
+//	int error = 0;
+//	fGIF = DGifOpen(file,&DecodeCallBackProc,&error);
+//
+//	if (NULL == fGIF || DGifSlurp(fGIF) != GIF_OK)
+//	{
+//		GifUtils::closeFile(file);
+//		DGifCloseFile(fGIF);
+//		fGIF = NULL;
+//		return false;
+//	}
+//
+//	GifUtils::closeFile(file);
+//	return true;
+//}
 
-bool GIFMovie::init(FILE* file)
+bool GIFMovie::init(const uchar* gif_data, size_t size)
 {
-	if(file == NULL)
-	{
-		return false;
-	}
+    SelfReadData* read_data = new SelfReadData{gif_data, 0, size};
 
-	int error = 0;
-	fGIF = DGifOpen(file,&DecodeCallBackProc,&error);
+    int error = 0;
+	fGIF = DGifOpen(read_data,&DecodeCallBackProc,&error);
 
 	if (NULL == fGIF || DGifSlurp(fGIF) != GIF_OK)
 	{
-		GifUtils::closeFile(file);
+        CC_SAFE_DELETE(read_data);
 		DGifCloseFile(fGIF);
 		fGIF = NULL;
 		return false;
 	}
 
-	GifUtils::closeFile(file);
+    CC_SAFE_DELETE(read_data);
 	return true;
 }
 

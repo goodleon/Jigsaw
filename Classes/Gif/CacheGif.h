@@ -5,6 +5,7 @@
 #include "GIFMovie.h"
 #include <vector>
 #include "GifBase.h"
+#include "cex.h"
 
 class GifSprieFrame
 {
@@ -55,10 +56,11 @@ class CacheGif : public GifBase
 {
 public:
 	CREATE_CCOBJ_WITH_PARAM(CacheGif,const char*);
-	virtual bool init(const char*);
+	virtual bool init(const char* file_name);
 
-	CREATE_CCOBJ_WITH_PARAMS(CacheGif, FILE*, const char*);
-	virtual bool init(FILE*,const char*);
+//	CREATE_CCOBJ_WITH_PARAMS(CacheGif, FILE*, const char*);
+private:
+	virtual bool initWithGifData(const uchar* gif_data, size_t size);
 	CacheGif();
 	~CacheGif();
 	virtual void updateGif(uint32_t delta);

@@ -61,6 +61,18 @@ public:
 		fseek(file,index,SEEK_SET);
 		return res;
 	}
+
+    static bool isGifFile(const unsigned char* buf)
+    {
+        bool ret = false;
+        if (memcmp(GIF_STAMP,   buf, GIF_STAMP_LEN) == 0 ||
+            memcmp(GIF87_STAMP, buf, GIF_STAMP_LEN) == 0 ||
+            memcmp(GIF89_STAMP, buf, GIF_STAMP_LEN) == 0) {
+            ret = true;
+        }
+
+        return ret;
+    }
 };
 
 #endif//GIFUTILS_H

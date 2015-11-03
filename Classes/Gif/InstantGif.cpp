@@ -4,20 +4,19 @@ static uint32_t InstantGifId = 0;
 
 bool InstantGif::init(const char* fileName)
 {
-	FILE* f = GifUtils::openFile(fileName);
-	return init(f,fileName);
+    m_gif_fullpath = fileName;
+    cocos2d::Data data = cocos2d::FileUtils::getInstance()->getDataFromFile(fileName);
+	return initWithGifData(data.getBytes(), data.getSize());
 }
 
-bool InstantGif::init(FILE* f,const char* fileName)
+bool InstantGif::initWithGifData(const uchar* gif_data, size_t size)
 {
-	m_gif_fullpath = fileName;
-	if(GifUtils::isGifFile(f) == false)
+	if(GifUtils::isGifFile(gif_data) == false)
 	{
-        GifUtils::closeFile(f);
 		return false;
 	}
 
-	m_movie = GIFMovie::create(f);
+	m_movie = GIFMovie::create(gif_data, size);
 	if(m_movie == NULL || m_movie->getGifCount() <= 0)
 	{
 		return false;

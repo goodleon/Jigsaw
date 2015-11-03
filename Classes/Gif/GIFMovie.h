@@ -7,15 +7,19 @@
 #include <string.h>
 #include <assert.h>
 #include "GifUtils.h"
+#include "cex.h"
 
 class GIFMovie : public Movie {
 public:
 	virtual ~GIFMovie();
 	GIFMovie();
-	CREATE_WITH_PARAM(GIFMovie, const char*);
-    virtual bool init(const char*);
-	CREATE_WITH_PARAM(GIFMovie, FILE*);
-	virtual bool init(FILE*);
+//	CREATE_WITH_PARAM(GIFMovie, const char*);
+//    virtual bool init(const char*);
+//	CREATE_WITH_PARAM(GIFMovie, FILE*);
+//	virtual bool init(FILE*);
+
+    CREATE_WITH_PARAMS(GIFMovie, const uchar*, size_t);
+    virtual bool init(const uchar* gif_data, size_t size);
 
 	int getGifCount()
 	{

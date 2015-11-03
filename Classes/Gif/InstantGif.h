@@ -3,6 +3,7 @@
 
 #include "GIFMovie.h"
 #include "GifBase.h"
+#include "cex.h"
 
 /*
  InstantGif will just decode some raw data when it init.
@@ -14,8 +15,8 @@ public:
 	CREATE_CCOBJ_WITH_PARAM(InstantGif,const char*);
 	virtual bool init(const char*);
 
-	CREATE_CCOBJ_WITH_PARAMS(InstantGif, FILE*, const char*);
-	virtual bool init(FILE*,const char*);
+private:
+	virtual bool initWithGifData(const uchar* gif_data, size_t size);
 	InstantGif();
 	~InstantGif();
 	virtual void updateGif(uint32_t delta);
