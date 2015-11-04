@@ -20,8 +20,8 @@ DBMainLevel::DBMainLevel()
 {
     id = 0;
     level = 0;
-    min_jiglevel = 0;
-    max_jiglevel = 0;
+    Count = 0;
+    Rotable = false;
 }
 
 DBMainLevel DBMainLevel::readby_level(int level)
@@ -51,7 +51,8 @@ int DBMainLevel::callback(void *NotUsed, int argc, char **argv, char **azColName
     DBMainLevel* data = (DBMainLevel*)NotUsed;
     data->id = atoi( argv[0] );
     data->level = atoi( argv[1] );
-    data->min_jiglevel = atoi( argv[2] );
-    data->max_jiglevel = atoi( argv[3] );
+    data->Count = atoi( argv[2] );
+    data->Rotable = atoi( argv[3] );
+    data->Description = argv[4];
     return 0;
 }

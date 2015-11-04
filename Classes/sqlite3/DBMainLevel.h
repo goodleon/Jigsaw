@@ -9,13 +9,16 @@
 #ifndef __Jigsaw__DBMainLevel__
 #define __Jigsaw__DBMainLevel__
 
+#include "string"
+
 class DBMainLevel
 {
 public:
     int id;
     int level;
-    int min_jiglevel;
-    int max_jiglevel;
+    int Count;
+    bool Rotable;
+    std::string Description;
     
     DBMainLevel();
     

@@ -27,8 +27,7 @@ public:
     void restart();
     void startNextLevel();
     
-//    void saveState();
-//    void clearState();
+    void saveRecord();
 
     bool finishAllState();
 

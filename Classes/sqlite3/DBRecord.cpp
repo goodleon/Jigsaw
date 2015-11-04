@@ -1,12 +1,12 @@
 //
-//  DBLevelNotes.cpp
+//  DBRecord.cpp
 //  Jigsaw
 //
 //  Created by zhangdw on 15-8-26.
 //
 //
 
-#include "DBLevelNotes.h"
+#include "DBRecord.h"
 #include "sqlite3.h"
 #include "cex.h"
 #include "cocos2d.h"
@@ -16,28 +16,27 @@ using namespace std;
 using namespace cex;
 USING_NS_CC;
 
-DBLevelNotes::DBLevelNotes()
+DBRecord::DBRecord()
 {
-    level = 0;
-    jiglevel = 0;
-    star = 0;
-    score = 0;
+    id = 0;
+    main_level = 0;
+    sub_level = 0;
 }
 
-DBLevelNotes DBLevelNotes::readby_level(int level, int jiglevel)
+DBRecord DBRecord::readby_level(int level)
 {
-    DBLevelNotes data;
+    DBRecord data;
 
     string file = jigsql::database_file();
     sqlite3* db;
     int rc = sqlite3_open(file.c_str(), &db);
     if( rc ){
-        CCLOG("Can't open database: %s\n", sqlite3_errmsg(db));
+        CCLOG("Can't open database: %s\n", file.c_str());
         sqlite3_close(db);
         return data;
     }
     char *zErrMsg = 0;
-    rc = sqlite3_exec(db, cstr("select * from LevelNotes where level=%d and jiglevel=%d", level, jiglevel), DBLevelNotes::callback, &data, &zErrMsg);
+    rc = sqlite3_exec(db, cstr("select * from Record where level=%d", level), DBRecord::callback, &data, &zErrMsg);
     if( rc!=SQLITE_OK ){
         CCLOG("SQL error: %s\n", zErrMsg);
         sqlite3_free(zErrMsg);
@@ -46,7 +45,7 @@ DBLevelNotes DBLevelNotes::readby_level(int level, int jiglevel)
     return data;
 }
 
-void DBLevelNotes::writeby_level()
+void DBRecord::write()
 {
     string file = jigsql::database_file();
     sqlite3* db;
@@ -57,7 +56,8 @@ void DBLevelNotes::writeby_level()
         return;
     }
     char *zErrMsg = 0;
-    rc = sqlite3_exec(db, cstr("update LevelNotes set star=%d ,score=%d where level==%d and jiglevel=%d", star, score, level, jiglevel), nullptr, nullptr, &zErrMsg);
+    string sql = sstr("update Record set sub_level=%d where id=%d", sub_level, id);
+    rc = sqlite3_exec(db, sql.c_str(), nullptr, nullptr, &zErrMsg);
     if( rc!=SQLITE_OK ){
         CCLOG("SQL error: %s\n", zErrMsg);
         sqlite3_free(zErrMsg);
@@ -65,13 +65,11 @@ void DBLevelNotes::writeby_level()
     sqlite3_close(db);
 }
 
-int DBLevelNotes::callback(void *NotUsed, int argc, char **argv, char **azColName)
+int DBRecord::callback(void *NotUsed, int argc, char **argv, char **azColName)
 {
-    DBLevelNotes* data = (DBLevelNotes*)NotUsed;
+    DBRecord* data = (DBRecord*)NotUsed;
     data->id = atoi( argv[0] );
-    data->level = atoi( argv[1] );
-    data->jiglevel = atoi( argv[2] );
-    data->star = atoi( argv[3] );
-    data->score = atoi( argv[4] );
+    data->main_level = atoi( argv[1] );
+    data->sub_level = atoi( argv[2] );
     return 0;
 }

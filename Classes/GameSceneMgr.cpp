@@ -11,7 +11,7 @@
 #include "StartLayer.h"
 #include "PlayMain.h"
 #include "ThanksLayer.h"
-//#include "ChooseLevel.h"
+#include "HistoryLayer.h"
 
 USING_NS_CC;
 
@@ -32,11 +32,11 @@ void GameSceneMgr::replace(SceneType scene)
             to_scene = ThanksLayer::createScene();
         }
             break;
-//        case kChooseLevel:
-//        {
-//            to_scene = ChooseLevel::createScene();
-//        }
-//            break;
+        case kHistoryScene:
+        {
+            to_scene = HistoryLayer::createScene();
+        }
+            break;
         case kPlayScene:
         {
             to_scene = PlayMain::createScene();

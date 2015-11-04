@@ -14,9 +14,9 @@ LOCAL_MODULE_FILENAME := libcocos2dcpp
 ALL_HEADER_DIR := $(shell find $(shell pwd)/jni/../../Classes -type d)
 ALL_SRC_FILE := $(shell find $(shell pwd)/jni/../../Classes  -name '*.cpp' -o -name '*.c')
 
-$(warning 'LOCAL_PATH1', $(shell pwd))
+# $(warning 'LOCAL_PATH1', $(shell pwd))
 # $(warning 'LOCAL_PATH2', $(call my-dir))
-$(warning 'LOCAL_PATH3', $(LOCAL_PATH))
+# $(warning 'LOCAL_PATH3', $(LOCAL_PATH))
 # $(warning 'ALL_HEADER_DIR' $(ALL_HEADER_DIR))
 # $(warning 'ALL_SRC_DIR' $(ALL_SRC_FILE))
 

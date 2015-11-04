@@ -41,8 +41,6 @@ Node* ThanksLayer::load_csd()
 	btn = static_cast<Button*>( root->getChildByName("Return") );
 	btn->addClickEventListener( std::bind(&ThanksLayer::onClickReturn, this, placeholders::_1) );
 
-
-
 	return root;
 }
 
@@ -51,6 +49,4 @@ void ThanksLayer::onClickReturn(Ref* sender)
 {
     GameSceneMgr::inst().replace(kStartScene);
 }
-
-
 

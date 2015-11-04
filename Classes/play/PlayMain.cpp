@@ -93,11 +93,13 @@ void PlayMain::onClickFinish(Ref* sender)
     {
         if (PlayManager::inst().finishAllState())
         {
+            PlayManager::inst().saveRecord();
             PlayManager::inst().exitGame();
             JigToast::show("finished_all");
         }
         else
         {
+            PlayManager::inst().saveRecord();
             PlayManager::inst().startNextLevel();
         }
     }

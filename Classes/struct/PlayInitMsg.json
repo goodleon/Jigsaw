@@ -1,4 +1,6 @@
 [
-	{"ctype":"int", "name":"max_level"},
+	{"ctype":"int", "name":"main_level"},
+	{"ctype":"int", "name":"start_level"},
+	{"ctype":"int", "name":"level_count"},
 	{"ctype":"bool", "name":"rotable"}
 ]

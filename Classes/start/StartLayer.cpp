@@ -3,6 +3,7 @@
 #include "StartLayer.h"
 #include "PlayManager.h"
 #include "GameSceneMgr.h"
+#include "DBRecord.h"
 #include "DBMainLevel.h"
 #include "version.h"
 
@@ -56,11 +57,21 @@ Node* StartLayer::load_csd()
 
 void StartLayer::onClickStart(Ref* sender)
 {
-    DBMainLevel level = DBMainLevel::readby_level(0);
-    PlayInitMsg msg;
-    msg.set_max_level( level.max_jiglevel );
-    msg.set_rotable(false);
-    PlayManager::inst().enterGame(msg);
+    DBRecord record = DBRecord::readby_level(0);
+    if (record.main_level==0 && record.sub_level==0)
+    {
+        DBMainLevel level = DBMainLevel::readby_level(0);
+        PlayInitMsg msg;
+        msg.set_main_level( 0 );
+        msg.set_start_level( 0 );
+        msg.set_level_count( level.Count );
+        msg.set_rotable( level.Rotable );
+        PlayManager::inst().enterGame(msg);
+    }
+    else
+    {
+        GameSceneMgr::inst().replace( kHistoryScene );
+    }
 }
 
 void StartLayer::onClickThanks(Ref* sender)

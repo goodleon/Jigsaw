@@ -15,7 +15,7 @@ enum SceneType
 {
     kStartScene,
     kThanksScene,
-    // kChooseLevel,
+    kHistoryScene,
     kPlayScene
 };
 

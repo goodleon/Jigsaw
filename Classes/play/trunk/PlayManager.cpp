@@ -9,8 +9,8 @@
 #include "PlayManager.h"
 #include "PlayShared.h"
 #include "GameSceneMgr.h"
-#include "DBLevelNotes.h"
 #include "DBJigLevel.h"
+#include "DBRecord.h"
 
 PlayManager::PlayManager()
 {
@@ -37,8 +37,8 @@ void PlayManager::enterGame(const PlayInitMsg& msg)
     playshared.resetAll();
     
     playshared.m_config = msg;
-    playshared.cur_level = 0;
-    CCASSERT(playshared.cur_level<playshared.config().max_level(), "");
+    playshared.cur_level = msg.start_level();
+    CCASSERT(playshared.cur_level<playshared.config().level_count(), "");
     
     restart();
 }
@@ -64,25 +64,24 @@ void PlayManager::restart()
 
 void PlayManager::startNextLevel()
 {
-    assert( playshared.cur_level+1 != playshared.config().max_level() );
+    assert( playshared.cur_level+1 != playshared.config().level_count() );
     ++playshared.cur_level;
 
     restart();
 }
 
-//void PlayManager::saveState()
-//{
-//}
-
-//void PlayManager::clearState()
-//{
-//    GameStateMgr::inst().clearListener();
-//    GameStateMgr::inst().change(gs_none);
-//}
+void PlayManager::saveRecord()
+{
+    DBRecord record = DBRecord::readby_level(playshared.config().main_level());
+    if (playshared.cur_level > record.sub_level) {
+        record.sub_level = playshared.cur_level;
+        record.write();
+    }
+}
 
 bool PlayManager::finishAllState()
 {
-    return playshared.cur_level==playshared.config().max_level()-1;
+    return playshared.cur_level==playshared.config().level_count()-1;
 }
 
 void PlayManager::reloadResource()

@@ -5,7 +5,7 @@ PlayShared playshared;
 
 string PlayShared::getJigsaw()
 {
-    const string file = sstr("jigsaw/pic%02d.gif", cur_level);
+    const string file = sstr("jigsaw%d/pic%02d.gif", config().main_level(), cur_level);
     return FileUtils::getInstance()->fullPathForFilename( file );
 }
 
