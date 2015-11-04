@@ -58,7 +58,7 @@ Node* StartLayer::load_csd()
 void StartLayer::onClickStart(Ref* sender)
 {
     DBRecord record = DBRecord::readby_level(0);
-    if (record.main_level==0 && record.sub_level==0)
+    if (record.main_level==0 && record.sub_level<0)
     {
         DBMainLevel level = DBMainLevel::readby_level(0);
         PlayInitMsg msg;

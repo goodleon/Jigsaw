@@ -109,8 +109,14 @@ void HistoryLayer::onClickReturn(Ref* sender)
 
 void HistoryLayer::onClickPay(Ref* sender)
 {
-    Button* btn = static_cast<Button*>(sender);
-    CCLOG("%s", btn->getName().c_str());
+    DBRecord record = DBRecord::readby_level(1);
+    if (record.sub_level<0) {
+        record.sub_level = 0;
+        record.write();
+        m_record.at(1) = record;
+        initLevel(1);
+        initPayment();
+    }
 }
 
 void HistoryLayer::onClickButton_2(Ref* sender)

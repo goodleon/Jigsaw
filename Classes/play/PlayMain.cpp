@@ -8,6 +8,7 @@
 #include "GameState.h"
 #include "JigToast.h"
 #include "PlayManager.h"
+#include "LanguageMgr.h"
 
 Scene* PlayMain::createScene()
 {
@@ -38,6 +39,8 @@ bool PlayMain::init()
     addChild(root);
 
     initJigPanel();
+
+    m_level->setString( LanguageMgr::inst().getText( sstr("level%d", playshared.cur_level) ) );
 
 	return true;
 }
@@ -75,6 +78,7 @@ Node* PlayMain::load_csd()
     btn = static_cast<Button*>( root->getChildByName("ReturnMenu") );
     btn->addClickEventListener( std::bind(&PlayMain::onClickReturnMenu, this, placeholders::_1) );
 
+    m_level = static_cast<Text*>(root->getChildByName("level"));
 
     m_game_panel = static_cast<Layout*>(root->getChildByName("game_panel"));
     m_panel_start = static_cast<Layout*>(m_game_panel->getChildByName("panel_start"));

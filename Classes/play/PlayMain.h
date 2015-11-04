@@ -27,6 +27,7 @@ private:
     void onClickReturnMenu(Ref* sender);
 
 private:
+    Text* m_level;
     Layout* m_panel_start;
     Layout* m_game_panel;
 };
