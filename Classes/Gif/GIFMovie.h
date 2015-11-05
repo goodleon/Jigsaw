@@ -41,6 +41,8 @@ private:
 	int fCurrIndex;
 	int fLastDrawIndex;
 	Bitmap fBackup;
+
+    std::vector<Bitmap*> m_bitmapFrame;
 };
 
 #endif

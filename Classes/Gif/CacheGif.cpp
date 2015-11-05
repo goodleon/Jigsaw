@@ -1,5 +1,7 @@
 #include "CacheGif.h"
 #include "GIFMovie.h"
+#include "GifMovieCache.h"
+#include "GifFrameCache.h"
 
 USING_NS_CC;
 
@@ -46,36 +48,20 @@ CacheGif::~CacheGif()
 bool CacheGif::init(const char* fileName)
 {
     m_gif_fullpath = fileName;
-    Data data = FileUtils::getInstance()->getDataFromFile(fileName);
-    return initWithGifData(data.getBytes(), data.getSize());
-}
 
-/*
- The FILE* will be closed after the function
- */
-bool CacheGif::initWithGifData(const uchar* gif_data, size_t size)
-{
-	if(GifUtils::isGifFile(gif_data) == false)
-	{
-		return false;
-	}
-    
-	GIFMovie* movie = GIFMovie::create(gif_data, size);
-	bool res = false;
-	do
-	{
-		CC_BREAK_IF( movie == NULL);
-		CC_BREAK_IF(initGifData(movie) == false);
-		res = this->initWithSpriteFrame(m_frameData[0]->getSpriteFrame());//init CCSprite with the first frame
-	} while (0);
-    
-	CC_SAFE_DELETE(movie);
-    
-	if(res && m_frameData.size()>1)
-	{
-		scheduleUpdate();
-	}
-	return res;
+    bool res = false;
+    do
+    {
+        CC_BREAK_IF(initGifData() == false);
+        res = this->initWithSpriteFrame(m_frameData[0]->getSpriteFrame());//init CCSprite with the first frame
+    } while (0);
+
+//    if(res && m_frameData.size()>1)
+    if(res)
+    {
+        scheduleUpdate();
+    }
+    return res;
 }
 
 std::string CacheGif::getGifFrameName(int index)
@@ -109,27 +95,19 @@ SpriteFrame* CacheGif::getGifSpriteFrame(Bitmap* bm, int index)
 	return spriteFrame;
 }
 
-bool CacheGif::initGifData(GIFMovie* movie)
+bool CacheGif::initGifData()
 {
-    if(movie == NULL) return false;
+    std::vector<GifFrame> frames = GifFrameCache::getInstance()->getGifFrames(m_gif_fullpath);
+    for (auto it = frames.begin(); it != frames.end(); ++it)
+    {
+        if (it->m_bm==nullptr || !it->m_bm->isValid()) {
+            continue;
+        }
 
-	int gifCount = movie->getGifCount();
-	for(int i = 0; i < gifCount; i++)
-	{
-		GifFrame gifFrame = movie->getGifFrameByIndex(i);
-		if(gifFrame.m_bm == NULL || !gifFrame.m_bm->isValid())
-		{
-			continue;
-		}
-		addGifSpriteFrame(gifFrame);
-	}
+        addGifSpriteFrame(*it);
+    }
 
-	if(m_frameData.size() <= 0)
-	{
-		return false;
-	}
-
-	return true;
+    return (m_frameData.size() > 0);
 }
 
 void CacheGif::updateGif(uint32_t delta)
@@ -158,23 +136,24 @@ void CacheGif::updateGif(uint32_t delta)
 	}
 }
 
-void CacheGif::addGifSpriteFrame(GifFrame& gifFrame)
+void CacheGif::addGifSpriteFrame(const GifFrame& gifFrame)
 {
     if(gifFrame.m_frameData.m_index == UNINITIALIZED_UINT)
     {
         return;
     }
-    
-	if(m_frameData.size() > 0)
-	{
-		for(std::vector<GifSprieFrame*>::iterator iter = m_frameData.begin(); iter != m_frameData.end(); iter++)
-		{
-			if((*iter)->Index() == gifFrame.m_frameData.m_index)
-			{
-				return ;
-			}
-		}
-	}
+
+    //正常情况下，没什么用。
+//	if(m_frameData.size() > 0)
+//	{
+//		for(std::vector<GifSprieFrame*>::iterator iter = m_frameData.begin(); iter != m_frameData.end(); iter++)
+//		{
+//			if((*iter)->Index() == gifFrame.m_frameData.m_index)
+//			{
+//				return ;
+//			}
+//		}
+//	}
 
 	cocos2d::SpriteFrame* spriteFrame = getGifSpriteFrame(gifFrame.m_bm, gifFrame.m_frameData.m_index);
     

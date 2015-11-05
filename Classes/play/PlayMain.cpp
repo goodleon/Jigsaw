@@ -99,7 +99,7 @@ void PlayMain::onClickFinish(Ref* sender)
         {
             PlayManager::inst().saveRecord();
             PlayManager::inst().exitGame();
-            JigToast::show("finished_all");
+//            JigToast::show("finished_all");
         }
         else
         {

@@ -60,16 +60,16 @@ public:
 
 //	CREATE_CCOBJ_WITH_PARAMS(CacheGif, FILE*, const char*);
 private:
-	virtual bool initWithGifData(const uchar* gif_data, size_t size);
-	CacheGif();
+
+    CacheGif();
 	~CacheGif();
 	virtual void updateGif(uint32_t delta);
 	
-	bool initGifData(GIFMovie* movie);
+	bool initGifData();
 protected:
 	virtual std::string getGifFrameName(int index);
 	virtual cocos2d::SpriteFrame* getGifSpriteFrame(Bitmap* bm, int index);
-	void addGifSpriteFrame(GifFrame& frame);
+	void addGifSpriteFrame(const GifFrame& frame);
 private:
 	int m_duration;
 	int m_progress;

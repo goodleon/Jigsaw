@@ -11,6 +11,7 @@
 #include "GameSceneMgr.h"
 #include "DBJigLevel.h"
 #include "DBRecord.h"
+#include "GifMovieCache.h"
 
 PlayManager::PlayManager()
 {
@@ -49,12 +50,16 @@ void PlayManager::exitGame()
     GameStateMgr::inst().clearListener();
     GameStateMgr::inst().change(gs_none);
 
+    GifMovieCache::getInstance()->cleanup();
+
     GameSceneMgr::inst().replace(kStartScene);
 }
 
 void PlayManager::restart()
 {
     playshared.resetNewlevel();
+
+    GifMovieCache::getInstance()->cleanup();
 
     reloadResource();
 

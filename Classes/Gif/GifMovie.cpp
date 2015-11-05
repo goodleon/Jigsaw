@@ -83,6 +83,9 @@ bool GIFMovie::init(const uchar* gif_data, size_t size)
 	}
 
     CC_SAFE_DELETE(read_data);
+
+    m_bitmapFrame.resize( getGifCount(), nullptr );
+
 	return true;
 }
 
@@ -90,6 +93,12 @@ GIFMovie::~GIFMovie()
 {
     if (fGIF)
         DGifCloseFile(fGIF);
+
+    for (auto it = m_bitmapFrame.begin(); it != m_bitmapFrame.end(); ++it)
+    {
+        delete *it;
+    }
+    m_bitmapFrame.clear();
 }
  
 static uint32_t savedimage_duration(const SavedImage* image)
@@ -119,13 +128,21 @@ GifFrame GIFMovie::getGifFrameByIndex(unsigned int frameIndex)
 	{
 		return gif;
 	}
-	int duration = savedimage_duration(&fGIF->SavedImages[frameIndex]);
-	fCurrIndex = frameIndex;
-	onGetBitmap(&m_bitmap);
+
+    int duration = savedimage_duration(&fGIF->SavedImages[frameIndex]);
+
+    if (m_bitmapFrame.at(frameIndex) == nullptr)
+    {
+        m_bitmapFrame.at(frameIndex) = new Bitmap();
+        fLastDrawIndex = -1;
+        fCurrIndex = frameIndex;
+        fBackup.resetBitmap();
+        onGetBitmap(m_bitmapFrame.at(frameIndex));
+    }
     
 	gif.m_frameData.m_duration = duration;
 	gif.m_frameData.m_index = frameIndex;
-    gif.m_bm = &m_bitmap;
+    gif.m_bm = m_bitmapFrame.at(frameIndex);
 
 	return gif;
 }
