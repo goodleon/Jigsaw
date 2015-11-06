@@ -7,6 +7,7 @@
 #include "InstantGif.h"
 #include "PlayInitMsg.h"
 #include "PlayManager.h"
+#include "PaymentMgr.h"
 
 class GifWidget : public Button
 {
@@ -38,8 +39,36 @@ public:
     int SubLevel;
 };
 
+struct PayResult
+{
+    HistoryLayer* layer;
+    void onPayCallback(bool succeed)
+    {
+        if (!succeed) {
+            JigToast::show("pay_fail");
+        }
+        else{
+            DBRecord record = DBRecord::readby_level(1);
+            if (record.sub_level<0) {
+                record.sub_level = 0;
+                record.write();
+                if(layer){
+                    layer->m_record.at(1) = record;
+                    layer->initLevel(1);
+                    layer->initPayment();
+                }
+            }
+        }
+
+        delete this;
+        if(layer){
+            layer->m_payResult = nullptr;
+        }
+    }
+};
 
 HistoryLayer::HistoryLayer()
+:m_payResult(nullptr)
 {
 
 }
@@ -109,14 +138,14 @@ void HistoryLayer::onClickReturn(Ref* sender)
 
 void HistoryLayer::onClickPay(Ref* sender)
 {
-    DBRecord record = DBRecord::readby_level(1);
-    if (record.sub_level<0) {
-        record.sub_level = 0;
-        record.write();
-        m_record.at(1) = record;
-        initLevel(1);
-        initPayment();
-    }
+    if(m_payResult)
+        return;
+
+    m_payResult = new PayResult();
+    m_payResult->layer = this;
+
+    PaymentMgr::inst().setPayCallback( std::bind(&PayResult::onPayCallback, m_payResult, placeholders::_1) );
+    PaymentMgr::inst().pay(100);
 }
 
 void HistoryLayer::onClickButton_2(Ref* sender)
@@ -162,6 +191,8 @@ void HistoryLayer::initLevel(int level)
 
 void HistoryLayer::initPayment()
 {
+//    onClickPay(nullptr);
+
     m_btn_pay->setVisible( m_record.at(1).sub_level<0 );
     m_pview.at(1)->setVisible( !m_btn_pay->isVisible() );
 }

@@ -10,11 +10,14 @@
 
 USING_NS_CC_EXT;
 
+class PayResult;
+
 class HistoryLayer : public cocos2d::Layer
 {
 public:
     JIG_SCENE_FROM_LAYER(HistoryLayer);
 
+    friend class PayResult;
 private:
 	HistoryLayer();
 	virtual ~HistoryLayer() override;
@@ -46,6 +49,8 @@ private:
     vector<PageView*> m_pview;
     vector<DBMainLevel> m_level;
     vector<DBRecord> m_record;
+
+    PayResult* m_payResult;
 };
 
 #endif

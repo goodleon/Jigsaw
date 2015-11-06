@@ -6,6 +6,7 @@
 #include "DBRecord.h"
 #include "DBMainLevel.h"
 #include "version.h"
+#include "PaymentMgr.h"
 
 StartLayer::StartLayer()
 {
@@ -33,6 +34,8 @@ bool StartLayer::init()
 	addChild(root);
 
     m_version->setString( sstr("v.%s", get_version().c_str()) );
+
+    PaymentMgr::inst().init();
     
 	return true;
 }

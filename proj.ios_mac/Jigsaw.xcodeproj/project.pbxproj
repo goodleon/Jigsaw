@@ -116,6 +116,12 @@
 		9CBE7EC51BEB1FB500596CBF /* GifMovieCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE7EC21BEB1FB400596CBF /* GifMovieCache.cpp */; };
 		9CBE7EC81BEB2B5F00596CBF /* GifFrameCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE7EC61BEB2B5F00596CBF /* GifFrameCache.cpp */; };
 		9CBE7EC91BEB2B5F00596CBF /* GifFrameCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE7EC61BEB2B5F00596CBF /* GifFrameCache.cpp */; };
+		9CBE7ED91BECA9F300596CBF /* PayInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE7ED71BECA9F300596CBF /* PayInterface.cpp */; };
+		9CBE7EDA1BECA9F300596CBF /* PayInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE7ED71BECA9F300596CBF /* PayInterface.cpp */; };
+		9CBE7EDD1BECAA8000596CBF /* BaiduPay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE7EDB1BECAA8000596CBF /* BaiduPay.cpp */; };
+		9CBE7EDE1BECAA8000596CBF /* BaiduPay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE7EDB1BECAA8000596CBF /* BaiduPay.cpp */; };
+		9CBE7EE11BECAAFE00596CBF /* PaymentMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE7EDF1BECAAFE00596CBF /* PaymentMgr.cpp */; };
+		9CBE7EE21BECAAFE00596CBF /* PaymentMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE7EDF1BECAAFE00596CBF /* PaymentMgr.cpp */; };
 		9CCA98AF1B8ABA340000D1D1 /* StartLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA98AD1B8ABA340000D1D1 /* StartLayer.cpp */; };
 		9CCA98B01B8ABA340000D1D1 /* StartLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA98AD1B8ABA340000D1D1 /* StartLayer.cpp */; };
 		9CCA98B41B8AF5670000D1D1 /* PlayMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA98B21B8AF5670000D1D1 /* PlayMain.cpp */; };
@@ -324,6 +330,12 @@
 		9CBE7EC31BEB1FB400596CBF /* GifMovieCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifMovieCache.h; sourceTree = "<group>"; };
 		9CBE7EC61BEB2B5F00596CBF /* GifFrameCache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GifFrameCache.cpp; sourceTree = "<group>"; };
 		9CBE7EC71BEB2B5F00596CBF /* GifFrameCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifFrameCache.h; sourceTree = "<group>"; };
+		9CBE7ED71BECA9F300596CBF /* PayInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PayInterface.cpp; sourceTree = "<group>"; };
+		9CBE7ED81BECA9F300596CBF /* PayInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayInterface.h; sourceTree = "<group>"; };
+		9CBE7EDB1BECAA8000596CBF /* BaiduPay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaiduPay.cpp; sourceTree = "<group>"; };
+		9CBE7EDC1BECAA8000596CBF /* BaiduPay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduPay.h; sourceTree = "<group>"; };
+		9CBE7EDF1BECAAFE00596CBF /* PaymentMgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PaymentMgr.cpp; sourceTree = "<group>"; };
+		9CBE7EE01BECAAFE00596CBF /* PaymentMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentMgr.h; sourceTree = "<group>"; };
 		9CCA98AD1B8ABA340000D1D1 /* StartLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StartLayer.cpp; sourceTree = "<group>"; };
 		9CCA98AE1B8ABA340000D1D1 /* StartLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartLayer.h; sourceTree = "<group>"; };
 		9CCA98B21B8AF5670000D1D1 /* PlayMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayMain.cpp; sourceTree = "<group>"; };
@@ -500,6 +512,8 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9CBE7ED61BECA9F300596CBF /* pay */,
+				9CBE7ED11BECA9C900596CBF /* pay */,
 				9CD668171BE33BD400637D3A /* Gif */,
 				9CD668161BE3140100637D3A /* version.h */,
 				9CD667F51BE22E6900637D3A /* sqlite3 */,
@@ -648,6 +662,7 @@
 				9C5269111B8EBA4E00FF1CAC /* res */,
 				9C5269121B8EBA4E00FF1CAC /* sdpng */,
 				9C5267681B8EBA3C00FF1CAC /* chinese.xml */,
+				9CBE7ED01BECA99100596CBF /* pay */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -683,6 +698,34 @@
 				9CBE087B1B86E770006345E4 /* TouchPanel.h */,
 			);
 			path = touch;
+			sourceTree = "<group>";
+		};
+		9CBE7ED01BECA99100596CBF /* pay */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = pay;
+			path = ../Classes/pay;
+			sourceTree = "<group>";
+		};
+		9CBE7ED11BECA9C900596CBF /* pay */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = pay;
+			sourceTree = "<group>";
+		};
+		9CBE7ED61BECA9F300596CBF /* pay */ = {
+			isa = PBXGroup;
+			children = (
+				9CBE7ED71BECA9F300596CBF /* PayInterface.cpp */,
+				9CBE7ED81BECA9F300596CBF /* PayInterface.h */,
+				9CBE7EDB1BECAA8000596CBF /* BaiduPay.cpp */,
+				9CBE7EDC1BECAA8000596CBF /* BaiduPay.h */,
+				9CBE7EDF1BECAAFE00596CBF /* PaymentMgr.cpp */,
+				9CBE7EE01BECAAFE00596CBF /* PaymentMgr.h */,
+			);
+			path = pay;
 			sourceTree = "<group>";
 		};
 		9CD667CC1BE20B6600637D3A /* struct */ = {
@@ -923,11 +966,13 @@
 				9CBE7E9A1BE876D900596CBF /* HistoryLayer.cpp in Sources */,
 				9C52692D1B8F3F9B00FF1CAC /* TipsLayer.cpp in Sources */,
 				9CD668321BE33BD400637D3A /* CacheGif.cpp in Sources */,
+				9CBE7EDD1BECAA8000596CBF /* BaiduPay.cpp in Sources */,
 				9C75327A1B8C02F30066DEBD /* ShadowCommand.cpp in Sources */,
 				9CD668381BE33BD400637D3A /* gif_font.c in Sources */,
 				9CD668141BE3139000637D3A /* ThanksLayer.cpp in Sources */,
 				9CD668361BE33BD400637D3A /* gif_err.c in Sources */,
 				9CD668441BE33BD400637D3A /* InstantGif.cpp in Sources */,
+				9CBE7ED91BECA9F300596CBF /* PayInterface.cpp in Sources */,
 				9C75328C1B8C37E40066DEBD /* JigToast.cpp in Sources */,
 				9CBE7E861BE7336B00596CBF /* version.cpp in Sources */,
 				9C1089221B81ADDC00426BD9 /* OnFinally.cpp in Sources */,
@@ -967,6 +1012,7 @@
 				9CBE7EC81BEB2B5F00596CBF /* GifFrameCache.cpp in Sources */,
 				9CD6683E1BE33BD400637D3A /* quantize.c in Sources */,
 				9CCA98B41B8AF5670000D1D1 /* PlayMain.cpp in Sources */,
+				9CBE7EE11BECAAFE00596CBF /* PaymentMgr.cpp in Sources */,
 				9CD668341BE33BD400637D3A /* dgif_lib.c in Sources */,
 				9CD668301BE33BD400637D3A /* Bitmap.cpp in Sources */,
 				9CBE08801B86E770006345E4 /* TouchPanel.cpp in Sources */,
@@ -990,13 +1036,16 @@
 				9CCA98B91B8AFC5B0000D1D1 /* GameSceneMgr.cpp in Sources */,
 				9CD668391BE33BD400637D3A /* gif_font.c in Sources */,
 				9C1089231B81ADDC00426BD9 /* OnFinally.cpp in Sources */,
+				9CBE7EDE1BECAA8000596CBF /* BaiduPay.cpp in Sources */,
 				9CBE7E9B1BE876D900596CBF /* HistoryLayer.cpp in Sources */,
 				9CBE087D1B86E770006345E4 /* DragonlyTouchPanel.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				9CCA98B01B8ABA340000D1D1 /* StartLayer.cpp in Sources */,
 				9CD668471BE33BD400637D3A /* Movie.cpp in Sources */,
+				9CBE7EE21BECAAFE00596CBF /* PaymentMgr.cpp in Sources */,
 				9C75326D1B8BFD2D0066DEBD /* PlayManager.cpp in Sources */,
 				9C1089291B81ADDC00426BD9 /* EffectAudio.cpp in Sources */,
+				9CBE7EDA1BECA9F300596CBF /* PayInterface.cpp in Sources */,
 				9C75327B1B8C02F30066DEBD /* ShadowCommand.cpp in Sources */,
 				9CBE087F1B86E770006345E4 /* RotableTouchPanel.cpp in Sources */,
 				9C7532791B8C02F30066DEBD /* PlayShared.cpp in Sources */,
