@@ -48,6 +48,7 @@ struct PayResult
             JigToast::show("pay_fail");
         }
         else{
+            JigToast::show("pay_succeed");
             DBRecord record = DBRecord::readby_level(1);
             if (record.sub_level<0) {
                 record.sub_level = 0;

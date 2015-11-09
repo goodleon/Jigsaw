@@ -13,6 +13,8 @@ import android.util.Log;
 import android.widget.Toast;
 
 public class BaiduPay {
+	public static native void onPayResult(boolean result);
+	
 	public static void pay(int money){
 		Log.v("zz", "wwwwwww");
 		
@@ -61,6 +63,7 @@ public class BaiduPay {
 //						String propsType = "1";
 						Toast.makeText(activity, "道具购买成功!\n金额:"+mOrderPrice+"元", Toast.LENGTH_LONG).show();
 						
+						onPayResult(true);
 //						DemoRecordData data = new DemoRecordData(mOrderProductId, mOrderPrice, propsType, String.valueOf(mNum));
 //						DemoDBDao.getInstance(activity).updateRechargeRecord(data);
 						
@@ -68,11 +71,13 @@ public class BaiduPay {
 						
 						Toast.makeText(activity, "用户透传数据不合法", Toast.LENGTH_LONG).show();
 						
+						onPayResult(false);
 					}else if(mStatusCode == DkErrorCode.BDG_RECHARGE_ACTIVITY_CLOSED){
 						
 						// 返回玩家手动关闭支付中心的状态码，开发者可以在此处理相应的逻辑
 						Toast.makeText(activity, "玩家关闭支付中心", Toast.LENGTH_LONG).show();
 						
+						onPayResult(false);
 					}else if(mStatusCode == DkErrorCode.BDG_RECHARGE_FAIL){ 
 						if(jsonObject.has(DkProtocolKeys.BD_ORDER_ID)){			
 //							SharedUtil.getInstance(GamePropsActivity.this).saveString(SharedUtil.PAYMENT_ORDERID, jsonObject.getString(DkProtocolKeys.BD_ORDER_ID));
@@ -80,30 +85,36 @@ public class BaiduPay {
 						// 返回支付失败的状态码，开发者可以在此处理相应的逻辑
 						Toast.makeText(activity, "购买失败", Toast.LENGTH_LONG).show();
 						
+						onPayResult(false);
 					} else if(mStatusCode == DkErrorCode.BDG_RECHARGE_EXCEPTION){ 
 						
 						// 返回支付出现异常的状态码，开发者可以在此处理相应的逻辑
 						Toast.makeText(activity, "购买出现异常", Toast.LENGTH_LONG).show();
 						
+						onPayResult(false);
 					} else if(mStatusCode == DkErrorCode.BDG_RECHARGE_CANCEL){ 
 						
 						// 返回取消支付的状态码，开发者可以在此处理相应的逻辑
 						Toast.makeText(activity, "玩家取消支付", Toast.LENGTH_LONG).show();
 						
+						onPayResult(false);
 					} else {
 						Toast.makeText(activity, "未知情况", Toast.LENGTH_LONG).show();
 						
+						onPayResult(false);
 					}
 					
 				} catch (Exception e) {
 					// TODO: handle exception
 					e.printStackTrace();
+					
+					onPayResult(false);
 				}
 			}
 		};
 		
-		String mm = String.format("%d", money/10);
-		GamePropsInfo propsSecond = new GamePropsInfo("1064", mm, "大司命卡牌","");
+		Integer mm = Integer.valueOf(money/10);
+		GamePropsInfo propsSecond = new GamePropsInfo("1064", mm.toString(), "大司命卡牌","");
 		propsSecond.setThirdPay("qpfangshua");
 		DKPlatform.getInstance().invokePayCenterActivity(AppActivity.self, propsSecond, 
 									null, null, null, null, RechargeCallback);

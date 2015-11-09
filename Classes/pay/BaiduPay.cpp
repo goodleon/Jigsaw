@@ -12,7 +12,16 @@
 #include "platform/android/jni/JniHelper.h"
 #include <jni.h>
 
+using namespace cocos2d;
 
+BaiduPay::BaiduPay()
+{
+
+}
+BaiduPay::~BaiduPay()
+{
+
+}
 void BaiduPay::init()
 {
 
@@ -29,7 +38,7 @@ void BaiduPay::pay(int money)
     bool ret = JniHelper::getStaticMethodInfo(info,"org/cocos2dx/cpp/BaiduPay","pay","(I)V");
     if(ret)
     {
-        CCLOG("zz:call android BaiduPay pay");
+//        CCLOG("%s", "zz:call android BaiduPay pay");
         info.env->CallStaticVoidMethod(info.classID,info.methodID, money);
     }
 }

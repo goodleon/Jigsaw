@@ -6,7 +6,7 @@
 //
 //
 
-//#define Pay_Baidu
+#define Pay_Baidu
 
 #include "PaymentMgr.h"
 #include "BaiduPay.h"
