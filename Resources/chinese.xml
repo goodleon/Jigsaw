@@ -17,6 +17,8 @@
         <string>已经完成所有关卡</string>
         <key>iamsplit</key>
         <string>我是无辜的分割线</string>
+        <key>has_paid</key>
+        <string>正在等待支付结果</string>
         <key>level0</key>
         <string>第一关</string>
         <key>level1</key>

@@ -60,10 +60,10 @@ struct PayResult
             }
         }
 
-        delete this;
         if(layer){
             layer->m_payResult = nullptr;
         }
+        delete this;
     }
 };
 
@@ -139,7 +139,10 @@ void HistoryLayer::onClickReturn(Ref* sender)
 void HistoryLayer::onClickPay(Ref* sender)
 {
     if(m_payResult)
+    {
+        JigToast::show("has_paid");
         return;
+    }
 
     m_payResult = new PayResult();
     m_payResult->layer = this;
