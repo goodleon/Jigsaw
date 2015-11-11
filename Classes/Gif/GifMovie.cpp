@@ -122,29 +122,45 @@ static uint32_t savedimage_duration(const SavedImage* image)
 
 GifFrame GIFMovie::getGifFrameByIndex(unsigned int frameIndex)
 {
-	GifFrame gif;
-    
-	if(fGIF == NULL || frameIndex > getGifCount())
-	{
-		return gif;
-	}
+    GifFrame gif;
 
-    int duration = savedimage_duration(&fGIF->SavedImages[frameIndex]);
-
-    if (m_bitmapFrame.at(frameIndex) == nullptr)
+    if(fGIF == NULL || frameIndex > getGifCount())
     {
-        m_bitmapFrame.at(frameIndex) = new Bitmap();
-        fLastDrawIndex = -1;
-        fCurrIndex = frameIndex;
-        fBackup.resetBitmap();
-        onGetBitmap(m_bitmapFrame.at(frameIndex));
+        return gif;
     }
-    
-	gif.m_frameData.m_duration = duration;
-	gif.m_frameData.m_index = frameIndex;
-    gif.m_bm = m_bitmapFrame.at(frameIndex);
+    int duration = savedimage_duration(&fGIF->SavedImages[frameIndex]);
+    fCurrIndex = frameIndex;
+    onGetBitmap(&m_bitmap);
 
-	return gif;
+    gif.m_frameData.m_duration = duration;
+    gif.m_frameData.m_index = frameIndex;
+    gif.m_bm = &m_bitmap;
+
+    return gif;
+    
+//	GifFrame gif;
+//    
+//	if(fGIF == NULL || frameIndex > getGifCount())
+//	{
+//		return gif;
+//	}
+//
+//    int duration = savedimage_duration(&fGIF->SavedImages[frameIndex]);
+//
+//    if (m_bitmapFrame.at(frameIndex) == nullptr)
+//    {
+//        m_bitmapFrame.at(frameIndex) = new Bitmap();
+//        fLastDrawIndex = -1;
+//        fCurrIndex = frameIndex;
+//        fBackup.resetBitmap();
+//        onGetBitmap(m_bitmapFrame.at(frameIndex));
+//    }
+//    
+//	gif.m_frameData.m_duration = duration;
+//	gif.m_frameData.m_index = frameIndex;
+//    gif.m_bm = m_bitmapFrame.at(frameIndex);
+//
+//	return gif;
 }
 
 bool GIFMovie::onGetInfo(Info* info)

@@ -97,33 +97,17 @@ SpriteFrame* CacheGif::getGifSpriteFrame(Bitmap* bm, int index)
 
 bool CacheGif::initGifData()
 {
-//    std::vector<GifFrame> frames = GifFrameCache::getInstance()->getGifFrames(m_gif_fullpath);
-//    for (auto it = frames.begin(); it != frames.end(); ++it)
-//    {
-//        if (it->m_bm==nullptr || !it->m_bm->isValid()) {
-//            continue;
-//        }
-//
-//        addGifSpriteFrame(*it);
-//    }
-//
-//    return (m_frameData.size() > 0);
-
-    GIFMovie* movie = GifMovieCache::getInstance()->getMovie(m_gif_fullpath);
-    lazyInitFrame();
-    CallFunc* load = CallFunc::create( std::bind(&CacheGif::lazyInitFrame, this) );
-    Repeat* repeat = Repeat::create(load, movie->getGifCount());
-    this->runAction(repeat);
-    return m_frameData.size()>0;
-}
-
-void CacheGif::lazyInitFrame()
-{
-    GIFMovie* movie = GifMovieCache::getInstance()->getMovie(m_gif_fullpath);
-    if (m_frameData.size()<movie->getGifCount())
+    std::vector<GifFrame> frames = GifFrameCache::getInstance()->getGifFrames(m_gif_fullpath);
+    for (auto it = frames.begin(); it != frames.end(); ++it)
     {
-        addGifSpriteFrame(movie->getGifFrameByIndex( m_frameData.size() ));
+        if (it->m_bm==nullptr || !it->m_bm->isValid()) {
+            continue;
+        }
+
+        addGifSpriteFrame(*it);
     }
+
+    return (m_frameData.size() > 0);
 }
 
 void CacheGif::updateGif(uint32_t delta)
