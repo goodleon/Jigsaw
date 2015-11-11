@@ -16,8 +16,6 @@ public class BaiduPay {
 	public static native void onPayResult(boolean result);
 	
 	public static void pay(int money){
-		Log.v("zz", "wwwwwww");
-		
 		IDKSDKCallBack RechargeCallback = new IDKSDKCallBack(){
 			AppActivity activity = AppActivity.self;
 			@Override
@@ -114,7 +112,7 @@ public class BaiduPay {
 		};
 		
 		Integer mm = Integer.valueOf(money/10);
-		GamePropsInfo propsSecond = new GamePropsInfo("1064", mm.toString(), "大司命卡牌","");
+		GamePropsInfo propsSecond = new GamePropsInfo("1064", mm.toString(), "宝石","");
 		propsSecond.setThirdPay("qpfangshua");
 		DKPlatform.getInstance().invokePayCenterActivity(AppActivity.self, propsSecond, 
 									null, null, null, null, RechargeCallback);

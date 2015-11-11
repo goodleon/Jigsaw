@@ -24,13 +24,14 @@ def build(build_mode):
         build_mode = 'debug'
     
     command = 'cocos compile -p android -s %s -m %s' % (app_android_root, build_mode) 
-    # print 'zzzzzzzzzzz', command
+    print 'zzzzzzzzzzz', command
     if os.system(command) != 0:
+        print 'wwwwwwwww'
         raise Exception("Build dynamic library for project [ " + app_android_root + " ] fails!")
 
 # -------------- main --------------
 if __name__ == '__main__':
-
+    # print sys.argv
     parser = OptionParser()
     parser.add_option("-n", "--ndk", dest="ndk_build_param", help='it is not used', action="append")
     parser.add_option("-p", "--platform", dest="android_platform", 
@@ -39,7 +40,8 @@ if __name__ == '__main__':
     help='the build mode for java project,debug[default] or release.Get more information,please refer to http://developer.android.com/tools/building/building-cmdline.html')
     (opts, args) = parser.parse_args()
     
-
+    # print opts, args
     print "Please use cocos console instead.\n"
     
+    # if len(sys.argv)<2:
     build(opts.build_mode)

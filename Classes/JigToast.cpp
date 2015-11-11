@@ -48,7 +48,7 @@ bool JigToast::init()
 
 Node* JigToast::load_csd()
 {
-	Node* root = CSLoader::createNode("toast.csb");
+	Node* root = CSLoader::createNode("Toast.csb");
 
 //	Button* btn = nullptr;
 

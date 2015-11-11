@@ -28,6 +28,9 @@ private:
 
     void initLevel(int level);
     void initPayment();
+
+    void lazyInitLevel(int level);
+    int getPageItemCount(PageView* pview);
 private:
 	cocos2d::Node* load_csd();
 
@@ -36,6 +39,7 @@ private:
 	void onClickButton_2(Ref* sender);
 
     void onClickPageItem(Ref* sender);
+    void onPageCallback(Ref* page, PageView::EventType evt);
 
     Button* m_btn_pay;
 private:
@@ -46,6 +50,7 @@ private:
 //	Text* m_title0;
 //	Text* m_title1;
     vector<Text*> m_title;
+    vector<Text*> m_page;
     vector<PageView*> m_pview;
     vector<DBMainLevel> m_level;
     vector<DBRecord> m_record;

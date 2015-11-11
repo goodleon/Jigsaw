@@ -16,7 +16,7 @@ void cocos_android_app_init (JNIEnv* env, jobject thiz) {
 }
 
 extern "C"{
-	void Java_org_cocos2dx_cpp_BaiduPay_onPayResult(JNIEnv *env,jclass jobject,jboolean result){
+	JNIEXPORT void JNICALL Java_org_cocos2dx_cpp_BaiduPay_onPayResult(JNIEnv *env,jclass jobject,jboolean result){
 		LOGD("zz:jni_onPayResult");
 		PaymentMgr::inst().onPayResult(result);
 	}

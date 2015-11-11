@@ -127,6 +127,9 @@ Node* HistoryLayer::load_csd()
 	m_title.at(0) = static_cast<Text*>(root->getChildByName("title0"));
 	m_title.at(1) = static_cast<Text*>(root->getChildByName("title1"));
 
+    m_page.resize(2);
+    m_page.at(0) = static_cast<Text*>(root->getChildByName("page0"));
+    m_page.at(1) = static_cast<Text*>(root->getChildByName("page1"));
 
 	return root;
 }
@@ -172,33 +175,74 @@ void HistoryLayer::onClickPageItem(Ref* sender)
 
 void HistoryLayer::initLevel(int level)
 {
-    const int page_count = 6;
-    for (int i=0; i<=m_record.at(level).sub_level; ++i)
-    {
-        if (m_record.at(level).sub_level>=m_level.at(level).Count) {
-            continue;
-        }
-        
-        GifWidget* gif = GifWidget::create( level, i );
+    m_pview.at(level)->setTag( level );
+    m_pview.at(level)->addEventListener( std::bind(&HistoryLayer::onPageCallback, this, placeholders::_1, placeholders::_2));
 
-        const int page = i/page_count;
-        const int r = (i%6)/3;
-        const int c = (i%6)%3;
+    CallFunc* load = CallFunc::create([=](){
+        lazyInitLevel(level);
+    });
+
+//    Sequence* tmp = Sequence::create(load, DelayTime::create(0.5), NULL);
+
+    Repeat* rep = Repeat::create(load, m_record.at(level).sub_level+1+1);
+
+    CallFunc* end = CallFunc::create([=](){
+        onPageCallback( m_pview.at(level), PageView::EventType::TURNING );
+    });
+
+    Sequence* seq = Sequence::create( rep, end, NULL );
+
+    this->runAction(seq);
+}
+
+void HistoryLayer::lazyInitLevel(int level)
+{
+    PageView* pv = m_pview.at(level);
+    int has_loaded = getPageItemCount(pv);
+    CCASSERT(has_loaded<=m_level.at(level).Count, "");
+    if (has_loaded<=m_record.at(level).sub_level)
+    {
+        GifWidget* gif = GifWidget::create( level, has_loaded );
+
+        const int page_count = 6;
+        const int page = has_loaded/page_count;
+        const int r = (has_loaded%6)/3;
+        const int c = (has_loaded%6)%3;
 
         gif->setPosition( Point(c*130+20, (1-r)*140+30) );
 
         gif->addClickEventListener( std::bind(&HistoryLayer::onClickPageItem, this, placeholders::_1) );
 
-        m_pview.at( level )->addWidgetToPage(gif, page, true);
+        pv->addWidgetToPage(gif, page, true);
     }
+}
+
+int HistoryLayer::getPageItemCount(PageView* pview)
+{
+    int ret = 0;
+    const Vector<Layout*>& pages = pview->getPages();
+    for (auto it = pages.begin(); it != pages.end(); ++it)
+    {
+        ret += (*it)->getChildrenCount();
+    }
+    return ret;
+}
+
+void HistoryLayer::onPageCallback(Ref* page, PageView::EventType evt)
+{
+    PageView* pv = static_cast<PageView*>(page);
+    const int index = pv->getTag();
+    m_page.at( index )->setString( sstr("%d/%d", pv->getCurPageIndex()+1, (int)pv->getPages().size()) );
 }
 
 void HistoryLayer::initPayment()
 {
 //    onClickPay(nullptr);
+    m_btn_pay->setVisible( false );
+    m_pview.at(1)->setVisible( true );
 
-    m_btn_pay->setVisible( m_record.at(1).sub_level<0 );
-    m_pview.at(1)->setVisible( !m_btn_pay->isVisible() );
+//    m_btn_pay->setVisible( m_record.at(1).sub_level<0 );
+//    m_pview.at(1)->setVisible( !m_btn_pay->isVisible() );
 }
 
 
