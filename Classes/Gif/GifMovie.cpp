@@ -116,7 +116,7 @@ static uint32_t savedimage_duration(const SavedImage* image)
 			break;
         }
     }
-	duration = duration <= 50 ? 50 : duration;
+	duration = duration <= 50 ? 100 : duration;
     return duration;
 }
 
