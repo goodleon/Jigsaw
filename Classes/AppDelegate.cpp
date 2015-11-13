@@ -41,7 +41,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     register_all_packages();
 
-    director->setDisplayStats(true);
+//    director->setDisplayStats(true);
     director->setAnimationInterval(1.0 / 60);
     
     glview->setDesignResolutionSize(960, 640, ResolutionPolicy::SHOW_ALL);
