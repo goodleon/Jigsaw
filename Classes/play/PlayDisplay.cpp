@@ -33,12 +33,12 @@ bool PlayDisplay::init()
 
 Node* PlayDisplay::load_csd()
 {
-	Node* root = CSLoader::createNode("background.csb");
+	Node* root = CSLoader::createNode("Preview.csb");
 
 //	Button* btn = nullptr;
 
 
-	m_back = static_cast<Layout*>( root->getChildByName("back") );
+	m_back = static_cast<ImageView*>( root->getChildByName("back") );
     m_img = static_cast<ImageView*>( root->getChildByName("img") );
 
 	return root;

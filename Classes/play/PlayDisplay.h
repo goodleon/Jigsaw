@@ -21,7 +21,7 @@ private:
     void onTouchPanel(Ref*,Widget::TouchEventType);
 
 private:
-	Layout* m_back;
+	ImageView* m_back;
     ImageView* m_img;
 };
 

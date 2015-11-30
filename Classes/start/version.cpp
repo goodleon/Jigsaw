@@ -10,7 +10,7 @@
 
 std::string get_version()
 {
-    return "1.0";
+    return "2.0";
 //    NSString* str = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
 //    return [str cStringUsingEncoding:NSUTF8StringEncoding];
 }
