@@ -19,6 +19,11 @@ public:
         self->autorelease();
         self->ignoreContentAdaptWithSize(false);
 
+        Sprite* sp = Sprite::create("res/back3.png");
+        sp->setScale(102.0f/96, 102.0f/64);
+        sp->setPosition(Point(50,50));
+        self->addChild(sp);
+
         string file = sstr("jigsaw%d/pic%02d.gif", level, sub_level);
         GifBase* gif = CacheGif::create( FileUtils::getInstance()->fullPathForFilename(file).c_str() );
         gif->setAnchorPoint(Point::ZERO);

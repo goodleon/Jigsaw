@@ -62,6 +62,8 @@
 		9C1089291B81ADDC00426BD9 /* EffectAudio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C10891C1B81ADDC00426BD9 /* EffectAudio.cpp */; };
 		9C10892A1B81ADDC00426BD9 /* lib4cc3x.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C10891E1B81ADDC00426BD9 /* lib4cc3x.cpp */; };
 		9C10892B1B81ADDC00426BD9 /* lib4cc3x.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C10891E1B81ADDC00426BD9 /* lib4cc3x.cpp */; };
+		9C28A3E91C0C54BA00C96AC1 /* JigAudio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C28A3E71C0C54B900C96AC1 /* JigAudio.cpp */; };
+		9C28A3EA1C0C54BA00C96AC1 /* JigAudio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C28A3E71C0C54B900C96AC1 /* JigAudio.cpp */; };
 		9C4FE8A61B85CC72003E3873 /* stringex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C4FE8A41B85CC72003E3873 /* stringex.cpp */; };
 		9C4FE8A71B85CC72003E3873 /* stringex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C4FE8A41B85CC72003E3873 /* stringex.cpp */; };
 		9C52675D1B8E9FD800FF1CAC /* LanguageMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C52675B1B8E9FD800FF1CAC /* LanguageMgr.cpp */; };
@@ -283,6 +285,8 @@
 		9C10891D1B81ADDC00426BD9 /* EffectAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectAudio.h; sourceTree = "<group>"; };
 		9C10891E1B81ADDC00426BD9 /* lib4cc3x.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lib4cc3x.cpp; sourceTree = "<group>"; };
 		9C10891F1B81ADDC00426BD9 /* lib4cc3x.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lib4cc3x.h; sourceTree = "<group>"; };
+		9C28A3E71C0C54B900C96AC1 /* JigAudio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JigAudio.cpp; sourceTree = "<group>"; };
+		9C28A3E81C0C54BA00C96AC1 /* JigAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JigAudio.h; sourceTree = "<group>"; };
 		9C4FE8A41B85CC72003E3873 /* stringex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stringex.cpp; sourceTree = "<group>"; };
 		9C4FE8A51B85CC72003E3873 /* stringex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringex.h; sourceTree = "<group>"; };
 		9C52675B1B8E9FD800FF1CAC /* LanguageMgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LanguageMgr.cpp; sourceTree = "<group>"; };
@@ -512,6 +516,8 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9C28A3E71C0C54B900C96AC1 /* JigAudio.cpp */,
+				9C28A3E81C0C54BA00C96AC1 /* JigAudio.h */,
 				9CBE7ED61BECA9F300596CBF /* pay */,
 				9CBE7ED11BECA9C900596CBF /* pay */,
 				9CD668171BE33BD400637D3A /* Gif */,
@@ -991,6 +997,7 @@
 				9CD6683A1BE33BD400637D3A /* gif_hash.c in Sources */,
 				9CD6680A1BE22E6900637D3A /* sql_common.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				9C28A3E91C0C54BA00C96AC1 /* JigAudio.cpp in Sources */,
 				9C1089261B81ADDC00426BD9 /* DataStore.cpp in Sources */,
 				9C10892A1B81ADDC00426BD9 /* lib4cc3x.cpp in Sources */,
 				9CBE087E1B86E770006345E4 /* RotableTouchPanel.cpp in Sources */,
@@ -1051,6 +1058,7 @@
 				9C7532791B8C02F30066DEBD /* PlayShared.cpp in Sources */,
 				9CBE08811B86E770006345E4 /* TouchPanel.cpp in Sources */,
 				9CD6683F1BE33BD400637D3A /* quantize.c in Sources */,
+				9C28A3EA1C0C54BA00C96AC1 /* JigAudio.cpp in Sources */,
 				9C7532711B8C02B00066DEBD /* Direction.cpp in Sources */,
 				9CD668371BE33BD400637D3A /* gif_err.c in Sources */,
 				9CD6680D1BE22E6900637D3A /* sqlite3.c in Sources */,

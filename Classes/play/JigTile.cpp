@@ -55,15 +55,16 @@ void JigTile::setEdges(const std::vector<EdgeType>& edges)
     shadow->setPosition( getContentSize()/2 );
     shadow->setEdgeType(edges);
     setStencil(shadow);
+    this->setAlphaThreshold(0.1f);
 
-    Sprite* red = ShadowCommand::createShadowByEdges(edges);
-    red->setPosition( getContentSize()/2 );
-    BlendFunc bf;
-    bf.src = GL_ONE;
-    bf.dst = GL_ONE;
-    red->setScale( shadow->getSquareScale() );
-    red->setBlendFunc(bf);
-    this->addChild(red);
+//    Sprite* red = ShadowCommand::createShadowByEdges(edges);
+//    red->setPosition( getContentSize()/2 );
+//    BlendFunc bf;
+//    bf.src = GL_ONE;
+//    bf.dst = GL_SRC_ALPHA;
+//    red->setScale( shadow->getSquareScale() );
+//    red->setBlendFunc(bf);
+//    this->addChild(red);
 }
 
 std::vector<EdgeType> JigTile::getEdges()

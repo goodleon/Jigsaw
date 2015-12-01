@@ -3,6 +3,7 @@
 #include "ThanksLayer.h"
 #include "JigHeader.h"
 #include "GameSceneMgr.h"
+#include "JigAudio.h"
 
 ThanksLayer::ThanksLayer()
 {
@@ -48,5 +49,6 @@ Node* ThanksLayer::load_csd()
 void ThanksLayer::onClickReturn(Ref* sender)
 {
     GameSceneMgr::inst().replace(kStartScene);
+    SimpleAudioEngine::getInstance()->playEffect(audio_btn);
 }
 

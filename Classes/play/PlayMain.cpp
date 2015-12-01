@@ -9,6 +9,7 @@
 #include "JigToast.h"
 #include "PlayManager.h"
 #include "LanguageMgr.h"
+#include "JigAudio.h"
 
 Scene* PlayMain::createScene()
 {
@@ -41,6 +42,8 @@ bool PlayMain::init()
     initJigPanel();
 
     m_level->setString( LanguageMgr::inst().getText( sstr("level%d", playshared.cur_level) ) );
+
+    SimpleAudioEngine::getInstance()->playBackgroundMusic( audio_background );
 
 	return true;
 }
@@ -91,7 +94,10 @@ Node* PlayMain::load_csd()
 void PlayMain::onClickFinish(Ref* sender)
 {
     if (GameStateMgr::inst().curState()==gs_prepare)
+    {
+        SimpleAudioEngine::getInstance()->playEffect(audio_btn_error);
         return;
+    }
 
     if (playshared.jig_panel->isAllFinished())
     {
@@ -105,11 +111,13 @@ void PlayMain::onClickFinish(Ref* sender)
         {
             PlayManager::inst().saveRecord();
             PlayManager::inst().startNextLevel();
+            SimpleAudioEngine::getInstance()->playEffect(audio_btn);
         }
     }
     else
     {
         JigToast::show("unfinish");
+        SimpleAudioEngine::getInstance()->playEffect(audio_btn_error);
 //        PlayDisplay* display = PlayDisplay::create();
 //        getCurScene()->alert(display);
     }
@@ -119,6 +127,7 @@ void PlayMain::onClickPrelook(Ref* sender)
 {
     PlayDisplay* display = PlayDisplay::create();
     getCurScene()->alert(display);
+    SimpleAudioEngine::getInstance()->playEffect(audio_btn);
 }
 
 //void PlayMain::onClickPause(Ref* sender)
@@ -129,6 +138,7 @@ void PlayMain::onClickPrelook(Ref* sender)
 void PlayMain::onClickReturnMenu(Ref* sender)
 {
     PlayManager::inst().exitGame();
+    SimpleAudioEngine::getInstance()->playEffect(audio_btn);
 }
 
 
