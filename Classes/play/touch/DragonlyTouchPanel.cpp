@@ -14,9 +14,9 @@ DragonlyTouchPanel::~DragonlyTouchPanel()
 
 void DragonlyTouchPanel::startTile(int index, const Point& pt)
 {
-//    DelayTime* delay = DelayTime::create(0.1f*index+0.5f);
-//    MoveTo* move = MoveTo::create(0.2f, pt);
-//    m_tiles.at(index)->runAction( Sequence::create(delay, move, NULL) );
+    DelayTime* delay = DelayTime::create(0.1f*index+0.5f);
+    MoveTo* move = MoveTo::create(0.2f, pt);
+    m_tiles.at(index)->runAction( Sequence::create(delay, move, NULL) );
 }
 
 void DragonlyTouchPanel::onClickTile(Touch* touch)

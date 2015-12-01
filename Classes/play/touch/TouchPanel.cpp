@@ -202,9 +202,9 @@ void TouchPanel::initEdges()
         if (c==m_splitCols-1) {
             return ET_F;
         }
-        else if(c==0){
-            return ET_A;
-        }
+//        else if(c==0){
+//            return ET_A;
+//        }
         else{
             return rand()%2 ? ET_A : ET_V;
         }
@@ -214,9 +214,9 @@ void TouchPanel::initEdges()
         if (r==m_splitRows-1) {
             return ET_F;
         }
-        else if (r==0){
-            return ET_A;
-        }
+//        else if (r==0){
+//            return ET_A;
+//        }
         else{
             return rand()%2 ? ET_A : ET_V;
         }

@@ -20,7 +20,7 @@ public:
         self->ignoreContentAdaptWithSize(false);
 
         Sprite* sp = Sprite::create("res/back3.png");
-        sp->setScale(102.0f/96, 102.0f/64);
+        sp->setScale(106.0f/96, 106.0f/64);
         sp->setPosition(Point(50,50));
         self->addChild(sp);
 
@@ -33,6 +33,8 @@ public:
         self->addChild(gif);
         self->setContentSize( Size(100,100) );
         self->setAnchorPoint(Point::ZERO);
+
+
 
         self->Level = level;
         self->SubLevel = sub_level;
