@@ -189,9 +189,10 @@ void HistoryLayer::initLevel(int level)
         lazyInitLevel(level);
     });
 
-//    Sequence* tmp = Sequence::create(load, DelayTime::create(0.5), NULL);
+    Sequence* tmp = Sequence::create(load, DelayTime::create(0.1), NULL);
+    Repeat* rep = Repeat::create(tmp, m_record.at(level).sub_level+1+1);
 
-    Repeat* rep = Repeat::create(load, m_record.at(level).sub_level+1+1);
+//    Repeat* rep = Repeat::create(load, m_record.at(level).sub_level+1+1);
 
     CallFunc* end = CallFunc::create([=](){
         onPageCallback( m_pview.at(level), PageView::EventType::TURNING );
