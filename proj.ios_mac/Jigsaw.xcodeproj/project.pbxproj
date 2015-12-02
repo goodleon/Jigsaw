@@ -64,6 +64,8 @@
 		9C10892B1B81ADDC00426BD9 /* lib4cc3x.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C10891E1B81ADDC00426BD9 /* lib4cc3x.cpp */; };
 		9C28A3E91C0C54BA00C96AC1 /* JigAudio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C28A3E71C0C54B900C96AC1 /* JigAudio.cpp */; };
 		9C28A3EA1C0C54BA00C96AC1 /* JigAudio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C28A3E71C0C54B900C96AC1 /* JigAudio.cpp */; };
+		9C28A3ED1C0D7CA300C96AC1 /* JigGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C28A3EB1C0D7CA300C96AC1 /* JigGrid.cpp */; };
+		9C28A3EE1C0D7CA300C96AC1 /* JigGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C28A3EB1C0D7CA300C96AC1 /* JigGrid.cpp */; };
 		9C4FE8A61B85CC72003E3873 /* stringex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C4FE8A41B85CC72003E3873 /* stringex.cpp */; };
 		9C4FE8A71B85CC72003E3873 /* stringex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C4FE8A41B85CC72003E3873 /* stringex.cpp */; };
 		9C52675D1B8E9FD800FF1CAC /* LanguageMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C52675B1B8E9FD800FF1CAC /* LanguageMgr.cpp */; };
@@ -287,6 +289,8 @@
 		9C10891F1B81ADDC00426BD9 /* lib4cc3x.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lib4cc3x.h; sourceTree = "<group>"; };
 		9C28A3E71C0C54B900C96AC1 /* JigAudio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JigAudio.cpp; sourceTree = "<group>"; };
 		9C28A3E81C0C54BA00C96AC1 /* JigAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JigAudio.h; sourceTree = "<group>"; };
+		9C28A3EB1C0D7CA300C96AC1 /* JigGrid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JigGrid.cpp; sourceTree = "<group>"; };
+		9C28A3EC1C0D7CA300C96AC1 /* JigGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JigGrid.h; sourceTree = "<group>"; };
 		9C4FE8A41B85CC72003E3873 /* stringex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stringex.cpp; sourceTree = "<group>"; };
 		9C4FE8A51B85CC72003E3873 /* stringex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringex.h; sourceTree = "<group>"; };
 		9C52675B1B8E9FD800FF1CAC /* LanguageMgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LanguageMgr.cpp; sourceTree = "<group>"; };
@@ -519,7 +523,6 @@
 				9C28A3E71C0C54B900C96AC1 /* JigAudio.cpp */,
 				9C28A3E81C0C54BA00C96AC1 /* JigAudio.h */,
 				9CBE7ED61BECA9F300596CBF /* pay */,
-				9CBE7ED11BECA9C900596CBF /* pay */,
 				9CD668171BE33BD400637D3A /* Gif */,
 				9CD668161BE3140100637D3A /* version.h */,
 				9CD667F51BE22E6900637D3A /* sqlite3 */,
@@ -542,6 +545,8 @@
 				9C75328B1B8C37E40066DEBD /* JigToast.h */,
 				9CBE7E9C1BE87CD800596CBF /* jig_tools.cpp */,
 				9CBE7E9D1BE87CD800596CBF /* jig_tools.h */,
+				9C28A3EB1C0D7CA300C96AC1 /* JigGrid.cpp */,
+				9C28A3EC1C0D7CA300C96AC1 /* JigGrid.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -712,13 +717,6 @@
 			);
 			name = pay;
 			path = ../Classes/pay;
-			sourceTree = "<group>";
-		};
-		9CBE7ED11BECA9C900596CBF /* pay */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = pay;
 			sourceTree = "<group>";
 		};
 		9CBE7ED61BECA9F300596CBF /* pay */ = {
@@ -988,6 +986,7 @@
 				9CE5181A1B9455D000A5DEC0 /* PlayDisplay.cpp in Sources */,
 				9C7532781B8C02F30066DEBD /* PlayShared.cpp in Sources */,
 				9CD668401BE33BD400637D3A /* GifBase.cpp in Sources */,
+				9C28A3ED1C0D7CA300C96AC1 /* JigGrid.cpp in Sources */,
 				9C1089281B81ADDC00426BD9 /* EffectAudio.cpp in Sources */,
 				9CBE7EC41BEB1FB400596CBF /* GifMovieCache.cpp in Sources */,
 				9CD6680C1BE22E6900637D3A /* sqlite3.c in Sources */,
@@ -1033,6 +1032,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C28A3EE1C0D7CA300C96AC1 /* JigGrid.cpp in Sources */,
 				9C52692E1B8F3F9B00FF1CAC /* TipsLayer.cpp in Sources */,
 				9C7532671B8BFCEC0066DEBD /* GameState.cpp in Sources */,
 				9C1089271B81ADDC00426BD9 /* DataStore.cpp in Sources */,

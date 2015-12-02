@@ -7,12 +7,13 @@
 #include "DBRecord.h"
 #include "DBMainLevel.h"
 #include "cocos-ext.h"
+#include "JigGrid.h"
 
 USING_NS_CC_EXT;
 
 class PayResult;
 
-class HistoryLayer : public cocos2d::Layer
+class HistoryLayer : public cocos2d::Layer, public JigGridDelegate
 {
 public:
     JIG_SCENE_FROM_LAYER(HistoryLayer);
@@ -30,7 +31,10 @@ private:
     void initPayment();
 
     void lazyInitLevel(int level);
-    int getPageItemCount(PageView* pview);
+
+    virtual JigGridCell* tableCellAtIndex(JigGrid *table, ssize_t idx) override;
+    virtual ssize_t numberOfCellsInJigGrid(JigGrid *table) override;
+    virtual void tableCellTouched(JigGrid* table, JigGridCell* cell) override;
 private:
 	cocos2d::Node* load_csd();
 
@@ -51,7 +55,7 @@ private:
 //	Text* m_title1;
     vector<Text*> m_title;
     vector<Text*> m_page;
-    vector<PageView*> m_pview;
+    vector<JigGrid*> m_pview;
     vector<DBMainLevel> m_level;
     vector<DBRecord> m_record;
 

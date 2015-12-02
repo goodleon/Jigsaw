@@ -8,8 +8,9 @@
 #include "PlayInitMsg.h"
 #include "PlayManager.h"
 #include "PaymentMgr.h"
+#include "lib4cc3x.h"
 
-class GifWidget : public Button
+class GifWidget : public JigGridCell
 {
 public:
     static GifWidget* create(int level, int sub_level)
@@ -17,24 +18,22 @@ public:
         GifWidget* self = new GifWidget();
         self->init();
         self->autorelease();
-        self->ignoreContentAdaptWithSize(false);
+        
+        const Size selfSize(110, 110);
 
         Sprite* sp = Sprite::create("res/back3.png");
-        sp->setScale(106.0f/96, 106.0f/64);
-        sp->setPosition(Point(50,50));
+        sp->setScale(selfSize.width/96, selfSize.height/64);
+        sp->setPosition(selfSize/2);
         self->addChild(sp);
 
         string file = sstr("jigsaw%d/pic%02d.gif", level, sub_level);
         GifBase* gif = CacheGif::create( FileUtils::getInstance()->fullPathForFilename(file).c_str() );
-        gif->setAnchorPoint(Point::ZERO);
         const Size content = gif->getContentSize();
         gif->setScale( 100/content.width );
-
+        gif->setPosition(selfSize/2);
         self->addChild(gif);
-        self->setContentSize( Size(100,100) );
-        self->setAnchorPoint(Point::ZERO);
 
-
+        self->setContentSize( selfSize );
 
         self->Level = level;
         self->SubLevel = sub_level;
@@ -127,8 +126,10 @@ Node* HistoryLayer::load_csd()
     m_btn_pay = btn;
 
     m_pview.resize(2);
-    m_pview.at(0) = static_cast<PageView*>(root->getChildByName("pv0"));
-    m_pview.at(1) = static_cast<PageView*>(root->getChildByName("pv1"));
+    m_pview.at(0) = JigGrid::create(root->getChildByName("pv0"), this);
+//    static_cast<PageView*>(root->getChildByName("pv0"))->addChild(m_pview.at(0));
+    m_pview.at(1) = JigGrid::create(root->getChildByName("pv1"), this);
+//    static_cast<PageView*>(root->getChildByName("pv1"))->addChild(m_pview.at(1));
 
     m_title.resize(2);
 	m_title.at(0) = static_cast<Text*>(root->getChildByName("title0"));
@@ -183,64 +184,9 @@ void HistoryLayer::onClickPageItem(Ref* sender)
 void HistoryLayer::initLevel(int level)
 {
     m_pview.at(level)->setTag( level );
-    m_pview.at(level)->addEventListener( std::bind(&HistoryLayer::onPageCallback, this, placeholders::_1, placeholders::_2));
 
-    CallFunc* load = CallFunc::create([=](){
-        lazyInitLevel(level);
-    });
-
-    Sequence* tmp = Sequence::create(load, DelayTime::create(0.1), NULL);
-    Repeat* rep = Repeat::create(tmp, m_record.at(level).sub_level+1+1);
-
-//    Repeat* rep = Repeat::create(load, m_record.at(level).sub_level+1+1);
-
-    CallFunc* end = CallFunc::create([=](){
-        onPageCallback( m_pview.at(level), PageView::EventType::TURNING );
-    });
-
-    Sequence* seq = Sequence::create( rep, end, NULL );
-
-    this->runAction(seq);
-}
-
-void HistoryLayer::lazyInitLevel(int level)
-{
-    PageView* pv = m_pview.at(level);
-    int has_loaded = getPageItemCount(pv);
-    CCASSERT(has_loaded<=m_level.at(level).Count, "");
-    if (has_loaded<=m_record.at(level).sub_level)
-    {
-        GifWidget* gif = GifWidget::create( level, has_loaded );
-
-        const int page_count = 6;
-        const int page = has_loaded/page_count;
-        const int r = (has_loaded%6)/3;
-        const int c = (has_loaded%6)%3;
-
-        gif->setPosition( Point(c*130+20, (1-r)*140+30) );
-
-        gif->addClickEventListener( std::bind(&HistoryLayer::onClickPageItem, this, placeholders::_1) );
-
-        pv->addWidgetToPage(gif, page, true);
-    }
-}
-
-int HistoryLayer::getPageItemCount(PageView* pview)
-{
-    int ret = 0;
-    const Vector<Layout*>& pages = pview->getPages();
-    for (auto it = pages.begin(); it != pages.end(); ++it)
-    {
-        ret += (*it)->getChildrenCount();
-    }
-    return ret;
-}
-
-void HistoryLayer::onPageCallback(Ref* page, PageView::EventType evt)
-{
-    PageView* pv = static_cast<PageView*>(page);
-    const int index = pv->getTag();
-    m_page.at( index )->setString( sstr("%d/%d", pv->getCurPageIndex()+1, (int)pv->getPages().size()) );
+    m_pview.at(level)->setDirection(cocos2d::extension::ScrollView::Direction::HORIZONTAL);
+    m_pview.at(level)->reset(2, 3);
 }
 
 void HistoryLayer::initPayment()
@@ -253,4 +199,33 @@ void HistoryLayer::initPayment()
 //    m_pview.at(1)->setVisible( !m_btn_pay->isVisible() );
 }
 
+JigGridCell* HistoryLayer::tableCellAtIndex(JigGrid *table, ssize_t idx)
+{
+    const int level = table->getTag();
 
+    GifWidget* gif = GifWidget::create( level, idx );
+
+    return gif;
+}
+
+ssize_t HistoryLayer::numberOfCellsInJigGrid(JigGrid *table)
+{
+    const int index = table->getTag();
+    if (index!=0 && index!=1)
+        return 0;
+
+    return m_record.at(index).sub_level+1;
+}
+
+void HistoryLayer::tableCellTouched(JigGrid* table, JigGridCell* cell)
+{
+    GifWidget* wid = dynamic_cast<GifWidget*>(cell);
+
+    DBMainLevel level = DBMainLevel::readby_level( wid->Level );
+    PlayInitMsg msg;
+    msg.set_main_level( wid->Level );
+    msg.set_start_level( wid->SubLevel );
+    msg.set_level_count( level.Count );
+    msg.set_rotable( level.Rotable );
+    PlayManager::inst().enterGame(msg);
+}
