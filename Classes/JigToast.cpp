@@ -3,6 +3,7 @@
 #include "JigToast.h"
 #include "LanguageMgr.h"
 #include "cocostudio/CocoStudio.h"
+#include "JigAudio.h"
 
 USING_NS_CC;
 using namespace ui;
@@ -42,6 +43,8 @@ bool JigToast::init()
 
 	Node* root = load_csd();
 	addChild(root);
+
+    playEffect(audio_toast);
 
 	return true;
 }

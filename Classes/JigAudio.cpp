@@ -7,3 +7,8 @@
 //
 
 #include "JigAudio.h"
+
+void playEffect(const char* audio_file)
+{
+    SimpleAudioEngine::getInstance()->playEffect(audio_file);
+}

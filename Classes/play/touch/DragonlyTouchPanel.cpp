@@ -21,7 +21,7 @@ void DragonlyTouchPanel::startTile(int index, const Point& pt)
 
 void DragonlyTouchPanel::onClickTile(Touch* touch)
 {
-    
+
 }
 void DragonlyTouchPanel::onDragBegan(Touch* touch)
 {
@@ -31,6 +31,8 @@ void DragonlyTouchPanel::onDragBegan(Touch* touch)
     m_touchOffset = pt - m_touching->getPosition();
     
     selectTile(m_touching);
+
+//    notifyEvent(TPE_BeginMove);
 }
 
 void DragonlyTouchPanel::onDragMoved(Touch* touch)
@@ -56,7 +58,10 @@ void DragonlyTouchPanel::onDragEnded(Touch* touch)
         Rect rc( center.x-50, center.y-50, 100, 100 );
         
         if (rc.containsPoint(local_pt))
+        {
             m_touching->setPosition( center );
+            notifyEvent(TPE_Dropped);
+        }
     }
     else
     {
@@ -73,6 +78,8 @@ void DragonlyTouchPanel::onDragEnded(Touch* touch)
         pt = this->convertToNodeSpace(pt);
         m_touching->setPosition( pt );
     }
+
+//    notifyEvent(TPE_EndMove);
 }
 
 void DragonlyTouchPanel::selectTile(JigTile* tile)

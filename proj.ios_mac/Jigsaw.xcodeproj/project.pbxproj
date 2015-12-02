@@ -98,6 +98,10 @@
 		9C75328D1B8C37E40066DEBD /* JigToast.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C75328A1B8C37E40066DEBD /* JigToast.cpp */; };
 		9CA21A091B82C197001D2043 /* JigScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA21A071B82C197001D2043 /* JigScene.cpp */; };
 		9CA21A0A1B82C197001D2043 /* JigScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA21A071B82C197001D2043 /* JigScene.cpp */; };
+		9CB8CF421C0F041F00956455 /* res in Resources */ = {isa = PBXBuildFile; fileRef = 9CB8CF411C0F041F00956455 /* res */; };
+		9CB8CF431C0F041F00956455 /* res in Resources */ = {isa = PBXBuildFile; fileRef = 9CB8CF411C0F041F00956455 /* res */; };
+		9CB8CF451C0F048000956455 /* sound in Resources */ = {isa = PBXBuildFile; fileRef = 9CB8CF441C0F048000956455 /* sound */; };
+		9CB8CF461C0F048000956455 /* sound in Resources */ = {isa = PBXBuildFile; fileRef = 9CB8CF441C0F048000956455 /* sound */; };
 		9CBE087C1B86E770006345E4 /* DragonlyTouchPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE08761B86E770006345E4 /* DragonlyTouchPanel.cpp */; };
 		9CBE087D1B86E770006345E4 /* DragonlyTouchPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE08761B86E770006345E4 /* DragonlyTouchPanel.cpp */; };
 		9CBE087E1B86E770006345E4 /* RotableTouchPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE08781B86E770006345E4 /* RotableTouchPanel.cpp */; };
@@ -319,6 +323,9 @@
 		9C75328B1B8C37E40066DEBD /* JigToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JigToast.h; sourceTree = "<group>"; };
 		9CA21A071B82C197001D2043 /* JigScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JigScene.cpp; sourceTree = "<group>"; };
 		9CA21A081B82C197001D2043 /* JigScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JigScene.h; sourceTree = "<group>"; };
+		9CB8CF401C0EFC4D00956455 /* TouchPanelEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchPanelEvent.h; sourceTree = "<group>"; };
+		9CB8CF411C0F041F00956455 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
+		9CB8CF441C0F048000956455 /* sound */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sound; sourceTree = "<group>"; };
 		9CBE08761B86E770006345E4 /* DragonlyTouchPanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DragonlyTouchPanel.cpp; sourceTree = "<group>"; };
 		9CBE08771B86E770006345E4 /* DragonlyTouchPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragonlyTouchPanel.h; sourceTree = "<group>"; };
 		9CBE08781B86E770006345E4 /* RotableTouchPanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RotableTouchPanel.cpp; sourceTree = "<group>"; };
@@ -666,6 +673,8 @@
 		9C5267671B8EBA3C00FF1CAC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9CB8CF441C0F048000956455 /* sound */,
+				9CB8CF411C0F041F00956455 /* res */,
 				9CBE7EA01BE8814300596CBF /* jigsaw0 */,
 				9CBE7EA11BE8814400596CBF /* jigsaw1 */,
 				9CE518111B9432DB00A5DEC0 /* database.db */,
@@ -673,7 +682,6 @@
 				9C5269111B8EBA4E00FF1CAC /* res */,
 				9C5269121B8EBA4E00FF1CAC /* sdpng */,
 				9C5267681B8EBA3C00FF1CAC /* chinese.xml */,
-				9CBE7ED01BECA99100596CBF /* pay */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -707,16 +715,9 @@
 				9CBE08791B86E770006345E4 /* RotableTouchPanel.h */,
 				9CBE087A1B86E770006345E4 /* TouchPanel.cpp */,
 				9CBE087B1B86E770006345E4 /* TouchPanel.h */,
+				9CB8CF401C0EFC4D00956455 /* TouchPanelEvent.h */,
 			);
 			path = touch;
-			sourceTree = "<group>";
-		};
-		9CBE7ED01BECA99100596CBF /* pay */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = pay;
-			path = ../Classes/pay;
 			sourceTree = "<group>";
 		};
 		9CBE7ED61BECA9F300596CBF /* pay */ = {
@@ -908,6 +909,7 @@
 			files = (
 				9CD667E31BE20B6600637D3A /* cpp-temp.txt in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
+				9CB8CF421C0F041F00956455 /* res in Resources */,
 				9CBE7EA21BE8814400596CBF /* jigsaw0 in Resources */,
 				9CBE7EA41BE8814400596CBF /* jigsaw1 in Resources */,
 				9C5269191B8EBA4E00FF1CAC /* sdpng in Resources */,
@@ -919,6 +921,7 @@
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				9C5268011B8EBA3C00FF1CAC /* chinese.xml in Resources */,
+				9CB8CF451C0F048000956455 /* sound in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
@@ -946,6 +949,7 @@
 				9CBE7EA31BE8814400596CBF /* jigsaw0 in Resources */,
 				9C5269141B8EBA4E00FF1CAC /* fonts in Resources */,
 				9CD667EA1BE20B6600637D3A /* mk_struct.py in Resources */,
+				9CB8CF461C0F048000956455 /* sound in Resources */,
 				9CD667E61BE20B6600637D3A /* header-temp.txt in Resources */,
 				9CE518131B9432DB00A5DEC0 /* database.db in Resources */,
 				9C5268021B8EBA3C00FF1CAC /* chinese.xml in Resources */,
@@ -954,6 +958,7 @@
 				9C52691A1B8EBA4E00FF1CAC /* sdpng in Resources */,
 				9CD667EC1BE20B6600637D3A /* PlayInitMsg.json in Resources */,
 				9CD668091BE22E6900637D3A /* mk_db.py in Resources */,
+				9CB8CF431C0F041F00956455 /* res in Resources */,
 				9CD667E41BE20B6600637D3A /* cpp-temp.txt in Resources */,
 				9CBE7EA51BE8814400596CBF /* jigsaw1 in Resources */,
 			);

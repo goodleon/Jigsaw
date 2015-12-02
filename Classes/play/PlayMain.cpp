@@ -61,6 +61,8 @@ void PlayMain::initJigPanel()
     playshared.jig_panel->setPosition( m_game_panel->getContentSize()/2 );
     m_game_panel->addChild( playshared.jig_panel );
 
+    playshared.jig_panel->manageEvent( new TouchPanelSound(playshared.jig_panel) );
+
     Rect rc_start = m_panel_start->getBoundingBox();
     rc_start.origin -= playshared.jig_panel->getBoundingBox().origin;
     playshared.jig_panel->setStartRect( rc_start );
@@ -95,7 +97,7 @@ void PlayMain::onClickFinish(Ref* sender)
 {
     if (GameStateMgr::inst().curState()==gs_prepare)
     {
-        SimpleAudioEngine::getInstance()->playEffect(audio_btn_error);
+        playEffect(audio_btn_error);
         return;
     }
 
@@ -111,13 +113,13 @@ void PlayMain::onClickFinish(Ref* sender)
         {
             PlayManager::inst().saveRecord();
             PlayManager::inst().startNextLevel();
-            SimpleAudioEngine::getInstance()->playEffect(audio_btn);
+            playEffect(audio_level_win);
         }
     }
     else
     {
         JigToast::show("unfinish");
-        SimpleAudioEngine::getInstance()->playEffect(audio_btn_error);
+//        playEffect(audio_btn_error);
 //        PlayDisplay* display = PlayDisplay::create();
 //        getCurScene()->alert(display);
     }
@@ -127,7 +129,7 @@ void PlayMain::onClickPrelook(Ref* sender)
 {
     PlayDisplay* display = PlayDisplay::create();
     getCurScene()->alert(display);
-    SimpleAudioEngine::getInstance()->playEffect(audio_btn);
+    playEffect(audio_btn);
 }
 
 //void PlayMain::onClickPause(Ref* sender)
@@ -138,7 +140,7 @@ void PlayMain::onClickPrelook(Ref* sender)
 void PlayMain::onClickReturnMenu(Ref* sender)
 {
     PlayManager::inst().exitGame();
-    SimpleAudioEngine::getInstance()->playEffect(audio_btn);
+    playEffect(audio_btn);
 }
 
 

@@ -49,6 +49,6 @@ Node* ThanksLayer::load_csd()
 void ThanksLayer::onClickReturn(Ref* sender)
 {
     GameSceneMgr::inst().replace(kStartScene);
-    SimpleAudioEngine::getInstance()->playEffect(audio_btn);
+    playEffect(audio_btn);
 }
 

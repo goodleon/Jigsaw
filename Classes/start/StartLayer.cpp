@@ -77,13 +77,13 @@ void StartLayer::onClickStart(Ref* sender)
         GameSceneMgr::inst().replace( kHistoryScene );
     }
 
-    SimpleAudioEngine::getInstance()->playEffect(audio_btn);
+    playEffect(audio_btn);
 }
 
 void StartLayer::onClickThanks(Ref* sender)
 {
     GameSceneMgr::inst().replace(kThanksScene);
-    SimpleAudioEngine::getInstance()->playEffect(audio_btn);
+    playEffect(audio_btn);
 }
 
 

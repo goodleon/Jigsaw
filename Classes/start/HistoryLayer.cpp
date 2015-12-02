@@ -9,6 +9,7 @@
 #include "PlayManager.h"
 #include "PaymentMgr.h"
 #include "lib4cc3x.h"
+#include "JigAudio.h"
 
 class GifWidget : public JigGridCell
 {
@@ -156,6 +157,8 @@ void HistoryLayer::onClickPay(Ref* sender)
         return;
     }
 
+    playEffect(audio_btn);
+
     m_payResult = new PayResult();
     m_payResult->layer = this;
 
@@ -228,4 +231,6 @@ void HistoryLayer::tableCellTouched(JigGrid* table, JigGridCell* cell)
     msg.set_level_count( level.Count );
     msg.set_rotable( level.Rotable );
     PlayManager::inst().enterGame(msg);
+
+    playEffect(audio_btn);
 }

@@ -12,7 +12,10 @@ TouchPanel::TouchPanel()
 
 TouchPanel::~TouchPanel()
 {
-    
+    for (auto it=m_events.begin(); it!=m_events.end(); ++it){
+        delete *it;
+    }
+    m_events.clear();
 }
 
 bool TouchPanel::init()
@@ -72,6 +75,24 @@ bool TouchPanel::isAllFinished()
         }
     }
     return true;
+}
+
+JigTile* TouchPanel::getTouchingTile()
+{
+    return m_touching;
+}
+
+void TouchPanel::manageEvent(TouchPanelEventListener* event)
+{
+    m_events.push_back(event);
+}
+
+void TouchPanel::notifyEvent(TouchPanelEvent event)
+{
+    for (auto it=m_events.begin(); it!=m_events.end(); ++it)
+    {
+        (*it)->onEvent(event);
+    }
 }
 
 bool TouchPanel::onTouchBegan(Touch* touch, Event* event)

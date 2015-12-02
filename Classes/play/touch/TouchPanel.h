@@ -5,14 +5,15 @@
 
 #include "PlayShared.h"
 #include "JigTile.h"
+#include "TouchPanelEvent.h"
 
 class TouchPanel : public cocos2d::Sprite
 {
 public:
+    friend class TouchPanelEventListener;
+
 	TouchPanel();
 	virtual ~TouchPanel();
-    
-//    CREATE_FUNC(TouchPanel);
     
     virtual bool init();
 
@@ -20,6 +21,11 @@ public:
     virtual void setStartRect(const Rect& rc);
     
     bool isAllFinished();
+
+    JigTile* getTouchingTile();
+
+    void manageEvent(TouchPanelEventListener* event);
+    void notifyEvent(TouchPanelEvent event);
 protected:
     virtual void onClickTile(Touch* touch) = 0;
     virtual void onDragBegan(Touch* touch) = 0;
@@ -33,7 +39,8 @@ protected:
     Size m_tileSize;
     int m_splitRows;
     int m_splitCols;
-    
+
+    vector<TouchPanelEventListener*> m_events;
 private:
     bool onTouchBegan(Touch* touch, Event* event);
     void onTouchMoved(Touch* touch, Event* event);

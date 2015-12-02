@@ -28,5 +28,7 @@ void RotableTouchPanel::onClickTile(Touch* touch)
     
     Direction dir = m_touching->getDirection();
     m_touching->setDirection( dir.next() );
+
+    notifyEvent(TPE_Click);
 }
 
