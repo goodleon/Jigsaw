@@ -197,6 +197,14 @@ void HistoryLayer::initPayment()
 //    onClickPay(nullptr);
     m_btn_pay->setVisible( false );
     m_pview.at(1)->setVisible( true );
+    if (m_record.at(0).sub_level==m_level.at(0).Count-1)
+    {
+        if (m_record.at(1).sub_level<0) {
+            m_record.at(1).sub_level = 0;
+            m_record.at(1).write();
+            initLevel(1);
+        }
+    }
 
 //    m_btn_pay->setVisible( m_record.at(1).sub_level<0 );
 //    m_pview.at(1)->setVisible( !m_btn_pay->isVisible() );
