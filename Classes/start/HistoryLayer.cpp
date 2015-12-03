@@ -27,12 +27,18 @@ public:
         sp->setPosition(selfSize/2);
         self->addChild(sp);
 
+        Sprite* stencil = Sprite::create("res/back3.png");
+        stencil->setScale(selfSize.width/96-0.06, selfSize.height/64-0.06);
+        ClippingNode* clip = ClippingNode::create(stencil);
+        clip->setPosition(selfSize/2);
+        clip->setAlphaThreshold(0.1f);
+        self->addChild(clip);
+
         string file = sstr("jigsaw%d/pic%02d.gif", level, sub_level);
         GifBase* gif = CacheGif::create( FileUtils::getInstance()->fullPathForFilename(file).c_str() );
         const Size content = gif->getContentSize();
-        gif->setScale( 100/content.width );
-        gif->setPosition(selfSize/2);
-        self->addChild(gif);
+        gif->setScale( selfSize.width/content.width );
+        clip->addChild(gif);
 
         self->setContentSize( selfSize );
 

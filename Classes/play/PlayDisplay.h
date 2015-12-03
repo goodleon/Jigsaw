@@ -22,7 +22,7 @@ private:
 
 private:
 	ImageView* m_back;
-    ImageView* m_img;
+    ImageView* m_clip_stencil;
 };
 
 #endif
