@@ -4,8 +4,9 @@
 #define __Jigsaw_PlayDisplay_
 
 #include "JigHeader.h"
+#include "JigLayer.h"
 
-class PlayDisplay : public cocos2d::Layer
+class PlayDisplay : public JigLayer
 {
 public:
 	PlayDisplay();

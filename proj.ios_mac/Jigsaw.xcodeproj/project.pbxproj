@@ -81,6 +81,8 @@
 		9C52692D1B8F3F9B00FF1CAC /* TipsLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C52692B1B8F3F9A00FF1CAC /* TipsLayer.cpp */; };
 		9C52692E1B8F3F9B00FF1CAC /* TipsLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C52692B1B8F3F9A00FF1CAC /* TipsLayer.cpp */; };
 		9C74325E1C0FDEFE0064166C /* res in Resources */ = {isa = PBXBuildFile; fileRef = 9C74325D1C0FDEFE0064166C /* res */; };
+		9C7432621C1000620064166C /* JigLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7432601C1000620064166C /* JigLayer.cpp */; };
+		9C7432631C1000620064166C /* JigLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7432601C1000620064166C /* JigLayer.cpp */; };
 		9C7532661B8BFCEC0066DEBD /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7532621B8BFCEC0066DEBD /* GameState.cpp */; };
 		9C7532671B8BFCEC0066DEBD /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7532621B8BFCEC0066DEBD /* GameState.cpp */; };
 		9C75326C1B8BFD2D0066DEBD /* PlayManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C75326A1B8BFD2D0066DEBD /* PlayManager.cpp */; };
@@ -305,6 +307,8 @@
 		9C52692B1B8F3F9A00FF1CAC /* TipsLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TipsLayer.cpp; sourceTree = "<group>"; };
 		9C52692C1B8F3F9B00FF1CAC /* TipsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsLayer.h; sourceTree = "<group>"; };
 		9C74325D1C0FDEFE0064166C /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
+		9C7432601C1000620064166C /* JigLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JigLayer.cpp; sourceTree = "<group>"; };
+		9C7432611C1000620064166C /* JigLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JigLayer.h; sourceTree = "<group>"; };
 		9C7532621B8BFCEC0066DEBD /* GameState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameState.cpp; sourceTree = "<group>"; };
 		9C7532631B8BFCEC0066DEBD /* GameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
 		9C75326A1B8BFD2D0066DEBD /* PlayManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayManager.cpp; sourceTree = "<group>"; };
@@ -632,6 +636,8 @@
 				9CA21A081B82C197001D2043 /* JigScene.h */,
 				9C1089091B81AD4700426BD9 /* JigTile.cpp */,
 				9C10890A1B81AD4700426BD9 /* JigTile.h */,
+				9C7432601C1000620064166C /* JigLayer.cpp */,
+				9C7432611C1000620064166C /* JigLayer.h */,
 			);
 			path = play;
 			sourceTree = "<group>";
@@ -973,6 +979,7 @@
 				9CBE7E9A1BE876D900596CBF /* HistoryLayer.cpp in Sources */,
 				9C52692D1B8F3F9B00FF1CAC /* TipsLayer.cpp in Sources */,
 				9CD668321BE33BD400637D3A /* CacheGif.cpp in Sources */,
+				9C7432621C1000620064166C /* JigLayer.cpp in Sources */,
 				9CBE7EDD1BECAA8000596CBF /* BaiduPay.cpp in Sources */,
 				9C75327A1B8C02F30066DEBD /* ShadowCommand.cpp in Sources */,
 				9CD668381BE33BD400637D3A /* gif_font.c in Sources */,
@@ -1079,6 +1086,7 @@
 				9CBE7E9F1BE87CD800596CBF /* jig_tools.cpp in Sources */,
 				9CD668151BE3139000637D3A /* ThanksLayer.cpp in Sources */,
 				9C75328D1B8C37E40066DEBD /* JigToast.cpp in Sources */,
+				9C7432631C1000620064166C /* JigLayer.cpp in Sources */,
 				9C75327D1B8C02F30066DEBD /* TempShadow.cpp in Sources */,
 				9CD668071BE22E6900637D3A /* DBMainLevel.cpp in Sources */,
 				9CA21A0A1B82C197001D2043 /* JigScene.cpp in Sources */,

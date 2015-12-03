@@ -4,7 +4,6 @@
 #include "JigScene.h"
 #include "RotableTouchPanel.h"
 #include "GameSceneMgr.h"
-#include "PlayDisplay.h"
 #include "GameState.h"
 #include "JigToast.h"
 #include "PlayManager.h"
@@ -23,6 +22,7 @@ Scene* PlayMain::createScene()
 }
 
 PlayMain::PlayMain()
+:m_display(nullptr)
 {
 
 }
@@ -44,7 +44,8 @@ bool PlayMain::init()
     m_level->setString( LanguageMgr::inst().getText( sstr("level%d", playshared.cur_level) ) );
 
     SimpleAudioEngine::getInstance()->playBackgroundMusic( audio_background );
-
+    SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(0.1f);
+    
 	return true;
 }
 
@@ -119,28 +120,30 @@ void PlayMain::onClickFinish(Ref* sender)
     else
     {
         JigToast::show("unfinish");
-//        playEffect(audio_btn_error);
-//        PlayDisplay* display = PlayDisplay::create();
-//        getCurScene()->alert(display);
     }
 }
 
 void PlayMain::onClickPrelook(Ref* sender)
 {
-    PlayDisplay* display = PlayDisplay::create();
-    getCurScene()->alert(display);
-    playEffect(audio_btn);
-}
+    if (m_display) {
+        return;
+    }
 
-//void PlayMain::onClickPause(Ref* sender)
-//{
-//    playshared.play_scene->alert( PauseLayer::create() );
-//}
+    m_display = PlayDisplay::create();
+    getCurScene()->alert(m_display);
+    playEffect(audio_btn_error);
+    SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+    m_display->onExitEvent = [=](Layer*){
+        SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+        m_display = nullptr;
+    };
+}
 
 void PlayMain::onClickReturnMenu(Ref* sender)
 {
     PlayManager::inst().exitGame();
     playEffect(audio_btn);
+    SimpleAudioEngine::getInstance()->stopBackgroundMusic();
 }
 
 

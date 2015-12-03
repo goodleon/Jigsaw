@@ -153,6 +153,7 @@ Node* HistoryLayer::load_csd()
 void HistoryLayer::onClickReturn(Ref* sender)
 {
     GameSceneMgr::inst().replace(kStartScene);
+    playEffect(audio_btn);
 }
 
 void HistoryLayer::onClickPay(Ref* sender)

@@ -4,6 +4,7 @@
 #define __Jigsaw_PlayMain_
 
 #include "PlayShared.h"
+#include "PlayDisplay.h"
 
 class PlayMain : public cocos2d::Layer
 {
@@ -30,6 +31,8 @@ private:
     Text* m_level;
     Layout* m_panel_start;
     Layout* m_game_panel;
+    
+    PlayDisplay* m_display;
 };
 
 #endif

@@ -74,7 +74,9 @@ void StartLayer::onClickStart(Ref* sender)
     }
     else
     {
-        GameSceneMgr::inst().replace( kHistoryScene );
+        this->scheduleOnce([](float){
+            GameSceneMgr::inst().replace( kHistoryScene );
+        }, 0, "enter_history_lazy");
     }
 
     playEffect(audio_btn);
