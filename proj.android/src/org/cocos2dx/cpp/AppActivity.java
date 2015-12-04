@@ -29,16 +29,15 @@ package org.cocos2dx.cpp;
 import org.cocos2dx.lib.Cocos2dxActivity;
 import org.json.JSONObject;
 
-import com.duoku.platform.single.DKPlatform;
-import com.duoku.platform.single.DkErrorCode;
-import com.duoku.platform.single.DkProtocolKeys;
-import com.duoku.platform.single.callback.*;
-import com.duoku.platform.single.item.*;
-import com.duoku.platform.single.DKPlatformSettings;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
+
+import com.duoku.platform.single.DKPlatform;
+import com.duoku.platform.single.DKPlatformSettings;
+import com.duoku.platform.single.DkErrorCode;
+import com.duoku.platform.single.DkProtocolKeys;
+import com.duoku.platform.single.callback.IDKSDKCallBack;
 
 public class AppActivity extends Cocos2dxActivity {
 	
@@ -68,7 +67,7 @@ public class AppActivity extends Cocos2dxActivity {
 						initAds();
 					}
 					
-					Toast.makeText(AppActivity.self, "mFunctionCode:"+Integer.toString(mFunctionCode) , Toast.LENGTH_LONG).show();
+//					Toast.makeText(AppActivity.self, "mFunctionCode:"+Integer.toString(mFunctionCode) , Toast.LENGTH_LONG).show();
 
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -76,19 +75,11 @@ public class AppActivity extends Cocos2dxActivity {
 			}
 		};
 
-		// 参数为测试数据，接入时请填入你真实数据
-		DKCMMMData mmData = null;
-
-		DKCMGBData gbData = null;
-
-		// 初始化函数
-		DKPlatform.getInstance().init(this, true,
-				DKPlatformSettings.SdkMode.SDK_BASIC, mmData, gbData,
-				initcompletelistener);
+		DKPlatform.getInstance().init(this, true, DKPlatformSettings.SdkMode.SDK_BASIC, null, null, initcompletelistener);
 	}
 
 	private void initAds() {
-		Toast.makeText(this, "initAds", Toast.LENGTH_LONG).show();
+//		Toast.makeText(this, "initAds", Toast.LENGTH_LONG).show();
 		DKPlatform.getInstance().bdgameInit(this, new IDKSDKCallBack() {
 			@Override
 			public void onResponse(String paramString) {
