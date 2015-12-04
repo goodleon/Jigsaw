@@ -38,6 +38,7 @@ import com.duoku.platform.single.DKPlatformSettings;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 public class AppActivity extends Cocos2dxActivity {
 	
@@ -66,6 +67,8 @@ public class AppActivity extends Cocos2dxActivity {
 					if (mFunctionCode == DkErrorCode.BDG_CROSSRECOMMEND_INIT_FINSIH) {
 						initAds();
 					}
+					
+					Toast.makeText(AppActivity.self, "mFunctionCode:"+Integer.toString(mFunctionCode) , Toast.LENGTH_LONG).show();
 
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -80,14 +83,16 @@ public class AppActivity extends Cocos2dxActivity {
 
 		// 初始化函数
 		DKPlatform.getInstance().init(this, true,
-				DKPlatformSettings.SdkMode.SDK_PAY, mmData, gbData,
+				DKPlatformSettings.SdkMode.SDK_BASIC, mmData, gbData,
 				initcompletelistener);
 	}
 
 	private void initAds() {
+		Toast.makeText(this, "initAds", Toast.LENGTH_LONG).show();
 		DKPlatform.getInstance().bdgameInit(this, new IDKSDKCallBack() {
 			@Override
 			public void onResponse(String paramString) {
+				Toast.makeText(AppActivity.self, paramString, Toast.LENGTH_LONG).show();
 				Log.d("GameMainActivity", "bggameInit success");
 			}
 		});

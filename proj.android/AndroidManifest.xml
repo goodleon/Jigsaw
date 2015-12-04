@@ -21,19 +21,19 @@
         <!-- dksdk_appid表示从开发者平台申请的APPID，一定要填写正确 -->
         <meta-data
             android:name="dksdk_appid"
-            android:value="开发者平台申请的APPID" />
+            android:value="7248111" />
         <!-- dksdk_appkey表示从开发者平台申请的APPKEY，一定要填写正确 -->
         <meta-data
             android:name="dksdk_appkey"
-            android:value="开发者平台申请的APPKEY" />
+            android:value="pCbrf4xddR08zH81zTL5IvjqXdQFuF4W" />
         <!-- dksdk_appsecret表示从开发者平台申请的APPSECRET，一定要填写正确 -->
         <meta-data
             android:name="dksdk_appsecret"
-            android:value="开发者平台申请的APPSECRET" />
+            android:value="RlfTTpTsH0s3G4vopd9a0INSRFugKm8p" />
         <!-- dksdk_channel表示渠道,请开发者向我方运营索要需要推广的渠道号 -->
         <meta-data
             android:name="dksdk_channel"
-            android:value="渠道号ID" />
+            android:value="13744" />
         <!-- dksdk_ver表示sdk版本,此版本为145 -->
         <meta-data
             android:name="dksdk_ver"
@@ -155,35 +155,6 @@
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
             </intent-filter>
         </receiver>
-
-        <!-- 支付模块配置 -->
-        <!-- 注意:支付模块的Activity屏幕方向要同代码中设置一致 -->
-        <activity
-            android:name="com.duoku.platform.single.ui.DKContainerActivity"
-            android:configChanges="orientation|keyboardHidden|navigation"
-            android:screenOrientation="portrait"
-            android:theme="@style/DK.Theme.NoBackGround.NoAnimation" >
-        </activity>
-        <activity
-            android:name="com.alipay.sdk.app.H5PayActivity"
-            android:screenOrientation="portrait" >
-        </activity>
-
-        <!-- 聚合微信支付 start -->
-        <activity
-            android:name="com.ipaynow.plugin.activity.PayMethodActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:exported="false"
-            android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.Dialog" >
-        </activity>
-        <activity
-            android:name="com.ipaynow.plugin.inner_plugin.wechat_plugin.activity.WeChatNotifyActivity"
-            android:configChanges="orientation|screenSize"
-            android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.NoDisplay" >
-        </activity>
-        <!-- 聚合微信支付 end -->
 
     </application>
 

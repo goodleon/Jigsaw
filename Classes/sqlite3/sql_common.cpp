@@ -10,7 +10,7 @@
 
 void jigsql::copy_database()
 {
-#if CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID
+#if CC_TARGET_PLATFORM!=CC_PLATFORM_MAC
     string name = FileUtils::getInstance()->fullPathForFilename("database.db");
     Data data = FileUtils::getInstance()->getDataFromFile(name);
 
@@ -29,7 +29,7 @@ void jigsql::copy_database()
 
 string jigsql::database_file()
 {
-#if CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID
+#if CC_TARGET_PLATFORM!=CC_PLATFORM_MAC
     return FileUtils::getInstance()->getWritablePath() + "writable.db";
 #else
     return FileUtils::getInstance()->fullPathForFilename("database.db");
