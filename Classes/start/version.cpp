@@ -6,11 +6,26 @@
 //
 //
 
+#if CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID
 #include "version.h"
-
+#include "platform/android/jni/JniHelper.h"
+//#include <jni.h>
+USING_NS_CC;
 std::string get_version()
 {
-    return "2.0";
-//    NSString* str = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-//    return [str cStringUsingEncoding:NSUTF8StringEncoding];
+	JniMethodInfo info;
+    bool ret=JniHelper::getStaticMethodInfo(info,"org/cocos2dx/cpp/JigHelper","get_version","()");
+    if(ret)
+    {
+        jstring hint = (jstring)info.env->CallStaticObjectMethod(info.classID,info.methodID, nullptr);
+
+		const char *str = info.env->GetStringUTFChars( hint, NULL);
+        std::string version = str ? str : "0.0";
+        info.env->ReleaseStringUTFChars(hint, str);
+
+		return version;
+    }
+    return "0.0";
 }
+
+#endif

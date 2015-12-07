@@ -101,6 +101,8 @@
 		9C75328D1B8C37E40066DEBD /* JigToast.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C75328A1B8C37E40066DEBD /* JigToast.cpp */; };
 		9CA21A091B82C197001D2043 /* JigScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA21A071B82C197001D2043 /* JigScene.cpp */; };
 		9CA21A0A1B82C197001D2043 /* JigScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA21A071B82C197001D2043 /* JigScene.cpp */; };
+		9CA3564D1C151D1F00610875 /* version.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA3564C1C151D1F00610875 /* version.cpp */; };
+		9CA3564E1C151D1F00610875 /* version.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA3564C1C151D1F00610875 /* version.cpp */; };
 		9CB8CF451C0F048000956455 /* sound in Resources */ = {isa = PBXBuildFile; fileRef = 9CB8CF441C0F048000956455 /* sound */; };
 		9CB8CF461C0F048000956455 /* sound in Resources */ = {isa = PBXBuildFile; fileRef = 9CB8CF441C0F048000956455 /* sound */; };
 		9CBE087C1B86E770006345E4 /* DragonlyTouchPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE08761B86E770006345E4 /* DragonlyTouchPanel.cpp */; };
@@ -109,8 +111,8 @@
 		9CBE087F1B86E770006345E4 /* RotableTouchPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE08781B86E770006345E4 /* RotableTouchPanel.cpp */; };
 		9CBE08801B86E770006345E4 /* TouchPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE087A1B86E770006345E4 /* TouchPanel.cpp */; };
 		9CBE08811B86E770006345E4 /* TouchPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE087A1B86E770006345E4 /* TouchPanel.cpp */; };
-		9CBE7E861BE7336B00596CBF /* version.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE7E851BE7336B00596CBF /* version.cpp */; };
-		9CBE7E871BE7336B00596CBF /* version.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE7E851BE7336B00596CBF /* version.cpp */; };
+		9CBE7E861BE7336B00596CBF /* version.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE7E851BE7336B00596CBF /* version.mm */; };
+		9CBE7E871BE7336B00596CBF /* version.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE7E851BE7336B00596CBF /* version.mm */; };
 		9CBE7E961BE873DC00596CBF /* DBRecord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE7E941BE873DC00596CBF /* DBRecord.cpp */; };
 		9CBE7E971BE873DC00596CBF /* DBRecord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE7E941BE873DC00596CBF /* DBRecord.cpp */; };
 		9CBE7E9A1BE876D900596CBF /* HistoryLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE7E981BE876D900596CBF /* HistoryLayer.cpp */; };
@@ -327,6 +329,7 @@
 		9C75328B1B8C37E40066DEBD /* JigToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JigToast.h; sourceTree = "<group>"; };
 		9CA21A071B82C197001D2043 /* JigScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JigScene.cpp; sourceTree = "<group>"; };
 		9CA21A081B82C197001D2043 /* JigScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JigScene.h; sourceTree = "<group>"; };
+		9CA3564C1C151D1F00610875 /* version.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = version.cpp; sourceTree = "<group>"; };
 		9CB8CF401C0EFC4D00956455 /* TouchPanelEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchPanelEvent.h; sourceTree = "<group>"; };
 		9CB8CF441C0F048000956455 /* sound */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sound; sourceTree = "<group>"; };
 		9CBE08761B86E770006345E4 /* DragonlyTouchPanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DragonlyTouchPanel.cpp; sourceTree = "<group>"; };
@@ -335,7 +338,7 @@
 		9CBE08791B86E770006345E4 /* RotableTouchPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotableTouchPanel.h; sourceTree = "<group>"; };
 		9CBE087A1B86E770006345E4 /* TouchPanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TouchPanel.cpp; sourceTree = "<group>"; };
 		9CBE087B1B86E770006345E4 /* TouchPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchPanel.h; sourceTree = "<group>"; };
-		9CBE7E851BE7336B00596CBF /* version.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = version.cpp; sourceTree = "<group>"; };
+		9CBE7E851BE7336B00596CBF /* version.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = version.mm; sourceTree = "<group>"; };
 		9CBE7E941BE873DC00596CBF /* DBRecord.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DBRecord.cpp; sourceTree = "<group>"; };
 		9CBE7E951BE873DC00596CBF /* DBRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBRecord.h; sourceTree = "<group>"; };
 		9CBE7E981BE876D900596CBF /* HistoryLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HistoryLayer.cpp; sourceTree = "<group>"; };
@@ -614,7 +617,8 @@
 			children = (
 				9CBE7E981BE876D900596CBF /* HistoryLayer.cpp */,
 				9CBE7E991BE876D900596CBF /* HistoryLayer.h */,
-				9CBE7E851BE7336B00596CBF /* version.cpp */,
+				9CBE7E851BE7336B00596CBF /* version.mm */,
+				9CA3564C1C151D1F00610875 /* version.cpp */,
 				9CD668121BE3139000637D3A /* ThanksLayer.cpp */,
 				9CD668131BE3139000637D3A /* ThanksLayer.h */,
 				9CCA98AD1B8ABA340000D1D1 /* StartLayer.cpp */,
@@ -988,7 +992,7 @@
 				9CD668441BE33BD400637D3A /* InstantGif.cpp in Sources */,
 				9CBE7ED91BECA9F300596CBF /* PayInterface.cpp in Sources */,
 				9C75328C1B8C37E40066DEBD /* JigToast.cpp in Sources */,
-				9CBE7E861BE7336B00596CBF /* version.cpp in Sources */,
+				9CBE7E861BE7336B00596CBF /* version.mm in Sources */,
 				9C1089221B81ADDC00426BD9 /* OnFinally.cpp in Sources */,
 				9CD6683C1BE33BD400637D3A /* gifalloc.c in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
@@ -1001,6 +1005,7 @@
 				9CBE7EC41BEB1FB400596CBF /* GifMovieCache.cpp in Sources */,
 				9CD6680C1BE22E6900637D3A /* sqlite3.c in Sources */,
 				9CD668421BE33BD400637D3A /* GifMovie.cpp in Sources */,
+				9CA3564D1C151D1F00610875 /* version.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				9C7532661B8BFCEC0066DEBD /* GameState.cpp in Sources */,
 				9CD6683A1BE33BD400637D3A /* gif_hash.c in Sources */,
@@ -1050,6 +1055,7 @@
 				9CD668451BE33BD400637D3A /* InstantGif.cpp in Sources */,
 				9C1089211B81ADDC00426BD9 /* config_t.cpp in Sources */,
 				9CD668031BE22E6900637D3A /* DBJigLevel.cpp in Sources */,
+				9CA3564E1C151D1F00610875 /* version.cpp in Sources */,
 				9CCA98B91B8AFC5B0000D1D1 /* GameSceneMgr.cpp in Sources */,
 				9CD668391BE33BD400637D3A /* gif_font.c in Sources */,
 				9C1089231B81ADDC00426BD9 /* OnFinally.cpp in Sources */,
@@ -1092,7 +1098,7 @@
 				9CA21A0A1B82C197001D2043 /* JigScene.cpp in Sources */,
 				9C10892B1B81ADDC00426BD9 /* lib4cc3x.cpp in Sources */,
 				9CD668351BE33BD400637D3A /* dgif_lib.c in Sources */,
-				9CBE7E871BE7336B00596CBF /* version.cpp in Sources */,
+				9CBE7E871BE7336B00596CBF /* version.mm in Sources */,
 				9CD6683D1BE33BD400637D3A /* gifalloc.c in Sources */,
 				9CD668431BE33BD400637D3A /* GifMovie.cpp in Sources */,
 				9CCA98B51B8AF5670000D1D1 /* PlayMain.cpp in Sources */,

@@ -84,11 +84,15 @@ void DragonlyTouchPanel::onDragEnded(Touch* touch)
 
 void DragonlyTouchPanel::selectTile(JigTile* tile)
 {
-    tile->setLocalZOrder(1);
-    
+    const int max_zorder = 10000;
+
     auto pre_touched = std::find_if(m_tiles.begin(), m_tiles.end(), [=](JigTile* tile){
-        return tile->getLocalZOrder()==1;
+        return tile->getLocalZOrder()==max_zorder;
     });
     if (pre_touched != m_tiles.end())
-        (*pre_touched)->setLocalZOrder(0);
+        (*pre_touched)->setLocalZOrder(max_zorder-1);
+
+    tile->setLocalZOrder(max_zorder);
+
+    this->resortTiles();
 }

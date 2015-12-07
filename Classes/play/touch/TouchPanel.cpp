@@ -95,6 +95,13 @@ void TouchPanel::notifyEvent(TouchPanelEvent event)
     }
 }
 
+void TouchPanel::resortTiles()
+{
+    std::stable_sort(m_tiles.begin(), m_tiles.end(), [=](const JigTile* arg1, const JigTile* arg2){
+        return arg1->getLocalZOrder()<arg2->getLocalZOrder();
+    });
+}
+
 bool TouchPanel::onTouchBegan(Touch* touch, Event* event)
 {
     Return_False_If(!canTouch());
@@ -283,9 +290,7 @@ void TouchPanel::longTouchCallback(float delay)
 
 void TouchPanel::setStartRect(const Rect& rc)
 {
-    Rect real = rc;
-//    real.origin += m_tileSize/2;
-//    real.size.setSize( real.size.width-m_tileSize.width, real.size.height-m_tileSize.height );
+    const Rect real = rc;
 
     for (int i=0; i<m_tiles.size(); ++i)
     {
@@ -294,6 +299,12 @@ void TouchPanel::setStartRect(const Rect& rc)
 
         startTile( i, Point(x, y) );
     }
+
+    for (auto it = m_tiles.begin(); it != m_tiles.end(); ++it) {
+        const int zorder = random(0, 9999);
+        (*it)->setZOrder(zorder);
+    }
+    resortTiles();
 }
 
 void TouchPanel::startGame()

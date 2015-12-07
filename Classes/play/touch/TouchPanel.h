@@ -32,7 +32,9 @@ protected:
     virtual void onDragMoved(Touch* touch) = 0;
     virtual void onDragEnded(Touch* touch) = 0;
     virtual void startTile(int index, const Point& pt) = 0;
-    
+
+    void resortTiles();
+
     vector<JigTile*> m_tiles;
     JigTile* m_touching;
     

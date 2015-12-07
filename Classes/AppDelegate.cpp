@@ -52,9 +52,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
         
         FileUtils::getInstance()->addSearchPath("res");
 
-        long x = time(0);//1440752459;
-        printf("srand=%ld", x);
-        srand( x );
+        srand( (unsigned int)time(0) );
 
         auto scene = StartLayer::createScene();
         director->runWithScene(scene);
