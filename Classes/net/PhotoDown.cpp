@@ -9,14 +9,14 @@
 #include "PhotoDown.h"
 #include "ProtoId.h"
 #include "arpa/inet.h"
-#include "DBImage.h"
 #include "JigNotify.h"
 #include "JigToast.h"
 
-//static const string g_img_dir = "img/";
-string PhotoDown::get_full_img(const string& img)
+string PhotoDown::get_full_img(int img_id)
 {
-    return FileUtils::getInstance()->getWritablePath() + "img/" + img;
+    auto target = PhotoDown::inst().m_id2fname.find(img_id);
+    CCASSERT(target!=PhotoDown::inst().m_id2fname.end(), "");
+    return target!=PhotoDown::inst().m_id2fname.end() ? target->second : "";
 }
 
 PhotoDown::PhotoDown()
@@ -63,8 +63,7 @@ void PhotoDown::loadPatch()
     set<int> photo_ids = m_ready.front();
     string ids;
     for (auto it=photo_ids.begin(); it!=photo_ids.end(); ++it){
-        DBImage item = DBImage::readby_id(*it);
-        if (FileUtils::getInstance()->isFileExist( get_full_img(item.name))) {
+        if (isFileExist(*it)) {
             m_ready.front().erase(*it);
         }
         else{
@@ -106,6 +105,11 @@ void PhotoDown::finishPatch()
     m_ready.erase( m_ready.begin() );
 }
 
+bool PhotoDown::isFileExist(int img_id)
+{
+    return m_id2fname.find(img_id)!=m_id2fname.end();
+}
+
 void PhotoDown::onHttpResponse(HttpClient* client, HttpResponse* response)
 {
     if (!response->isSucceed()) {
@@ -144,24 +148,22 @@ void PhotoDown::onHttpResponse(HttpClient* client, HttpResponse* response)
                 head = &data->back();
 //                JigNotify::inst().notifyListener(doc["proto"].GetInt(), doc);
             }
-            else
+            else if(img_id>0)
             {
-                DBImage db = DBImage::readby_id(img_id);
-                if(db.id>0)
+                string fname = head+8+1;
+                string file = FileUtils::getInstance()->getWritablePath() + "img/" + fname;
+                FILE* fp = fopen(file.c_str(), "wb");
+                if (fp)
                 {
-                    string file = get_full_img(db.name);
-                    FILE* fp = fopen(file.c_str(), "wb");
-                    if (fp)
-                    {
-                        fwrite(head+9, img_size, 1, fp);
-                        fclose(fp);
+                    fwrite(head+101, img_size, 1, fp);
+                    fclose(fp);
 
-                        PhotoDown::inst().m_ready.front().erase(img_id);
-                    }
+                    PhotoDown::inst().m_id2fname[img_id] = file;
+                    PhotoDown::inst().m_ready.front().erase(img_id);
                 }
             }
 
-            head += sizeof(img_id)+sizeof(img_size)+1+img_size+1;
+            head += sizeof(img_id)+sizeof(img_size)+92+img_size+1;
         }
         
         PhotoDown::inst().finishPatch();

@@ -36,11 +36,13 @@ try:
 		print json.dumps({"img_ids":img_ids, "conf_ids":conf_ids, "passes":passes,"proto":50001})
 	elif proto==10002: #下载图片
 		try:
-			for id in obj['img_ids'].split(','):
-				if id=='': continue
-				id = int(id)
-				data = open(db.getImageNameById(id), 'rb').read()
-				print struct.pack('>II', id, len(data)), data
+			for idx in obj['img_ids'].split(','):
+				if idx=='': continue
+				idx = int(idx)
+				fname = db.getImageNameById(idx)
+				data = open('img/'+fname, 'rb').read()
+				fmt = '>II92p%dp'%(len(data)+1) #id(4),data_len(4),name(92),data
+				print struct.pack(fmt, idx, len(data), bytes(fname), data)
 		except Exception as e:
 			print struct.pack('>II', 0, 0), json.dumps({'proto':50005, 'msg':str(e)})
 	elif proto==10003: #客户端登陆

@@ -5,7 +5,6 @@
 #include "GameSceneMgr.h"
 #include "Network.h"
 #include "PhotoDown.h"
-#include "DBImage.h"
 #include "DBImageConf.h"
 #include "JigSprite.h"
 #include "LanguageMgr.h"
@@ -170,10 +169,8 @@ void ChooseLayer::onMessage(int notify_id, const net_data_t& root)
 
 void ChooseLayer::refreshImg()
 {
-    DBImage img = DBImage::readby_id(m_info.img_id);
-    string file = PhotoDown::inst().get_full_img(img.name);
-    if (!FileUtils::getInstance()->isFileExist(file)) {
-        JigToast::show( LanguageMgr::inst().getText("can_not_find_img")+img.name );
+    if (!PhotoDown::inst().isFileExist(m_info.img_id)) {
+        JigToast::show( LanguageMgr::inst().getText("can_not_find_img")+sstr("id=%d", m_info.img_id) );
         return;
     }
 
@@ -190,6 +187,7 @@ void ChooseLayer::refreshImg()
     clip->setScale(0.985);
     m_img_bg->addChild(clip);
 
+    string file = PhotoDown::inst().get_full_img(m_info.img_id);
     GifBase* gif = JigSprite::create( file );
     const Size content = gif->getContentSize();
     gif->setScale( selfSize.width/content.width );

@@ -5,7 +5,7 @@ con = sql.connect('server.db')
 def getImageNameById(id):
 	cur = con.cursor()
 	cur.execute('select name from Image where id=%d'%(id))
-	return 'img/'+cur.fetchall()[0][0]
+	return cur.fetchall()[0][0]
 
 # def create_new_history(uid):
 # 	cmd_img = 'select * from Image ORDER by id limit 6'
@@ -87,7 +87,7 @@ def playEndWin(uid):
 	pro = runSql('select * from Process where user_id=%d'%(uid)).fetchall()[0]
 	valus = '%d,%d,%d,%f,%f'%(uid,pro[2],pro[3],pro[4],pro[6]-pro[4])
 	runSql('insert into History(user_id,img_id,img_conf_id,start_time,used_time) values(%s)'%(valus))
-	maxitems = runSql('select * from History where user_id=%d'%(uid)).fetchall()
+	maxitems = runSql('select * from History where user_id=%d and img_id=%d'%(uid,pro[2])).fetchall()
 	maxitems.sort(cmp=lambda x,y:sortWithConfig(x,y), reverse=True)
 	his_cur = (0,uid,pro[2],pro[3],pro[4],pro[6]-pro[4])
 	return (calcScore(maxitems[0]), pro[6]-pro[4], calcScore(his_cur))

@@ -10,7 +10,6 @@
 #include "PlayShared.h"
 #include "GameSceneMgr.h"
 #include "GifMovieCache.h"
-#include "DBImage.h"
 #include "DBImageConf.h"
 #include "PhotoDown.h"
 
@@ -54,10 +53,9 @@ void PlayManager::enterGame(const ImageInfo& info)
     GameStateMgr::inst().setKeyListener(this);
     playshared.resetAll();
 
-    DBImage img = DBImage::readby_id(info.img_id);
     DBImageConf conf = DBImageConf::readby_id(info.conf_id);
-    CCASSERT(img.id>0&&conf.id>0, "");
-    playshared.file = PhotoDown::get_full_img(img.name);
+//    CCASSERT(img.id>0&&conf.id>0, "");
+    playshared.file = PhotoDown::inst().get_full_img(info.img_id);
     playshared.rows = conf.rows;
     playshared.cols = conf.cols;
     playshared.rot  = conf.rot;

@@ -25,7 +25,8 @@ public:
     void load(int photo_id);
     void load_many(const set<int>& photo_ids);
 
-    static string get_full_img(const string& img);
+    string get_full_img(int img_id);
+    bool isFileExist(int img_id);
 private:
     void addPath(const set<int>& photo_ids);
     void loadPatch();
@@ -36,6 +37,8 @@ private:
 private:
     vector< set<int> > m_ready;
     bool m_loading;
+
+    map<int, string> m_id2fname;
 };
 
 #endif /* defined(__Jigsaw__PhotoDown__) */

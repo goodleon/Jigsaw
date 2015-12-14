@@ -115,8 +115,6 @@
 		9CA3566A1C16986E00610875 /* Request.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA356671C16986E00610875 /* Request.cpp */; };
 		9CA356711C16C27D00610875 /* PhotoDown.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA3566F1C16C27D00610875 /* PhotoDown.cpp */; };
 		9CA356721C16C27D00610875 /* PhotoDown.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA3566F1C16C27D00610875 /* PhotoDown.cpp */; };
-		9CA356771C16D21D00610875 /* DBImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA356731C16D21D00610875 /* DBImage.cpp */; };
-		9CA356781C16D21D00610875 /* DBImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA356731C16D21D00610875 /* DBImage.cpp */; };
 		9CA356811C16EC6400610875 /* JigNotify.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA3567F1C16EC6400610875 /* JigNotify.cpp */; };
 		9CA356821C16EC6400610875 /* JigNotify.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA3567F1C16EC6400610875 /* JigNotify.cpp */; };
 		9CA356851C16EF8000610875 /* ClientCenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA356831C16EF8000610875 /* ClientCenter.cpp */; };
@@ -355,8 +353,6 @@
 		9CA356681C16986E00610875 /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
 		9CA3566F1C16C27D00610875 /* PhotoDown.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhotoDown.cpp; sourceTree = "<group>"; };
 		9CA356701C16C27D00610875 /* PhotoDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDown.h; sourceTree = "<group>"; };
-		9CA356731C16D21D00610875 /* DBImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DBImage.cpp; sourceTree = "<group>"; };
-		9CA356741C16D21D00610875 /* DBImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBImage.h; sourceTree = "<group>"; };
 		9CA3567F1C16EC6400610875 /* JigNotify.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JigNotify.cpp; sourceTree = "<group>"; };
 		9CA356801C16EC6400610875 /* JigNotify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JigNotify.h; sourceTree = "<group>"; };
 		9CA356831C16EF8000610875 /* ClientCenter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClientCenter.cpp; sourceTree = "<group>"; };
@@ -812,8 +808,6 @@
 			children = (
 				9CA356921C181E4B00610875 /* DBImageConf.cpp */,
 				9CA356931C181E4B00610875 /* DBImageConf.h */,
-				9CA356731C16D21D00610875 /* DBImage.cpp */,
-				9CA356741C16D21D00610875 /* DBImage.h */,
 				9CD667FC1BE22E6900637D3A /* mk_db.py */,
 				9CD667FD1BE22E6900637D3A /* sql_common.cpp */,
 				9CD667FE1BE22E6900637D3A /* sql_common.h */,
@@ -1057,7 +1051,6 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				9C7532661B8BFCEC0066DEBD /* GameState.cpp in Sources */,
 				9CD6683A1BE33BD400637D3A /* gif_hash.c in Sources */,
-				9CA356771C16D21D00610875 /* DBImage.cpp in Sources */,
 				9CA356891C17BD4E00610875 /* NetErrorLayer.cpp in Sources */,
 				9CD6680A1BE22E6900637D3A /* sql_common.cpp in Sources */,
 				9CA356711C16C27D00610875 /* PhotoDown.cpp in Sources */,
@@ -1119,7 +1112,6 @@
 				9CCA98B01B8ABA340000D1D1 /* StartLayer.cpp in Sources */,
 				9CD668471BE33BD400637D3A /* Movie.cpp in Sources */,
 				9CBE7EE21BECAAFE00596CBF /* PaymentMgr.cpp in Sources */,
-				9CA356781C16D21D00610875 /* DBImage.cpp in Sources */,
 				9C75326D1B8BFD2D0066DEBD /* PlayManager.cpp in Sources */,
 				9C1089291B81ADDC00426BD9 /* EffectAudio.cpp in Sources */,
 				9CBE7EDA1BECA9F300596CBF /* PayInterface.cpp in Sources */,
