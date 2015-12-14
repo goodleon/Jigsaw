@@ -1,6 +1,9 @@
 #include "AppDelegate.h"
 #include "StartLayer.h"
 #include "sql_common.h"
+#include "ClientCenter.h"
+#include "Network.h"
+#include "PaymentMgr.h"
 
 USING_NS_CC;
 
@@ -52,10 +55,17 @@ bool AppDelegate::applicationDidFinishLaunching() {
         
         FileUtils::getInstance()->addSearchPath("res");
 
+        ClientCenter::inst();
+
+        PaymentMgr::inst().init();
+        
         srand( (unsigned int)time(0) );
 
         auto scene = StartLayer::createScene();
         director->runWithScene(scene);
+
+        Request req(proto_login_up);
+        Network::inst().addRequest(req);
     }
 
     return true;

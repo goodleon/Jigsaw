@@ -9,6 +9,7 @@
 #include "JigTile.h"
 
 JigTile::JigTile()
+:m_index(-1)
 {
 }
 
@@ -31,7 +32,7 @@ void JigTile::setRawDisplay(const string& file)
 {
     removeAllChildren();
 
-    m_display = CacheGif::create(file.c_str());
+    m_display = JigSprite::create(file.c_str());
     m_display->setAnchorPoint(Point::ZERO);
     addChild(m_display);
 }
@@ -85,4 +86,14 @@ Direction JigTile::getDirection()
     return Direction( (DirectionType)(dir%4) );
 }
 
+void JigTile::setIndex(int index)
+{
+    m_index = index;
+    CCASSERT(m_index>=0, "");
+}
 
+int JigTile::getIndex() const
+{
+    CCASSERT(m_index>=0, "");
+    return m_index;
+}

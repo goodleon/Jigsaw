@@ -2,7 +2,7 @@
 
 #include "PlayDisplay.h"
 #include "PlayShared.h"
-#include "CacheGif.h"
+#include "JigSprite.h"
 
 PlayDisplay::PlayDisplay()
 {
@@ -29,7 +29,7 @@ bool PlayDisplay::init()
     clip->setAlphaThreshold(0.1f);
     root->addChild(clip);
 
-    CacheGif* gif = CacheGif::create( playshared.getJigsaw().c_str() );
+    JigSprite* gif = JigSprite::create( playshared.file );
     gif->setScale( m_clip_stencil->getContentSize().width/gif->getContentSize().width );
     gif->setPosition(m_clip_stencil->getPosition());
     clip->addChild(gif);

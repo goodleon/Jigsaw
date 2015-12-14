@@ -30,3 +30,14 @@ vector<string> cex::split(const string& str, char token)
     
     return ret;
 }
+
+vector<int> cex::splitInt(const string& str, char token)
+{
+    vector<string> tmp = split(str, token);
+    vector<int> ret;
+    for (auto it=tmp.begin(); it!=tmp.end(); ++it)
+    {
+        ret.push_back( stoi(*it, nullptr) );
+    }
+    return ret;
+}

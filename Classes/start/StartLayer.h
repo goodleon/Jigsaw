@@ -4,14 +4,18 @@
 #define __Jigsaw_StartLayer_
 
 #include "JigHeader.h"
+#include "JigNotify.h"
+#include "NetErrorLayer.h"
 
-class StartLayer : public cocos2d::Layer
+class StartLayer : public cocos2d::Layer, public NotifyListener
 {
 public:
 	StartLayer();
 	virtual ~StartLayer() override;
 
     static JigScene* createScene();
+
+    virtual void onMessage(int notify_id, const net_data_t& root);
 private:
 	CREATE_FUNC(StartLayer);
 	
@@ -26,6 +30,9 @@ private:
 
 private:
     Text* m_version;
+    Text* m_userid;
+
+//    bool m_login;
 };
 
 #endif

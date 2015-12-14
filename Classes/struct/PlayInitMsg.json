@@ -1,6 +1,6 @@
 [
-	{"ctype":"int", "name":"main_level"},
-	{"ctype":"int", "name":"start_level"},
+	{"ctype":"string", "name":"img_file"},
+	{"ctype":"int", "name":"img_config"},
 	{"ctype":"int", "name":"level_count"},
 	{"ctype":"bool", "name":"rotable"}
 ]

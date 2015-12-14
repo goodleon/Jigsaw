@@ -37,7 +37,7 @@ void TouchPanel::reset(const string& file, int rows, int cols)
 {
     clear();
 
-    CacheGif* gif = CacheGif::create(file.c_str());
+    JigSprite* gif = JigSprite::create(file.c_str());
     const Size raw_size = gif->getContentSize();
 
     m_tileSize.setSize( raw_size.width/cols, raw_size.height/rows );
@@ -53,11 +53,16 @@ void TouchPanel::reset(const string& file, int rows, int cols)
 
 bool TouchPanel::isAllFinished()
 {
-    auto is_placed_well = [=](int r, int c){
+    vector<JigTile*> tmp = m_tiles;
+    sort(tmp.begin(), tmp.end(), [](const JigTile* arg1, const JigTile* arg2){
+        return arg1->getIndex()<arg2->getIndex();
+    });
+
+    auto is_placed_well = [&](int r, int c){
         Rect correct;
         correct.origin = Point(c*m_tileSize.width, r*m_tileSize.height) + m_tileSize/2 - Point(3,3);
         correct.size.setSize(6, 6);
-        JigTile* tile = m_tiles.at( r*m_splitCols + c );
+        JigTile* tile = tmp.at( r*m_splitCols + c );
         Point tile_at = cocos2array(tile->getPosition(), this);
         if (correct.containsPoint(tile_at) && tile->getDirection()==DT_UP)
         {
@@ -65,7 +70,7 @@ bool TouchPanel::isAllFinished()
         }
         return false;
     };
-    
+
     for (int r=0; r<m_splitRows; ++r)
     {
         for (int c=0; c<m_splitCols; ++c)
@@ -175,6 +180,8 @@ void TouchPanel::initTiles(const string& gif_file)
             JigTile* tile = JigTile::create();
             addChild(tile);
             m_tiles.push_back(tile);
+
+            tile->setIndex(i*m_splitCols+j);
 
             tile->setRawDisplay(gif_file);
 

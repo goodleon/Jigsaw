@@ -13,7 +13,7 @@ public:
 	virtual ~JigToast() override;
 
     static void show(const std::string& lan_id);
-    
+    static void show_raw(const std::string& text);
 private:
     CREATE_FUNC(JigToast);
 	

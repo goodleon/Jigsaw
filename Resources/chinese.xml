@@ -19,6 +19,12 @@
         <string>我是无辜的分割线</string>
         <key>has_paid</key>
         <string>正在等待支付结果</string>
+        <key>login_fail_retry</key>
+        <string>登陆失败，请重试</string>
+        <key>canot_use</key>
+        <string>此功能暂未开通</string>
+        <key>can_not_find_img</key>
+        <string>找不到图片:</string>
         <key>level0</key>
         <string>第一关</string>
         <key>level1</key>
@@ -41,5 +47,7 @@
         <string>第十关</string>
         <key>unopen</key>
         <string>该功能暂未开放</string>
+        <key>at_least_finish_one</key>
+        <string>请至少完成一次!</string>
     </dict>
 </plist>

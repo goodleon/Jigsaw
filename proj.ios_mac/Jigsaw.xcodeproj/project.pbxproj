@@ -99,10 +99,34 @@
 		9C7532851B8C1C6A0066DEBD /* ConfirmLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7532821B8C1C6A0066DEBD /* ConfirmLayer.cpp */; };
 		9C75328C1B8C37E40066DEBD /* JigToast.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C75328A1B8C37E40066DEBD /* JigToast.cpp */; };
 		9C75328D1B8C37E40066DEBD /* JigToast.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C75328A1B8C37E40066DEBD /* JigToast.cpp */; };
+		9C98125B1C1A8B7800C5AAA4 /* ChooseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C9812591C1A8B7800C5AAA4 /* ChooseLayer.cpp */; };
+		9C98125C1C1A8B7800C5AAA4 /* ChooseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C9812591C1A8B7800C5AAA4 /* ChooseLayer.cpp */; };
+		9C98125F1C1A8C2C00C5AAA4 /* JigRadio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C98125D1C1A8C2C00C5AAA4 /* JigRadio.cpp */; };
+		9C9812601C1A8C2C00C5AAA4 /* JigRadio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C98125D1C1A8C2C00C5AAA4 /* JigRadio.cpp */; };
+		9C9812641C1AD0E100C5AAA4 /* WinLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C9812621C1AD0E100C5AAA4 /* WinLayer.cpp */; };
+		9C9812651C1AD0E100C5AAA4 /* WinLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C9812621C1AD0E100C5AAA4 /* WinLayer.cpp */; };
 		9CA21A091B82C197001D2043 /* JigScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA21A071B82C197001D2043 /* JigScene.cpp */; };
 		9CA21A0A1B82C197001D2043 /* JigScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA21A071B82C197001D2043 /* JigScene.cpp */; };
 		9CA3564D1C151D1F00610875 /* version.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA3564C1C151D1F00610875 /* version.cpp */; };
 		9CA3564E1C151D1F00610875 /* version.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA3564C1C151D1F00610875 /* version.cpp */; };
+		9CA356591C15860500610875 /* Network.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA356571C15860500610875 /* Network.cpp */; };
+		9CA3565A1C15860500610875 /* Network.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA356571C15860500610875 /* Network.cpp */; };
+		9CA356691C16986E00610875 /* Request.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA356671C16986E00610875 /* Request.cpp */; };
+		9CA3566A1C16986E00610875 /* Request.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA356671C16986E00610875 /* Request.cpp */; };
+		9CA356711C16C27D00610875 /* PhotoDown.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA3566F1C16C27D00610875 /* PhotoDown.cpp */; };
+		9CA356721C16C27D00610875 /* PhotoDown.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA3566F1C16C27D00610875 /* PhotoDown.cpp */; };
+		9CA356771C16D21D00610875 /* DBImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA356731C16D21D00610875 /* DBImage.cpp */; };
+		9CA356781C16D21D00610875 /* DBImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA356731C16D21D00610875 /* DBImage.cpp */; };
+		9CA356811C16EC6400610875 /* JigNotify.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA3567F1C16EC6400610875 /* JigNotify.cpp */; };
+		9CA356821C16EC6400610875 /* JigNotify.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA3567F1C16EC6400610875 /* JigNotify.cpp */; };
+		9CA356851C16EF8000610875 /* ClientCenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA356831C16EF8000610875 /* ClientCenter.cpp */; };
+		9CA356861C16EF8000610875 /* ClientCenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA356831C16EF8000610875 /* ClientCenter.cpp */; };
+		9CA356891C17BD4E00610875 /* NetErrorLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA356871C17BD4E00610875 /* NetErrorLayer.cpp */; };
+		9CA3568A1C17BD4E00610875 /* NetErrorLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA356871C17BD4E00610875 /* NetErrorLayer.cpp */; };
+		9CA356901C180D6700610875 /* JigSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA3568E1C180D6700610875 /* JigSprite.cpp */; };
+		9CA356911C180D6700610875 /* JigSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA3568E1C180D6700610875 /* JigSprite.cpp */; };
+		9CA356941C181E4B00610875 /* DBImageConf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA356921C181E4B00610875 /* DBImageConf.cpp */; };
+		9CA356951C181E4B00610875 /* DBImageConf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA356921C181E4B00610875 /* DBImageConf.cpp */; };
 		9CB8CF451C0F048000956455 /* sound in Resources */ = {isa = PBXBuildFile; fileRef = 9CB8CF441C0F048000956455 /* sound */; };
 		9CB8CF461C0F048000956455 /* sound in Resources */ = {isa = PBXBuildFile; fileRef = 9CB8CF441C0F048000956455 /* sound */; };
 		9CBE087C1B86E770006345E4 /* DragonlyTouchPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE08761B86E770006345E4 /* DragonlyTouchPanel.cpp */; };
@@ -113,16 +137,8 @@
 		9CBE08811B86E770006345E4 /* TouchPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE087A1B86E770006345E4 /* TouchPanel.cpp */; };
 		9CBE7E861BE7336B00596CBF /* version.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE7E851BE7336B00596CBF /* version.mm */; };
 		9CBE7E871BE7336B00596CBF /* version.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE7E851BE7336B00596CBF /* version.mm */; };
-		9CBE7E961BE873DC00596CBF /* DBRecord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE7E941BE873DC00596CBF /* DBRecord.cpp */; };
-		9CBE7E971BE873DC00596CBF /* DBRecord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE7E941BE873DC00596CBF /* DBRecord.cpp */; };
-		9CBE7E9A1BE876D900596CBF /* HistoryLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE7E981BE876D900596CBF /* HistoryLayer.cpp */; };
-		9CBE7E9B1BE876D900596CBF /* HistoryLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE7E981BE876D900596CBF /* HistoryLayer.cpp */; };
 		9CBE7E9E1BE87CD800596CBF /* jig_tools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE7E9C1BE87CD800596CBF /* jig_tools.cpp */; };
 		9CBE7E9F1BE87CD800596CBF /* jig_tools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE7E9C1BE87CD800596CBF /* jig_tools.cpp */; };
-		9CBE7EA21BE8814400596CBF /* jigsaw0 in Resources */ = {isa = PBXBuildFile; fileRef = 9CBE7EA01BE8814300596CBF /* jigsaw0 */; };
-		9CBE7EA31BE8814400596CBF /* jigsaw0 in Resources */ = {isa = PBXBuildFile; fileRef = 9CBE7EA01BE8814300596CBF /* jigsaw0 */; };
-		9CBE7EA41BE8814400596CBF /* jigsaw1 in Resources */ = {isa = PBXBuildFile; fileRef = 9CBE7EA11BE8814400596CBF /* jigsaw1 */; };
-		9CBE7EA51BE8814400596CBF /* jigsaw1 in Resources */ = {isa = PBXBuildFile; fileRef = 9CBE7EA11BE8814400596CBF /* jigsaw1 */; };
 		9CBE7EC41BEB1FB400596CBF /* GifMovieCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE7EC21BEB1FB400596CBF /* GifMovieCache.cpp */; };
 		9CBE7EC51BEB1FB500596CBF /* GifMovieCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE7EC21BEB1FB400596CBF /* GifMovieCache.cpp */; };
 		9CBE7EC81BEB2B5F00596CBF /* GifFrameCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE7EC61BEB2B5F00596CBF /* GifFrameCache.cpp */; };
@@ -147,10 +163,6 @@
 		9CD667EA1BE20B6600637D3A /* mk_struct.py in Resources */ = {isa = PBXBuildFile; fileRef = 9CD667D51BE20B6600637D3A /* mk_struct.py */; };
 		9CD667EB1BE20B6600637D3A /* PlayInitMsg.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CD667D61BE20B6600637D3A /* PlayInitMsg.json */; };
 		9CD667EC1BE20B6600637D3A /* PlayInitMsg.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CD667D61BE20B6600637D3A /* PlayInitMsg.json */; };
-		9CD668021BE22E6900637D3A /* DBJigLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD667F61BE22E6900637D3A /* DBJigLevel.cpp */; };
-		9CD668031BE22E6900637D3A /* DBJigLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD667F61BE22E6900637D3A /* DBJigLevel.cpp */; };
-		9CD668061BE22E6900637D3A /* DBMainLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD667FA1BE22E6900637D3A /* DBMainLevel.cpp */; };
-		9CD668071BE22E6900637D3A /* DBMainLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD667FA1BE22E6900637D3A /* DBMainLevel.cpp */; };
 		9CD668081BE22E6900637D3A /* mk_db.py in Resources */ = {isa = PBXBuildFile; fileRef = 9CD667FC1BE22E6900637D3A /* mk_db.py */; };
 		9CD668091BE22E6900637D3A /* mk_db.py in Resources */ = {isa = PBXBuildFile; fileRef = 9CD667FC1BE22E6900637D3A /* mk_db.py */; };
 		9CD6680A1BE22E6900637D3A /* sql_common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD667FD1BE22E6900637D3A /* sql_common.cpp */; };
@@ -327,9 +339,34 @@
 		9C7532831B8C1C6A0066DEBD /* ConfirmLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmLayer.h; sourceTree = "<group>"; };
 		9C75328A1B8C37E40066DEBD /* JigToast.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JigToast.cpp; sourceTree = "<group>"; };
 		9C75328B1B8C37E40066DEBD /* JigToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JigToast.h; sourceTree = "<group>"; };
+		9C9812591C1A8B7800C5AAA4 /* ChooseLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChooseLayer.cpp; sourceTree = "<group>"; };
+		9C98125A1C1A8B7800C5AAA4 /* ChooseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseLayer.h; sourceTree = "<group>"; };
+		9C98125D1C1A8C2C00C5AAA4 /* JigRadio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JigRadio.cpp; sourceTree = "<group>"; };
+		9C98125E1C1A8C2C00C5AAA4 /* JigRadio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JigRadio.h; sourceTree = "<group>"; };
+		9C9812621C1AD0E100C5AAA4 /* WinLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WinLayer.cpp; sourceTree = "<group>"; };
+		9C9812631C1AD0E100C5AAA4 /* WinLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinLayer.h; sourceTree = "<group>"; };
 		9CA21A071B82C197001D2043 /* JigScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JigScene.cpp; sourceTree = "<group>"; };
 		9CA21A081B82C197001D2043 /* JigScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JigScene.h; sourceTree = "<group>"; };
 		9CA3564C1C151D1F00610875 /* version.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = version.cpp; sourceTree = "<group>"; };
+		9CA356571C15860500610875 /* Network.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Network.cpp; sourceTree = "<group>"; };
+		9CA356581C15860500610875 /* Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
+		9CA3565C1C15888300610875 /* ProtoId.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProtoId.h; sourceTree = "<group>"; };
+		9CA356671C16986E00610875 /* Request.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Request.cpp; sourceTree = "<group>"; };
+		9CA356681C16986E00610875 /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
+		9CA3566F1C16C27D00610875 /* PhotoDown.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhotoDown.cpp; sourceTree = "<group>"; };
+		9CA356701C16C27D00610875 /* PhotoDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDown.h; sourceTree = "<group>"; };
+		9CA356731C16D21D00610875 /* DBImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DBImage.cpp; sourceTree = "<group>"; };
+		9CA356741C16D21D00610875 /* DBImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBImage.h; sourceTree = "<group>"; };
+		9CA3567F1C16EC6400610875 /* JigNotify.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JigNotify.cpp; sourceTree = "<group>"; };
+		9CA356801C16EC6400610875 /* JigNotify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JigNotify.h; sourceTree = "<group>"; };
+		9CA356831C16EF8000610875 /* ClientCenter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClientCenter.cpp; sourceTree = "<group>"; };
+		9CA356841C16EF8000610875 /* ClientCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientCenter.h; sourceTree = "<group>"; };
+		9CA356871C17BD4E00610875 /* NetErrorLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetErrorLayer.cpp; sourceTree = "<group>"; };
+		9CA3568B1C17BDE600610875 /* NetErrorLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetErrorLayer.h; sourceTree = "<group>"; };
+		9CA3568E1C180D6700610875 /* JigSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JigSprite.cpp; sourceTree = "<group>"; };
+		9CA3568F1C180D6700610875 /* JigSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JigSprite.h; sourceTree = "<group>"; };
+		9CA356921C181E4B00610875 /* DBImageConf.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DBImageConf.cpp; sourceTree = "<group>"; };
+		9CA356931C181E4B00610875 /* DBImageConf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBImageConf.h; sourceTree = "<group>"; };
 		9CB8CF401C0EFC4D00956455 /* TouchPanelEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchPanelEvent.h; sourceTree = "<group>"; };
 		9CB8CF441C0F048000956455 /* sound */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sound; sourceTree = "<group>"; };
 		9CBE08761B86E770006345E4 /* DragonlyTouchPanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DragonlyTouchPanel.cpp; sourceTree = "<group>"; };
@@ -339,14 +376,8 @@
 		9CBE087A1B86E770006345E4 /* TouchPanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TouchPanel.cpp; sourceTree = "<group>"; };
 		9CBE087B1B86E770006345E4 /* TouchPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchPanel.h; sourceTree = "<group>"; };
 		9CBE7E851BE7336B00596CBF /* version.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = version.mm; sourceTree = "<group>"; };
-		9CBE7E941BE873DC00596CBF /* DBRecord.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DBRecord.cpp; sourceTree = "<group>"; };
-		9CBE7E951BE873DC00596CBF /* DBRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBRecord.h; sourceTree = "<group>"; };
-		9CBE7E981BE876D900596CBF /* HistoryLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HistoryLayer.cpp; sourceTree = "<group>"; };
-		9CBE7E991BE876D900596CBF /* HistoryLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryLayer.h; sourceTree = "<group>"; };
 		9CBE7E9C1BE87CD800596CBF /* jig_tools.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jig_tools.cpp; sourceTree = "<group>"; };
 		9CBE7E9D1BE87CD800596CBF /* jig_tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jig_tools.h; sourceTree = "<group>"; };
-		9CBE7EA01BE8814300596CBF /* jigsaw0 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = jigsaw0; sourceTree = "<group>"; };
-		9CBE7EA11BE8814400596CBF /* jigsaw1 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = jigsaw1; sourceTree = "<group>"; };
 		9CBE7EC21BEB1FB400596CBF /* GifMovieCache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GifMovieCache.cpp; sourceTree = "<group>"; };
 		9CBE7EC31BEB1FB400596CBF /* GifMovieCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifMovieCache.h; sourceTree = "<group>"; };
 		9CBE7EC61BEB2B5F00596CBF /* GifFrameCache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GifFrameCache.cpp; sourceTree = "<group>"; };
@@ -367,10 +398,6 @@
 		9CD667D31BE20B6600637D3A /* header-temp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "header-temp.txt"; sourceTree = "<group>"; };
 		9CD667D51BE20B6600637D3A /* mk_struct.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = mk_struct.py; sourceTree = "<group>"; };
 		9CD667D61BE20B6600637D3A /* PlayInitMsg.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PlayInitMsg.json; sourceTree = "<group>"; };
-		9CD667F61BE22E6900637D3A /* DBJigLevel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DBJigLevel.cpp; sourceTree = "<group>"; };
-		9CD667F71BE22E6900637D3A /* DBJigLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBJigLevel.h; sourceTree = "<group>"; };
-		9CD667FA1BE22E6900637D3A /* DBMainLevel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DBMainLevel.cpp; sourceTree = "<group>"; };
-		9CD667FB1BE22E6900637D3A /* DBMainLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMainLevel.h; sourceTree = "<group>"; };
 		9CD667FC1BE22E6900637D3A /* mk_db.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = mk_db.py; sourceTree = "<group>"; };
 		9CD667FD1BE22E6900637D3A /* sql_common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sql_common.cpp; sourceTree = "<group>"; };
 		9CD667FE1BE22E6900637D3A /* sql_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sql_common.h; sourceTree = "<group>"; };
@@ -533,6 +560,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9CA356561C1585ED00610875 /* net */,
 				9C28A3E71C0C54B900C96AC1 /* JigAudio.cpp */,
 				9C28A3E81C0C54BA00C96AC1 /* JigAudio.h */,
 				9CBE7ED61BECA9F300596CBF /* pay */,
@@ -560,6 +588,10 @@
 				9CBE7E9D1BE87CD800596CBF /* jig_tools.h */,
 				9C28A3EB1C0D7CA300C96AC1 /* JigGrid.cpp */,
 				9C28A3EC1C0D7CA300C96AC1 /* JigGrid.h */,
+				9CA3568E1C180D6700610875 /* JigSprite.cpp */,
+				9CA3568F1C180D6700610875 /* JigSprite.h */,
+				9C98125D1C1A8C2C00C5AAA4 /* JigRadio.cpp */,
+				9C98125E1C1A8C2C00C5AAA4 /* JigRadio.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -615,8 +647,8 @@
 		9C1088E01B81875200426BD9 /* start */ = {
 			isa = PBXGroup;
 			children = (
-				9CBE7E981BE876D900596CBF /* HistoryLayer.cpp */,
-				9CBE7E991BE876D900596CBF /* HistoryLayer.h */,
+				9C9812591C1A8B7800C5AAA4 /* ChooseLayer.cpp */,
+				9C98125A1C1A8B7800C5AAA4 /* ChooseLayer.h */,
 				9CBE7E851BE7336B00596CBF /* version.mm */,
 				9CA3564C1C151D1F00610875 /* version.cpp */,
 				9CD668121BE3139000637D3A /* ThanksLayer.cpp */,
@@ -630,6 +662,8 @@
 		9C1089031B81AB8000426BD9 /* play */ = {
 			isa = PBXGroup;
 			children = (
+				9C9812621C1AD0E100C5AAA4 /* WinLayer.cpp */,
+				9C9812631C1AD0E100C5AAA4 /* WinLayer.h */,
 				9CE518181B9455D000A5DEC0 /* PlayDisplay.cpp */,
 				9CE518191B9455D000A5DEC0 /* PlayDisplay.h */,
 				9CBE08751B86E770006345E4 /* touch */,
@@ -684,8 +718,6 @@
 			children = (
 				9C74325D1C0FDEFE0064166C /* res */,
 				9CB8CF441C0F048000956455 /* sound */,
-				9CBE7EA01BE8814300596CBF /* jigsaw0 */,
-				9CBE7EA11BE8814400596CBF /* jigsaw1 */,
 				9CE518111B9432DB00A5DEC0 /* database.db */,
 				9C52690F1B8EBA4E00FF1CAC /* fonts */,
 				9C5269111B8EBA4E00FF1CAC /* res */,
@@ -713,6 +745,26 @@
 				9C75326B1B8BFD2D0066DEBD /* PlayManager.h */,
 			);
 			path = trunk;
+			sourceTree = "<group>";
+		};
+		9CA356561C1585ED00610875 /* net */ = {
+			isa = PBXGroup;
+			children = (
+				9CA356871C17BD4E00610875 /* NetErrorLayer.cpp */,
+				9CA3568B1C17BDE600610875 /* NetErrorLayer.h */,
+				9CA356571C15860500610875 /* Network.cpp */,
+				9CA356581C15860500610875 /* Network.h */,
+				9CA3565C1C15888300610875 /* ProtoId.h */,
+				9CA356671C16986E00610875 /* Request.cpp */,
+				9CA356681C16986E00610875 /* Request.h */,
+				9CA3566F1C16C27D00610875 /* PhotoDown.cpp */,
+				9CA356701C16C27D00610875 /* PhotoDown.h */,
+				9CA3567F1C16EC6400610875 /* JigNotify.cpp */,
+				9CA356801C16EC6400610875 /* JigNotify.h */,
+				9CA356831C16EF8000610875 /* ClientCenter.cpp */,
+				9CA356841C16EF8000610875 /* ClientCenter.h */,
+			);
+			path = net;
 			sourceTree = "<group>";
 		};
 		9CBE08751B86E770006345E4 /* touch */ = {
@@ -758,12 +810,10 @@
 		9CD667F51BE22E6900637D3A /* sqlite3 */ = {
 			isa = PBXGroup;
 			children = (
-				9CBE7E941BE873DC00596CBF /* DBRecord.cpp */,
-				9CBE7E951BE873DC00596CBF /* DBRecord.h */,
-				9CD667F61BE22E6900637D3A /* DBJigLevel.cpp */,
-				9CD667F71BE22E6900637D3A /* DBJigLevel.h */,
-				9CD667FA1BE22E6900637D3A /* DBMainLevel.cpp */,
-				9CD667FB1BE22E6900637D3A /* DBMainLevel.h */,
+				9CA356921C181E4B00610875 /* DBImageConf.cpp */,
+				9CA356931C181E4B00610875 /* DBImageConf.h */,
+				9CA356731C16D21D00610875 /* DBImage.cpp */,
+				9CA356741C16D21D00610875 /* DBImage.h */,
 				9CD667FC1BE22E6900637D3A /* mk_db.py */,
 				9CD667FD1BE22E6900637D3A /* sql_common.cpp */,
 				9CD667FE1BE22E6900637D3A /* sql_common.h */,
@@ -918,8 +968,6 @@
 			files = (
 				9CD667E31BE20B6600637D3A /* cpp-temp.txt in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
-				9CBE7EA21BE8814400596CBF /* jigsaw0 in Resources */,
-				9CBE7EA41BE8814400596CBF /* jigsaw1 in Resources */,
 				9C5269191B8EBA4E00FF1CAC /* sdpng in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				9CD668081BE22E6900637D3A /* mk_db.py in Resources */,
@@ -955,7 +1003,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CBE7EA31BE8814400596CBF /* jigsaw0 in Resources */,
 				9C5269141B8EBA4E00FF1CAC /* fonts in Resources */,
 				9CD667EA1BE20B6600637D3A /* mk_struct.py in Resources */,
 				9CB8CF461C0F048000956455 /* sound in Resources */,
@@ -968,7 +1015,6 @@
 				9CD667EC1BE20B6600637D3A /* PlayInitMsg.json in Resources */,
 				9CD668091BE22E6900637D3A /* mk_db.py in Resources */,
 				9CD667E41BE20B6600637D3A /* cpp-temp.txt in Resources */,
-				9CBE7EA51BE8814400596CBF /* jigsaw1 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -980,7 +1026,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CBE7E9E1BE87CD800596CBF /* jig_tools.cpp in Sources */,
-				9CBE7E9A1BE876D900596CBF /* HistoryLayer.cpp in Sources */,
 				9C52692D1B8F3F9B00FF1CAC /* TipsLayer.cpp in Sources */,
 				9CD668321BE33BD400637D3A /* CacheGif.cpp in Sources */,
 				9C7432621C1000620064166C /* JigLayer.cpp in Sources */,
@@ -988,6 +1033,7 @@
 				9C75327A1B8C02F30066DEBD /* ShadowCommand.cpp in Sources */,
 				9CD668381BE33BD400637D3A /* gif_font.c in Sources */,
 				9CD668141BE3139000637D3A /* ThanksLayer.cpp in Sources */,
+				9CA356691C16986E00610875 /* Request.cpp in Sources */,
 				9CD668361BE33BD400637D3A /* gif_err.c in Sources */,
 				9CD668441BE33BD400637D3A /* InstantGif.cpp in Sources */,
 				9CBE7ED91BECA9F300596CBF /* PayInterface.cpp in Sources */,
@@ -996,10 +1042,12 @@
 				9C1089221B81ADDC00426BD9 /* OnFinally.cpp in Sources */,
 				9CD6683C1BE33BD400637D3A /* gifalloc.c in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				9CA356811C16EC6400610875 /* JigNotify.cpp in Sources */,
 				9CA21A091B82C197001D2043 /* JigScene.cpp in Sources */,
 				9CE5181A1B9455D000A5DEC0 /* PlayDisplay.cpp in Sources */,
 				9C7532781B8C02F30066DEBD /* PlayShared.cpp in Sources */,
 				9CD668401BE33BD400637D3A /* GifBase.cpp in Sources */,
+				9C98125F1C1A8C2C00C5AAA4 /* JigRadio.cpp in Sources */,
 				9C28A3ED1C0D7CA300C96AC1 /* JigGrid.cpp in Sources */,
 				9C1089281B81ADDC00426BD9 /* EffectAudio.cpp in Sources */,
 				9CBE7EC41BEB1FB400596CBF /* GifMovieCache.cpp in Sources */,
@@ -1009,26 +1057,31 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				9C7532661B8BFCEC0066DEBD /* GameState.cpp in Sources */,
 				9CD6683A1BE33BD400637D3A /* gif_hash.c in Sources */,
+				9CA356771C16D21D00610875 /* DBImage.cpp in Sources */,
+				9CA356891C17BD4E00610875 /* NetErrorLayer.cpp in Sources */,
 				9CD6680A1BE22E6900637D3A /* sql_common.cpp in Sources */,
+				9CA356711C16C27D00610875 /* PhotoDown.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				9C28A3E91C0C54BA00C96AC1 /* JigAudio.cpp in Sources */,
 				9C1089261B81ADDC00426BD9 /* DataStore.cpp in Sources */,
 				9C10892A1B81ADDC00426BD9 /* lib4cc3x.cpp in Sources */,
 				9CBE087E1B86E770006345E4 /* RotableTouchPanel.cpp in Sources */,
-				9CD668061BE22E6900637D3A /* DBMainLevel.cpp in Sources */,
 				9C7532701B8C02B00066DEBD /* Direction.cpp in Sources */,
-				9CD668021BE22E6900637D3A /* DBJigLevel.cpp in Sources */,
+				9CA356591C15860500610875 /* Network.cpp in Sources */,
 				9C75326C1B8BFD2D0066DEBD /* PlayManager.cpp in Sources */,
 				9CD668101BE2FE4200637D3A /* PlayInitMsg.cpp in Sources */,
 				9C52675D1B8E9FD800FF1CAC /* LanguageMgr.cpp in Sources */,
 				9C4FE8A61B85CC72003E3873 /* stringex.cpp in Sources */,
 				9CCA98AF1B8ABA340000D1D1 /* StartLayer.cpp in Sources */,
+				9C98125B1C1A8B7800C5AAA4 /* ChooseLayer.cpp in Sources */,
 				9CD668461BE33BD400637D3A /* Movie.cpp in Sources */,
 				9CCA98B81B8AFC5B0000D1D1 /* GameSceneMgr.cpp in Sources */,
+				9CA356901C180D6700610875 /* JigSprite.cpp in Sources */,
 				9C1089241B81ADDC00426BD9 /* Collisionable.cpp in Sources */,
 				9C7532841B8C1C6A0066DEBD /* ConfirmLayer.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				9C1089201B81ADDC00426BD9 /* config_t.cpp in Sources */,
+				9CA356941C181E4B00610875 /* DBImageConf.cpp in Sources */,
 				9C10890B1B81AD4700426BD9 /* JigTile.cpp in Sources */,
 				9CBE7EC81BEB2B5F00596CBF /* GifFrameCache.cpp in Sources */,
 				9CD6683E1BE33BD400637D3A /* quantize.c in Sources */,
@@ -1038,7 +1091,8 @@
 				9CD668301BE33BD400637D3A /* Bitmap.cpp in Sources */,
 				9CBE08801B86E770006345E4 /* TouchPanel.cpp in Sources */,
 				9CBE087C1B86E770006345E4 /* DragonlyTouchPanel.cpp in Sources */,
-				9CBE7E961BE873DC00596CBF /* DBRecord.cpp in Sources */,
+				9CA356851C16EF8000610875 /* ClientCenter.cpp in Sources */,
+				9C9812641C1AD0E100C5AAA4 /* WinLayer.cpp in Sources */,
 				9C75327C1B8C02F30066DEBD /* TempShadow.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1053,40 +1107,46 @@
 				9C1089271B81ADDC00426BD9 /* DataStore.cpp in Sources */,
 				9C52675E1B8E9FD800FF1CAC /* LanguageMgr.cpp in Sources */,
 				9CD668451BE33BD400637D3A /* InstantGif.cpp in Sources */,
+				9C98125C1C1A8B7800C5AAA4 /* ChooseLayer.cpp in Sources */,
 				9C1089211B81ADDC00426BD9 /* config_t.cpp in Sources */,
-				9CD668031BE22E6900637D3A /* DBJigLevel.cpp in Sources */,
 				9CA3564E1C151D1F00610875 /* version.cpp in Sources */,
 				9CCA98B91B8AFC5B0000D1D1 /* GameSceneMgr.cpp in Sources */,
 				9CD668391BE33BD400637D3A /* gif_font.c in Sources */,
 				9C1089231B81ADDC00426BD9 /* OnFinally.cpp in Sources */,
 				9CBE7EDE1BECAA8000596CBF /* BaiduPay.cpp in Sources */,
-				9CBE7E9B1BE876D900596CBF /* HistoryLayer.cpp in Sources */,
 				9CBE087D1B86E770006345E4 /* DragonlyTouchPanel.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				9CCA98B01B8ABA340000D1D1 /* StartLayer.cpp in Sources */,
 				9CD668471BE33BD400637D3A /* Movie.cpp in Sources */,
 				9CBE7EE21BECAAFE00596CBF /* PaymentMgr.cpp in Sources */,
+				9CA356781C16D21D00610875 /* DBImage.cpp in Sources */,
 				9C75326D1B8BFD2D0066DEBD /* PlayManager.cpp in Sources */,
 				9C1089291B81ADDC00426BD9 /* EffectAudio.cpp in Sources */,
 				9CBE7EDA1BECA9F300596CBF /* PayInterface.cpp in Sources */,
+				9CA356821C16EC6400610875 /* JigNotify.cpp in Sources */,
+				9CA356861C16EF8000610875 /* ClientCenter.cpp in Sources */,
 				9C75327B1B8C02F30066DEBD /* ShadowCommand.cpp in Sources */,
 				9CBE087F1B86E770006345E4 /* RotableTouchPanel.cpp in Sources */,
 				9C7532791B8C02F30066DEBD /* PlayShared.cpp in Sources */,
 				9CBE08811B86E770006345E4 /* TouchPanel.cpp in Sources */,
 				9CD6683F1BE33BD400637D3A /* quantize.c in Sources */,
+				9CA356911C180D6700610875 /* JigSprite.cpp in Sources */,
 				9C28A3EA1C0C54BA00C96AC1 /* JigAudio.cpp in Sources */,
 				9C7532711B8C02B00066DEBD /* Direction.cpp in Sources */,
+				9CA3568A1C17BD4E00610875 /* NetErrorLayer.cpp in Sources */,
 				9CD668371BE33BD400637D3A /* gif_err.c in Sources */,
 				9CD6680D1BE22E6900637D3A /* sqlite3.c in Sources */,
 				9CD668331BE33BD400637D3A /* CacheGif.cpp in Sources */,
+				9CA356721C16C27D00610875 /* PhotoDown.cpp in Sources */,
+				9CA3566A1C16986E00610875 /* Request.cpp in Sources */,
 				9CD668311BE33BD400637D3A /* Bitmap.cpp in Sources */,
 				9CBE7EC91BEB2B5F00596CBF /* GifFrameCache.cpp in Sources */,
 				9CD668411BE33BD400637D3A /* GifBase.cpp in Sources */,
 				9C1089251B81ADDC00426BD9 /* Collisionable.cpp in Sources */,
 				9CD668111BE2FE4200637D3A /* PlayInitMsg.cpp in Sources */,
 				9CBE7EC51BEB1FB500596CBF /* GifMovieCache.cpp in Sources */,
-				9CBE7E971BE873DC00596CBF /* DBRecord.cpp in Sources */,
 				9CE5181B1B9455D000A5DEC0 /* PlayDisplay.cpp in Sources */,
+				9C9812651C1AD0E100C5AAA4 /* WinLayer.cpp in Sources */,
 				9C10890C1B81AD4700426BD9 /* JigTile.cpp in Sources */,
 				9C7532851B8C1C6A0066DEBD /* ConfirmLayer.cpp in Sources */,
 				9CBE7E9F1BE87CD800596CBF /* jig_tools.cpp in Sources */,
@@ -1094,7 +1154,6 @@
 				9C75328D1B8C37E40066DEBD /* JigToast.cpp in Sources */,
 				9C7432631C1000620064166C /* JigLayer.cpp in Sources */,
 				9C75327D1B8C02F30066DEBD /* TempShadow.cpp in Sources */,
-				9CD668071BE22E6900637D3A /* DBMainLevel.cpp in Sources */,
 				9CA21A0A1B82C197001D2043 /* JigScene.cpp in Sources */,
 				9C10892B1B81ADDC00426BD9 /* lib4cc3x.cpp in Sources */,
 				9CD668351BE33BD400637D3A /* dgif_lib.c in Sources */,
@@ -1105,7 +1164,10 @@
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				9CD6683B1BE33BD400637D3A /* gif_hash.c in Sources */,
 				9C4FE8A71B85CC72003E3873 /* stringex.cpp in Sources */,
+				9CA3565A1C15860500610875 /* Network.cpp in Sources */,
 				9CD6680B1BE22E6900637D3A /* sql_common.cpp in Sources */,
+				9C9812601C1A8C2C00C5AAA4 /* JigRadio.cpp in Sources */,
+				9CA356951C181E4B00610875 /* DBImageConf.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

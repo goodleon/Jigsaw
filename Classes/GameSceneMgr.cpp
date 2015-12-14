@@ -11,7 +11,7 @@
 #include "StartLayer.h"
 #include "PlayMain.h"
 #include "ThanksLayer.h"
-#include "HistoryLayer.h"
+#include "ChooseLayer.h"
 
 USING_NS_CC;
 
@@ -32,9 +32,14 @@ void GameSceneMgr::replace(SceneType scene)
             to_scene = ThanksLayer::createScene();
         }
             break;
-        case kHistoryScene:
+//        case kHistoryScene:
+//        {
+//            to_scene = HistoryLayer::createScene();
+//        }
+//            break;
+        case kChooseScene:
         {
-            to_scene = HistoryLayer::createScene();
+            to_scene = ChooseLayer::createScene();
         }
             break;
         case kPlayScene:
@@ -48,4 +53,10 @@ void GameSceneMgr::replace(SceneType scene)
     
     assert(to_scene);
     Director::getInstance()->replaceScene(to_scene);
+}
+
+JigScene* GameSceneMgr::curScene()
+{
+    Scene* scene = Director::getInstance()->getRunningScene();
+    return static_cast<JigScene*>(scene);
 }

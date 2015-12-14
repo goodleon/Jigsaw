@@ -12,6 +12,7 @@
 #include "GameState.h"
 #include "cex.h"
 #include "PlayInitMsg.h"
+#include "ChooseLayer.h"
 
 class PlayManager : public cex::Singleton<PlayManager>, public GameStateListener
 {
@@ -22,6 +23,7 @@ public:
     virtual void onStateChanged(GameState gs) override;
     
     void enterGame(const PlayInitMsg& msg);
+    void enterGame(const ImageInfo& info);
     void exitGame();
     
     void restart();

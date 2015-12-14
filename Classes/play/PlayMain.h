@@ -5,8 +5,10 @@
 
 #include "PlayShared.h"
 #include "PlayDisplay.h"
+#include "GameState.h"
+#include "JigNotify.h"
 
-class PlayMain : public cocos2d::Layer
+class PlayMain : public cocos2d::Layer, public GameStateListener, public NotifyListener
 {
 public:
 	PlayMain();
@@ -19,6 +21,9 @@ private:
     
 	virtual bool init() override;
 
+    virtual void onStateChanged(GameState gs) override;
+    virtual void onMessage(int notify_id, const net_data_t& root) override;
+
     void initJigPanel();
 private:
     cocos2d::Node* load_csd();
@@ -28,11 +33,12 @@ private:
     void onClickReturnMenu(Ref* sender);
 
 private:
-    Text* m_level;
     Layout* m_panel_start;
     Layout* m_game_panel;
     
     PlayDisplay* m_display;
+
+    float m_usedTime;
 };
 
 #endif

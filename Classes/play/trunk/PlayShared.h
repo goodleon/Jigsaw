@@ -29,18 +29,19 @@ struct PlayShared
 
     int rows;
     int cols;
+    bool rot;
 
-    int cur_level;
+//    int cur_level;
 
-    string getJigsaw();
+    string file;
     
     void resetNewlevel();
     void resetAll();
 
-    const PlayInitMsg& config() const;
+//    const PlayInitMsg& config() const;
 
 private:
-    PlayInitMsg m_config;
+//    PlayInitMsg m_config;
 };
 
 extern PlayShared playshared;

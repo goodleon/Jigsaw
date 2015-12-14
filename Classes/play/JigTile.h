@@ -12,7 +12,7 @@
 #include "PlayShared.h"
 #include "TempShadow.h"
 #include "Direction.h"
-#include "CacheGif.h"
+#include "JigSprite.h"
 #include "InstantGif.h"
 
 class JigTile : public cocos2d::ClippingNode
@@ -33,10 +33,13 @@ public:
     
     void setDirection(Direction dir);
     Direction getDirection();
-    
+
+    void setIndex(int index);
+    int getIndex() const;
 private:
 //    Sprite* m_display;
     GifBase* m_display;
+    int m_index;
 };
 
 #endif /* defined(__Jigsaw__JigTile__) */

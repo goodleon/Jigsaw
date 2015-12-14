@@ -3,11 +3,12 @@
 #include "StartLayer.h"
 #include "PlayManager.h"
 #include "GameSceneMgr.h"
-#include "DBRecord.h"
-#include "DBMainLevel.h"
 #include "version.h"
 #include "PaymentMgr.h"
 #include "JigAudio.h"
+#include "Network.h"
+#include "ClientCenter.h"
+#include "JigToast.h"
 
 StartLayer::StartLayer()
 {
@@ -27,6 +28,18 @@ JigScene* StartLayer::createScene()
     return scene;
 }
 
+void StartLayer::onMessage(int notify_id, const net_data_t& root)
+{
+    if (notify_id == proto_login_down)
+    {
+        m_userid->setString( sstr("%d", ClientCenter::inst().user_id) );
+    }
+    else if (notify_id == proto_net_error)
+    {
+
+    }
+}
+
 bool StartLayer::init()
 {
 	Return_False_If(!Layer::init());
@@ -35,8 +48,7 @@ bool StartLayer::init()
 	addChild(root);
 
     m_version->setString( sstr("v.%s", get_version().c_str()) );
-
-    PaymentMgr::inst().init();
+    m_userid->setString( sstr("%d", ClientCenter::inst().user_id) );
     
 	return true;
 }
@@ -54,6 +66,7 @@ Node* StartLayer::load_csd()
 	btn->addClickEventListener( std::bind(&StartLayer::onClickThanks, this, placeholders::_1) );
 
     m_version = static_cast<Text*>( root->getChildByName("version") );
+    m_userid = static_cast<Text*>( root->getChildByName("userid") );
 
 	return root;
 }
@@ -61,24 +74,16 @@ Node* StartLayer::load_csd()
 
 void StartLayer::onClickStart(Ref* sender)
 {
-    DBRecord record = DBRecord::readby_level(0);
-    if (record.main_level==0 && record.sub_level<0)
-    {
-        DBMainLevel level = DBMainLevel::readby_level(0);
-        PlayInitMsg msg;
-        msg.set_main_level( 0 );
-        msg.set_start_level( 0 );
-        msg.set_level_count( level.Count );
-        msg.set_rotable( level.Rotable );
-        PlayManager::inst().enterGame(msg);
+    if (ClientCenter::inst().user_id==0) {
+        Request req(proto_login_up);
+        Network::inst().addRequest(req);
+        JigToast::show("login_fail_retry");
     }
-    else
-    {
+    else {
         this->scheduleOnce([](float){
-            GameSceneMgr::inst().replace( kHistoryScene );
+            GameSceneMgr::inst().replace( kChooseScene );
         }, 0, "enter_history_lazy");
     }
-
     playEffect(audio_btn);
 }
 

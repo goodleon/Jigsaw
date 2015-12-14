@@ -10,6 +10,7 @@
 #define __Jigsaw__JigHeader__
 
 #include "cex.h"
+#include "stringex.h"
 #include "lib4cc3x.h"
 #include "cocos2d.h"
 #include "cocostudio/CocoStudio.h"

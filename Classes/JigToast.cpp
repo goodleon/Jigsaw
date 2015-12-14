@@ -10,9 +10,14 @@ using namespace ui;
 
 void JigToast::show(const std::string& lan_id)
 {
+    show_raw(LanguageMgr::inst().getText(lan_id));
+}
+
+void JigToast::show_raw(const std::string& text)
+{
     const Size win = Director::getInstance()->getWinSize();
     JigToast* toast = JigToast::create();
-    toast->m_text->setString( LanguageMgr::inst().getText(lan_id) );
+    toast->m_text->setString( text );
     toast->setPosition( win/2 );
     
     auto remove = [=](){

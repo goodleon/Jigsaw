@@ -10,12 +10,14 @@
 #define __Jigsaw__GameSceneMgr__
 
 #include "cex.h"
+#include "JigScene.h"
 
 enum SceneType
 {
     kStartScene,
     kThanksScene,
-    kHistoryScene,
+//    kHistoryScene,
+    kChooseScene,
     kPlayScene
 };
 
@@ -23,7 +25,8 @@ class GameSceneMgr : public cex::Singleton<GameSceneMgr>
 {
 public:
     void replace(SceneType scene);
-    
+
+    JigScene* curScene();
 private:
     SceneType m_curScene;
 };

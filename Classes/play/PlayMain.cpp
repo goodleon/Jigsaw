@@ -9,6 +9,8 @@
 #include "PlayManager.h"
 #include "LanguageMgr.h"
 #include "JigAudio.h"
+#include "Network.h"
+#include "WinLayer.h"
 
 Scene* PlayMain::createScene()
 {
@@ -41,24 +43,45 @@ bool PlayMain::init()
 
     initJigPanel();
 
-    m_level->setString( LanguageMgr::inst().getText( sstr("level%d", playshared.cur_level) ) );
-
     SimpleAudioEngine::getInstance()->playBackgroundMusic( audio_background );
     SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(0.1f);
-    
+
 	return true;
+}
+
+void PlayMain::onStateChanged(GameState gs)
+{
+    if (gs==gs_playing)
+    {
+        Request req(proto_start_playing_up);
+        Network::inst().addRequest(req);
+    }
+    else if (gs==gs_win)
+    {
+        Request req(proto_start_play_win_up);
+        Network::inst().addRequest(req);
+    }
+}
+
+void PlayMain::onMessage(int notify_id, const net_data_t& root)
+{
+    if (notify_id == proto_start_play_win_down)
+    {
+        m_usedTime = root["used_time"].GetDouble();
+        CCLOG("m_usedTime:%f", m_usedTime);
+    }
 }
 
 void PlayMain::initJigPanel()
 {
-    if (playshared.config().rotable()) {
+    if (playshared.rot) {
         playshared.jig_panel = RotableTouchPanel::create();
     }
     else{
         playshared.jig_panel = DragonlyTouchPanel::create();
     }
 
-    playshared.jig_panel->reset( playshared.getJigsaw(), playshared.rows, playshared.cols );
+    playshared.jig_panel->reset( playshared.file, playshared.rows, playshared.cols );
     playshared.jig_panel->setPosition( m_game_panel->getContentSize()/2 );
     m_game_panel->addChild( playshared.jig_panel );
 
@@ -84,8 +107,6 @@ Node* PlayMain::load_csd()
     btn = static_cast<Button*>( root->getChildByName("ReturnMenu") );
     btn->addClickEventListener( std::bind(&PlayMain::onClickReturnMenu, this, placeholders::_1) );
 
-    m_level = static_cast<Text*>(root->getChildByName("level"));
-
     m_game_panel = static_cast<Layout*>(root->getChildByName("game_panel"));
     m_panel_start = static_cast<Layout*>(m_game_panel->getChildByName("panel_start"));
     
@@ -104,18 +125,13 @@ void PlayMain::onClickFinish(Ref* sender)
 
     if (playshared.jig_panel->isAllFinished())
     {
-        if (PlayManager::inst().finishAllState())
-        {
-            PlayManager::inst().saveRecord();
-            PlayManager::inst().exitGame();
-//            JigToast::show("finished_all");
-        }
-        else
-        {
-            PlayManager::inst().saveRecord();
-            PlayManager::inst().startNextLevel();
-            playEffect(audio_level_win);
-        }
+        auto win = WinLayer::create();
+        addChild(win);
+
+        Request req(proto_start_play_end_up);
+        Network::inst().addRequest(req);
+
+        playEffect(audio_level_win);
     }
     else
     {
