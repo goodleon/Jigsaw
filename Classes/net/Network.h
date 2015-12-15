@@ -11,8 +11,8 @@
 
 #include "JigHeader.h"
 #include "ProtoId.h"
-#include "HttpClient.h"
-#include "HttpRequest.h"
+#include "network/HttpClient.h"
+#include "network/HttpRequest.h"
 #include "Request.h"
 
 USING_NS_CC;

@@ -7,6 +7,7 @@
 //
 
 #include "stringex.h"
+#include "cstdlib"
 
 using namespace std;
 
@@ -37,7 +38,7 @@ vector<int> cex::splitInt(const string& str, char token)
     vector<int> ret;
     for (auto it=tmp.begin(); it!=tmp.end(); ++it)
     {
-        ret.push_back( stoi(*it, nullptr) );
+        ret.push_back( atoi(it->c_str()) );
     }
     return ret;
 }

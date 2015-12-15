@@ -34,9 +34,10 @@ void StartLayer::onMessage(int notify_id, const net_data_t& root)
     {
         m_userid->setString( sstr("%d", ClientCenter::inst().user_id) );
     }
-    else if (notify_id == proto_net_error)
+    else if (notify_id == proto_check_network_down)
     {
-
+        Request req(proto_login_up);
+        Network::inst().addRequest(req);
     }
 }
 

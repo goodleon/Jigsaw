@@ -14,9 +14,9 @@ void jigsql::copy_database()
 {
 #if CC_TARGET_PLATFORM!=CC_PLATFORM_MAC
     const string db_pack = FileUtils::getInstance()->fullPathForFilename("database.db");
-    const int pack_version = get_database_version_number( db_pack );
-    const int writable_version = get_database_version_number( database_file() );
-    if (pack_version > writable_version)
+//    const int pack_version = get_database_version_number( db_pack );
+//    const int writable_version = get_database_version_number( database_file() );
+//    if (pack_version > writable_version)
     {
         copy_database_nocheck(db_pack, "writable.db");
     }

@@ -81,7 +81,7 @@ void PhotoDown::loadPatch()
 
     HttpRequest* postRequest = new HttpRequest();
     postRequest->setRequestType( HttpRequest::Type::POST );
-    postRequest->setUrl(server_addr);
+    postRequest->setUrl(get_server_addr().c_str());
     postRequest->setResponseCallback(&PhotoDown::onHttpResponse);
     postRequest->setRequestData(buf.c_str(), buf.length());
 

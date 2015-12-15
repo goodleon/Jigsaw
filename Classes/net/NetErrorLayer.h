@@ -28,7 +28,7 @@ private:
 
 private:
 	Text* m_errorMsg;
-
+    TextField* m_server_addr;
 };
 
 #endif

@@ -26,7 +26,7 @@ void Network::addRequest(const Request& request)
 
     HttpRequest* postRequest = new HttpRequest();
     postRequest->setRequestType( HttpRequest::Type::POST );
-    postRequest->setUrl(server_addr);
+    postRequest->setUrl(get_server_addr().c_str());
     postRequest->setResponseCallback(&Network::onHttpResponse);
     postRequest->setRequestData(buf.c_str(), buf.length());
 

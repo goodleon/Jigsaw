@@ -10,8 +10,8 @@
 #define __Jigsaw__PhotoDown__
 
 #include "JigHeader.h"
-#include "HttpClient.h"
-#include "HttpRequest.h"
+#include "network/HttpClient.h"
+#include "network/HttpRequest.h"
 #include "Request.h"
 
 using namespace network;

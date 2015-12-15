@@ -13,7 +13,10 @@
 #include "json/writer.h"
 #include "json/stringbuffer.h"
 
-static const char* server_addr = "http://localhost:8000/cgi-bin/proto.py";
+static string server_addr = "192.168.130.246";
+static string get_server_addr(){
+    return sstr("http://%s:8000/cgi-bin/proto.py", server_addr.c_str());
+}
 
 class Request
 {

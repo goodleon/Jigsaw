@@ -20,6 +20,13 @@ bool NetErrorLayer::init()
 	Node* root = load_csd();
 	addChild(root);
 
+    if (server_addr=="localhost") {
+        m_server_addr->setString("192.168.0.");
+    }
+    else{
+        m_server_addr->setString(server_addr);
+    }
+
 	return true;
 }
 
@@ -37,6 +44,7 @@ Node* NetErrorLayer::load_csd()
 
     m_errorMsg = static_cast<Text*>( root->getChildByName("errorMsg") );
 
+    m_server_addr = static_cast<TextField*>( root->getChildByName("server_addr") );
 
 	return root;
 }
@@ -44,8 +52,8 @@ Node* NetErrorLayer::load_csd()
 
 void NetErrorLayer::onClickRetry(Ref* sender)
 {
-//	Button* btn = static_cast<Button*>(sender);
-//	CCLOG("%s", btn->getName().c_str());
+    server_addr = m_server_addr->getString();
+
     Request req(proto_check_network_up);
     Network::inst().addRequest(req);
 }

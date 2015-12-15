@@ -74,13 +74,10 @@
 		9C5268021B8EBA3C00FF1CAC /* chinese.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9C5267681B8EBA3C00FF1CAC /* chinese.xml */; };
 		9C5269131B8EBA4E00FF1CAC /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 9C52690F1B8EBA4E00FF1CAC /* fonts */; };
 		9C5269141B8EBA4E00FF1CAC /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 9C52690F1B8EBA4E00FF1CAC /* fonts */; };
-		9C5269171B8EBA4E00FF1CAC /* res in Resources */ = {isa = PBXBuildFile; fileRef = 9C5269111B8EBA4E00FF1CAC /* res */; };
-		9C5269181B8EBA4E00FF1CAC /* res in Resources */ = {isa = PBXBuildFile; fileRef = 9C5269111B8EBA4E00FF1CAC /* res */; };
 		9C5269191B8EBA4E00FF1CAC /* sdpng in Resources */ = {isa = PBXBuildFile; fileRef = 9C5269121B8EBA4E00FF1CAC /* sdpng */; };
 		9C52691A1B8EBA4E00FF1CAC /* sdpng in Resources */ = {isa = PBXBuildFile; fileRef = 9C5269121B8EBA4E00FF1CAC /* sdpng */; };
 		9C52692D1B8F3F9B00FF1CAC /* TipsLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C52692B1B8F3F9A00FF1CAC /* TipsLayer.cpp */; };
 		9C52692E1B8F3F9B00FF1CAC /* TipsLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C52692B1B8F3F9A00FF1CAC /* TipsLayer.cpp */; };
-		9C74325E1C0FDEFE0064166C /* res in Resources */ = {isa = PBXBuildFile; fileRef = 9C74325D1C0FDEFE0064166C /* res */; };
 		9C7432621C1000620064166C /* JigLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7432601C1000620064166C /* JigLayer.cpp */; };
 		9C7432631C1000620064166C /* JigLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7432601C1000620064166C /* JigLayer.cpp */; };
 		9C7532661B8BFCEC0066DEBD /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7532621B8BFCEC0066DEBD /* GameState.cpp */; };
@@ -105,6 +102,8 @@
 		9C9812601C1A8C2C00C5AAA4 /* JigRadio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C98125D1C1A8C2C00C5AAA4 /* JigRadio.cpp */; };
 		9C9812641C1AD0E100C5AAA4 /* WinLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C9812621C1AD0E100C5AAA4 /* WinLayer.cpp */; };
 		9C9812651C1AD0E100C5AAA4 /* WinLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C9812621C1AD0E100C5AAA4 /* WinLayer.cpp */; };
+		9C9812711C1FD32F00C5AAA4 /* res in Resources */ = {isa = PBXBuildFile; fileRef = 9C9812701C1FD32F00C5AAA4 /* res */; };
+		9C9812721C1FD32F00C5AAA4 /* res in Resources */ = {isa = PBXBuildFile; fileRef = 9C9812701C1FD32F00C5AAA4 /* res */; };
 		9CA21A091B82C197001D2043 /* JigScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA21A071B82C197001D2043 /* JigScene.cpp */; };
 		9CA21A0A1B82C197001D2043 /* JigScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA21A071B82C197001D2043 /* JigScene.cpp */; };
 		9CA3564D1C151D1F00610875 /* version.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CA3564C1C151D1F00610875 /* version.cpp */; };
@@ -314,11 +313,9 @@
 		9C52675C1B8E9FD800FF1CAC /* LanguageMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageMgr.h; sourceTree = "<group>"; };
 		9C5267681B8EBA3C00FF1CAC /* chinese.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = chinese.xml; sourceTree = "<group>"; };
 		9C52690F1B8EBA4E00FF1CAC /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
-		9C5269111B8EBA4E00FF1CAC /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		9C5269121B8EBA4E00FF1CAC /* sdpng */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sdpng; sourceTree = "<group>"; };
 		9C52692B1B8F3F9A00FF1CAC /* TipsLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TipsLayer.cpp; sourceTree = "<group>"; };
 		9C52692C1B8F3F9B00FF1CAC /* TipsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsLayer.h; sourceTree = "<group>"; };
-		9C74325D1C0FDEFE0064166C /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		9C7432601C1000620064166C /* JigLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JigLayer.cpp; sourceTree = "<group>"; };
 		9C7432611C1000620064166C /* JigLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JigLayer.h; sourceTree = "<group>"; };
 		9C7532621B8BFCEC0066DEBD /* GameState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameState.cpp; sourceTree = "<group>"; };
@@ -343,6 +340,7 @@
 		9C98125E1C1A8C2C00C5AAA4 /* JigRadio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JigRadio.h; sourceTree = "<group>"; };
 		9C9812621C1AD0E100C5AAA4 /* WinLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WinLayer.cpp; sourceTree = "<group>"; };
 		9C9812631C1AD0E100C5AAA4 /* WinLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinLayer.h; sourceTree = "<group>"; };
+		9C9812701C1FD32F00C5AAA4 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		9CA21A071B82C197001D2043 /* JigScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JigScene.cpp; sourceTree = "<group>"; };
 		9CA21A081B82C197001D2043 /* JigScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JigScene.h; sourceTree = "<group>"; };
 		9CA3564C1C151D1F00610875 /* version.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = version.cpp; sourceTree = "<group>"; };
@@ -712,11 +710,10 @@
 		9C5267671B8EBA3C00FF1CAC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9C74325D1C0FDEFE0064166C /* res */,
+				9C9812701C1FD32F00C5AAA4 /* res */,
 				9CB8CF441C0F048000956455 /* sound */,
 				9CE518111B9432DB00A5DEC0 /* database.db */,
 				9C52690F1B8EBA4E00FF1CAC /* fonts */,
-				9C5269111B8EBA4E00FF1CAC /* res */,
 				9C5269121B8EBA4E00FF1CAC /* sdpng */,
 				9C5267681B8EBA3C00FF1CAC /* chinese.xml */,
 			);
@@ -979,12 +976,11 @@
 				9C5269131B8EBA4E00FF1CAC /* fonts in Resources */,
 				9CD667E91BE20B6600637D3A /* mk_struct.py in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
-				9C74325E1C0FDEFE0064166C /* res in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				9CE518121B9432DB00A5DEC0 /* database.db in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
-				9C5269171B8EBA4E00FF1CAC /* res in Resources */,
 				9CD667E51BE20B6600637D3A /* header-temp.txt in Resources */,
+				9C9812711C1FD32F00C5AAA4 /* res in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
@@ -1004,9 +1000,9 @@
 				9CE518131B9432DB00A5DEC0 /* database.db in Resources */,
 				9C5268021B8EBA3C00FF1CAC /* chinese.xml in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
-				9C5269181B8EBA4E00FF1CAC /* res in Resources */,
 				9C52691A1B8EBA4E00FF1CAC /* sdpng in Resources */,
 				9CD667EC1BE20B6600637D3A /* PlayInitMsg.json in Resources */,
+				9C9812721C1FD32F00C5AAA4 /* res in Resources */,
 				9CD668091BE22E6900637D3A /* mk_db.py in Resources */,
 				9CD667E41BE20B6600637D3A /* cpp-temp.txt in Resources */,
 			);
