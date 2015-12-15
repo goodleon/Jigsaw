@@ -13,6 +13,8 @@
 #include "json/writer.h"
 #include "json/stringbuffer.h"
 
+static const char* server_addr = "http://localhost:8000/cgi-bin/proto.py";
+
 class Request
 {
 public:

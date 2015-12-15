@@ -81,7 +81,7 @@ void PhotoDown::loadPatch()
 
     HttpRequest* postRequest = new HttpRequest();
     postRequest->setRequestType( HttpRequest::Type::POST );
-    postRequest->setUrl("http://localhost:8000/cgi-bin/proto.cmd");
+    postRequest->setUrl(server_addr);
     postRequest->setResponseCallback(&PhotoDown::onHttpResponse);
     postRequest->setRequestData(buf.c_str(), buf.length());
 
