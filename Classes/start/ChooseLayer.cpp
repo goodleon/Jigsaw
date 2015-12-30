@@ -140,7 +140,7 @@ void ChooseLayer::onClickStart(Ref* sender)
 void ChooseLayer::onClickNext(Ref* sender)
 {
     const int nextid = player_tools::get_next_imgid();
-    if (nextid==m_info.img_id && nextid>1)
+    if (nextid==m_info.img_id)
     {
         JigToast::show("last_to_first");
         m_info.img_id = 1;
@@ -159,7 +159,7 @@ void ChooseLayer::onClickNext(Ref* sender)
 void ChooseLayer::onClickLast(Ref* sender)
 {
     const int nextid = player_tools::get_next_imgid();
-    if (m_info.img_id==1 && nextid>1)
+    if (m_info.img_id==1)
     {
         JigToast::show("first_to_last");
         m_info.img_id = nextid;

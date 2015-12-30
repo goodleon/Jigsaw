@@ -67,16 +67,6 @@ Node* StartLayer::load_csd()
 
 void StartLayer::onClickSingle(Ref* sender)
 {
-//    if (ClientCenter::inst().user_id==0) {
-//        Request req(proto_login_up);
-//        Network::inst().addRequest(req);
-//        JigToast::show("login_fail_retry");
-//    }
-//    else {
-//        this->scheduleOnce([](float){
-//            GameSceneMgr::inst().replace( kChooseScene );
-//        }, 0, "enter_history_lazy");
-//    }
     GameSceneMgr::inst().replace( kChooseScene );
     playEffect(audio_btn);
 }

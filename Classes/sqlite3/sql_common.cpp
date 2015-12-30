@@ -17,7 +17,7 @@ void jigsql::copy_database()
 //    const int pack_version = get_database_version_number( db_pack );
 //    const int writable_version = get_database_version_number( database_file() );
 //    if (pack_version > writable_version)
-    {
+    if (!FileUtils::getInstance()->isFileExist(database_file())) {
         copy_database_nocheck(db_pack, "writable.db");
     }
 #endif
