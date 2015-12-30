@@ -63,9 +63,6 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
         auto scene = StartLayer::createScene();
         director->runWithScene(scene);
-
-        Request req(proto_login_up);
-        Network::inst().addRequest(req);
     }
 
     return true;

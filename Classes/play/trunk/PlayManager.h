@@ -21,21 +21,22 @@ public:
     ~PlayManager();
     
     virtual void onStateChanged(GameState gs) override;
-    
-    void enterGame(const PlayInitMsg& msg);
+
     void enterGame(const ImageInfo& info);
     void exitGame();
     
     void restart();
     void startNextLevel();
     
-    void saveRecord();
+    void check_save_cur_level();
 
     bool finishAllState();
 
+    const ImageInfo& get_image();
 private:
     void reloadResource();
 
+    ImageInfo m_cur_image;
 };
 
 #endif /* defined(__Jigsaw__PlayManager__) */

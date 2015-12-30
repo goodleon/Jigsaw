@@ -25,26 +25,12 @@
         <string>此功能暂未开通</string>
         <key>can_not_find_img</key>
         <string>找不到图片:</string>
-        <key>level0</key>
-        <string>第一关</string>
-        <key>level1</key>
-        <string>第二关</string>
-        <key>level2</key>
-        <string>第三关</string>
-        <key>level3</key>
-        <string>第四关</string>
-        <key>level4</key>
-        <string>第五关</string>
-        <key>level5</key>
-        <string>第六关</string>
-        <key>level6</key>
-        <string>第七关</string>
-        <key>level7</key>
-        <string>第八关</string>
-        <key>level8</key>
-        <string>第九关</string>
-        <key>level9</key>
-        <string>第十关</string>
+        <key>has_save_record</key>
+        <string>已保存最新记录</string>
+        <key>last_to_first</key>
+        <string>达到最新记录，切换到第一张图片</string>
+        <key>first_to_last</key>
+        <string>已经是第一张图片，切换到最新记录</string>
         <key>unopen</key>
         <string>该功能暂未开放</string>
         <key>at_least_finish_one</key>

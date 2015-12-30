@@ -12,6 +12,8 @@
 #include "GifMovieCache.h"
 #include "DBImageConf.h"
 #include "PhotoDown.h"
+#include "player_tools.h"
+#include "JigToast.h"
 
 PlayManager::PlayManager()
 {
@@ -31,23 +33,6 @@ void PlayManager::onStateChanged(GameState gs)
 //    }
 }
 
-void PlayManager::enterGame(const PlayInitMsg& msg)
-{
-    GameStateMgr::inst().setKeyListener(this);
-    playshared.resetAll();
-
-    playshared.file = FileUtils::getInstance()->fullPathForFilename("jigsaw/jigsaw0.gif");
-    playshared.rows = 3;
-    playshared.cols = 3;
-    playshared.rot  = false;
-
-//    playshared.m_config = msg;
-//    playshared.cur_level = msg.start_level();
-//    CCASSERT(playshared.cur_level<playshared.config().level_count(), "");
-
-    restart();
-}
-
 void PlayManager::enterGame(const ImageInfo& info)
 {
     GameStateMgr::inst().setKeyListener(this);
@@ -59,6 +44,8 @@ void PlayManager::enterGame(const ImageInfo& info)
     playshared.rows = conf.rows;
     playshared.cols = conf.cols;
     playshared.rot  = conf.rot;
+
+    m_cur_image = info;
 
     restart();
 }
@@ -76,44 +63,33 @@ void PlayManager::exitGame()
 
 void PlayManager::restart()
 {
-//    playshared.resetNewlevel();
-
     GifMovieCache::getInstance()->cleanup();
-
-//    reloadResource();
 
     GameSceneMgr::inst().replace(kPlayScene);
     GameStateMgr::inst().change(gs_prepare);
 }
 
-//void PlayManager::startNextLevel()
-//{
-//    assert( playshared.cur_level+1 != playshared.config().level_count() );
-//    ++playshared.cur_level;
-//
-//    restart();
-//}
+void PlayManager::startNextLevel()
+{
+    ImageInfo info;
+    info.img_id = player_tools::get_next_imgid();
+    info.conf_id = 3;
+    PlayManager::inst().enterGame(info);
+}
 
-//void PlayManager::saveRecord()
-//{
-//    DBRecord record = DBRecord::readby_level(playshared.config().main_level());
-//    if (playshared.cur_level > record.sub_level) {
-//        record.sub_level = playshared.cur_level;
-////        record.write();
-//    }
-//}
+void PlayManager::check_save_cur_level()
+{
+    DBRecord rd;
+    rd.img_id = m_cur_image.img_id;
+    rd.img_conf = m_cur_image.conf_id;
+    if ( player_tools::check_save_record(rd) )
+    {
+        JigToast::show("has_save_record");
+    }
+}
 
-//bool PlayManager::finishAllState()
-//{
-//    return playshared.cur_level==playshared.config().level_count()-1;
-//}
-
-//void PlayManager::reloadResource()
-//{
-////    addSpriteFrameByFile( playshared.getJigsaw() );
-//
-//    DBJigLevel data = DBJigLevel::readby_level(playshared.cur_level);
-//    playshared.rows = data.rows;
-//    playshared.cols = data.cols;
-//}
+const ImageInfo& PlayManager::get_image()
+{
+    return m_cur_image;
+}
 

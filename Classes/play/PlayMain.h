@@ -6,9 +6,8 @@
 #include "PlayShared.h"
 #include "PlayDisplay.h"
 #include "GameState.h"
-#include "JigNotify.h"
 
-class PlayMain : public cocos2d::Layer, public GameStateListener, public NotifyListener
+class PlayMain : public cocos2d::Layer, public GameStateListener
 {
 public:
 	PlayMain();
@@ -22,7 +21,6 @@ private:
 	virtual bool init() override;
 
     virtual void onStateChanged(GameState gs) override;
-    virtual void onMessage(int notify_id, const net_data_t& root) override;
 
     void initJigPanel();
 private:

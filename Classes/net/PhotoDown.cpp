@@ -14,9 +14,15 @@
 
 string PhotoDown::get_full_img(int img_id)
 {
-    auto target = PhotoDown::inst().m_id2fname.find(img_id);
-    CCASSERT(target!=PhotoDown::inst().m_id2fname.end(), "");
-    return target!=PhotoDown::inst().m_id2fname.end() ? target->second : "";
+    vector<string> exts = { "jpg", "gif", "png" };
+    for (auto it = exts.begin(); it!=exts.end(); ++it)
+    {
+        string fname = sstr("img/img%d.%s", img_id, it->c_str());
+        if (FileUtils::getInstance()->isFileExist(fname)) {
+            return FileUtils::getInstance()->fullPathForFilename( fname );
+        }
+    }
+    return string();
 }
 
 PhotoDown::PhotoDown()
@@ -107,7 +113,8 @@ void PhotoDown::finishPatch()
 
 bool PhotoDown::isFileExist(int img_id)
 {
-    return m_id2fname.find(img_id)!=m_id2fname.end();
+//    return m_id2fname.find(img_id)!=m_id2fname.end();
+    return FileUtils::getInstance()->isFileExist( get_full_img(img_id) );
 }
 
 void PhotoDown::onHttpResponse(HttpClient* client, HttpResponse* response)

@@ -6,17 +6,14 @@
 #include "JigHeader.h"
 #include "JigRadio.h"
 #include "jig_tools.h"
-#include "JigNotify.h"
 
 struct ImageInfo
 {
     int img_id;
     int conf_id;
-    int start_time;
-    bool pass;
 };
 
-class ChooseLayer : public cocos2d::Layer , public NotifyListener
+class ChooseLayer : public cocos2d::Layer
 {
 public:
     JIG_SCENE_FROM_LAYER(ChooseLayer);
@@ -29,34 +26,37 @@ private:
 
 	virtual bool init() override;
 
+    void initRadio();
+
     void refreshImg();
     void refreshConfig();
-
-    virtual void onMessage(int notify_id, const net_data_t& root) override;
+    void updateConfig();
+    
 private:
 	cocos2d::Node* load_csd();
 
-	void onClickReturn(Ref* sender);
-	void onClickSplitBar(Ref* sender);
+    void onClickSplitBar(Ref* sender);
     void onClickStart(Ref* sender);
-    void onClickJump(Ref* sender);
-    
-    void initRadio();
-    void updateScore();
+    void onClickNext(Ref* sender);
+    void onClickLast(Ref* sender);
+    void onClickNewest(Ref* sender);
+    void onClickReturn(Ref* sender);
+
 private:
+    TextAtlas* m_level;
     CheckBox* m_check_rot;
+    Text* m_Text_1_0;
     Text* m_Text_1_0_0_0_0;
-    Text* m_score;
     Text* m_Text_1_0_0;
     Text* m_Text_1_0_0_0;
+    Text* m_score;
     ImageView* m_img_bg;
     Text* m_Text_6;
-    Text* m_Text_1_0;
-    Text* m_Text_1;
+    CheckBox* m_check1;
     CheckBox* m_check2;
     CheckBox* m_check3;
     CheckBox* m_check0;
-    CheckBox* m_check1;
+    Text* m_Text_1;
 
 private:
     JigRadio m_radio;

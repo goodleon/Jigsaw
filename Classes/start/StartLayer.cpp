@@ -28,19 +28,6 @@ JigScene* StartLayer::createScene()
     return scene;
 }
 
-void StartLayer::onMessage(int notify_id, const net_data_t& root)
-{
-    if (notify_id == proto_login_down)
-    {
-        m_userid->setString( sstr("%d", ClientCenter::inst().user_id) );
-    }
-    else if (notify_id == proto_check_network_down)
-    {
-        Request req(proto_login_up);
-        Network::inst().addRequest(req);
-    }
-}
-
 bool StartLayer::init()
 {
 	Return_False_If(!Layer::init());
@@ -49,43 +36,55 @@ bool StartLayer::init()
 	addChild(root);
 
     m_version->setString( sstr("v.%s", get_version().c_str()) );
-    m_userid->setString( sstr("%d", ClientCenter::inst().user_id) );
     
 	return true;
 }
 
 Node* StartLayer::load_csd()
 {
-	Node* root = CSLoader::createNode("StartLayer.csb");
+    Node* root = CSLoader::createNode("StartLayer.csb");
 
-	Button* btn = nullptr;
+    Button* btn = nullptr;
 
-	btn = static_cast<Button*>( root->getChildByName("Start") );
-	btn->addClickEventListener( std::bind(&StartLayer::onClickStart, this, placeholders::_1) );
+    btn = static_cast<Button*>( root->getChildByName("Double") );
+    btn->addClickEventListener( std::bind(&StartLayer::onClickDouble, this, placeholders::_1) );
 
-	btn = static_cast<Button*>( root->getChildByName("Thanks") );
-	btn->addClickEventListener( std::bind(&StartLayer::onClickThanks, this, placeholders::_1) );
+    btn = static_cast<Button*>( root->getChildByName("Single") );
+    btn->addClickEventListener( std::bind(&StartLayer::onClickSingle, this, placeholders::_1) );
 
-    m_version = static_cast<Text*>( root->getChildByName("version") );
-    m_userid = static_cast<Text*>( root->getChildByName("userid") );
+    btn = static_cast<Button*>( root->getChildByName("Thanks") );
+    btn->addClickEventListener( std::bind(&StartLayer::onClickThanks, this, placeholders::_1) );
 
-	return root;
+
+    m_Image_1 = static_cast<ImageView*>(root->getChildByName("Image_1"));
+
+    m_version = static_cast<Text*>(root->getChildByName("version"));
+    
+    
+    return root;
 }
 
 
-void StartLayer::onClickStart(Ref* sender)
+void StartLayer::onClickSingle(Ref* sender)
 {
-    if (ClientCenter::inst().user_id==0) {
-        Request req(proto_login_up);
-        Network::inst().addRequest(req);
-        JigToast::show("login_fail_retry");
-    }
-    else {
-        this->scheduleOnce([](float){
-            GameSceneMgr::inst().replace( kChooseScene );
-        }, 0, "enter_history_lazy");
-    }
+//    if (ClientCenter::inst().user_id==0) {
+//        Request req(proto_login_up);
+//        Network::inst().addRequest(req);
+//        JigToast::show("login_fail_retry");
+//    }
+//    else {
+//        this->scheduleOnce([](float){
+//            GameSceneMgr::inst().replace( kChooseScene );
+//        }, 0, "enter_history_lazy");
+//    }
+    GameSceneMgr::inst().replace( kChooseScene );
     playEffect(audio_btn);
+}
+
+void StartLayer::onClickDouble(Ref* sender)
+{
+    Button* btn = static_cast<Button*>(sender);
+    CCLOG("%s", btn->getName().c_str());
 }
 
 void StartLayer::onClickThanks(Ref* sender)

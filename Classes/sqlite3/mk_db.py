@@ -139,6 +139,8 @@ def table2header(table):
 def assian_exp(data_name, data_type, index):
 	if data_type=="int":
 		return '\tdata->%s = atoi(argv[%d]);\n'%(data_name, index)
+	elif data_type=="float":
+		return '\tdata->%s = atof(argv[%d]);\n'%(data_name, index)
 	else:
 		return '\tdata->%s = argv[%d];\n'%(data_name, index)
 

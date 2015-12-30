@@ -9,8 +9,8 @@
 #include "PlayManager.h"
 #include "LanguageMgr.h"
 #include "JigAudio.h"
-#include "Network.h"
 #include "WinLayer.h"
+#include "player_tools.h"
 
 Scene* PlayMain::createScene()
 {
@@ -53,22 +53,11 @@ void PlayMain::onStateChanged(GameState gs)
 {
     if (gs==gs_playing)
     {
-        Request req(proto_start_playing_up);
-        Network::inst().addRequest(req);
+
     }
     else if (gs==gs_win)
     {
-        Request req(proto_start_play_win_up);
-        Network::inst().addRequest(req);
-    }
-}
 
-void PlayMain::onMessage(int notify_id, const net_data_t& root)
-{
-    if (notify_id == proto_start_play_win_down)
-    {
-        m_usedTime = root["used_time"].GetDouble();
-        CCLOG("m_usedTime:%f", m_usedTime);
     }
 }
 
@@ -128,9 +117,8 @@ void PlayMain::onClickFinish(Ref* sender)
         auto win = WinLayer::create();
         addChild(win);
 
-        Request req(proto_start_play_end_up);
-        Network::inst().addRequest(req);
-
+        PlayManager::inst().check_save_cur_level();
+        
         playEffect(audio_level_win);
     }
     else
