@@ -33,12 +33,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.duoku.platform.single.DKPlatform;
-import com.duoku.platform.single.DKPlatformSettings;
-import com.duoku.platform.single.DkErrorCode;
-import com.duoku.platform.single.DkProtocolKeys;
-import com.duoku.platform.single.callback.IDKSDKCallBack;
-
 public class AppActivity extends Cocos2dxActivity {
 	
 	public static AppActivity self = null; 
@@ -46,56 +40,5 @@ public class AppActivity extends Cocos2dxActivity {
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		self = this;
-		initSDK();
-	}
-
-	// 初始化SDK
-	private void initSDK() {
-		// 回调函数
-		IDKSDKCallBack initcompletelistener = new IDKSDKCallBack() {
-			@Override
-			public void onResponse(String paramString) {
-				Log.d("GameMainActivity", paramString);
-				try {
-					JSONObject jsonObject = new JSONObject(paramString);
-					// 返回的操作状态码
-					int mFunctionCode = jsonObject
-							.getInt(DkProtocolKeys.FUNCTION_CODE);
-
-					// 初始化完成
-					if (mFunctionCode == DkErrorCode.BDG_CROSSRECOMMEND_INIT_FINSIH) {
-						initAds();
-					}
-					
-//					Toast.makeText(AppActivity.self, "mFunctionCode:"+Integer.toString(mFunctionCode) , Toast.LENGTH_LONG).show();
-
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		};
-
-		DKPlatform.getInstance().init(this, true, DKPlatformSettings.SdkMode.SDK_BASIC, null, null, initcompletelistener);
-	}
-
-	private void initAds() {
-//		Toast.makeText(this, "initAds", Toast.LENGTH_LONG).show();
-		DKPlatform.getInstance().bdgameInit(this, new IDKSDKCallBack() {
-			@Override
-			public void onResponse(String paramString) {
-				Toast.makeText(AppActivity.self, paramString, Toast.LENGTH_LONG).show();
-				Log.d("GameMainActivity", "bggameInit success");
-			}
-		});
-	}
-
-	protected void onResume() {
-		DKPlatform.getInstance().resumeBaiduMobileStatistic(this);
-		super.onResume();
-	}
-
-	protected void onPause() {
-		DKPlatform.getInstance().pauseBaiduMobileStatistic(this);
-		super.onPause();
 	}
 }
