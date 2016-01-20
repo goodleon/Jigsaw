@@ -115,7 +115,8 @@ void PlayMain::onClickFinish(Ref* sender)
     if (playshared.jig_panel->isAllFinished())
     {
         auto win = WinLayer::create();
-        addChild(win);
+//        addChild(win);
+        lib4cc3x::getCurScene()->alert(win);
 
         PlayManager::inst().check_save_cur_level();
         

@@ -32,6 +32,11 @@ bool WinLayer::init()
 
     m_cur_score->setString( sstr("%d", player_tools::calc_score(info.conf_id)) );
 
+    root->setPosition(Director::getInstance()->getWinSize()/2);
+    root->setAnchorPoint(Point(0.5f, 0.5f));
+//    root->setScale(0.2f);
+//    root->runAction( ScaleTo::create(0.3f, 1.0f) );
+
 	return true;
 }
 
